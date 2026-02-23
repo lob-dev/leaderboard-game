@@ -45,12 +45,12 @@ namespace LeaderboardGame
             playerEntryColor = playerEntry;
             textColor = text;
             dimTextColor = dimText;
-        }
 
-        private void OnEnable()
-        {
+            // Start listening for manager updates now that all fields are set
             StartCoroutine(WaitForManager());
         }
+
+        // Note: Don't use OnEnable for manager subscription — Init hasn't been called yet when OnEnable fires.
 
         private System.Collections.IEnumerator WaitForManager()
         {
@@ -81,6 +81,8 @@ namespace LeaderboardGame
                 Destroy(obj);
             }
             entryObjects.Clear();
+
+            Debug.Log($"[LeaderboardUI] RefreshUI called with {entries.Count} entries. Container: {entryContainer?.name ?? "NULL"}, Prefab: {entryPrefab?.name ?? "NULL"}");
 
             // Create entry rows
             for (int i = 0; i < entries.Count; i++)
