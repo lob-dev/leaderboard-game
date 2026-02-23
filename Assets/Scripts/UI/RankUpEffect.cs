@@ -22,12 +22,10 @@ namespace LeaderboardGame
         {
             canvasRect = canvas;
             effectParent = parent;
-        }
-
-        private void OnEnable()
-        {
             StartCoroutine(WaitForManager());
         }
+
+        // Note: Don't use OnEnable — Init hasn't been called yet when AddComponent triggers OnEnable.
 
         private System.Collections.IEnumerator WaitForManager()
         {

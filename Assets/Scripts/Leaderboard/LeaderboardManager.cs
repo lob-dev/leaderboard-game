@@ -32,6 +32,12 @@ namespace LeaderboardGame
                 return;
             }
             Instance = this;
+
+            // Initialize events (required for runtime-created components)
+            if (OnLeaderboardUpdated == null)
+                OnLeaderboardUpdated = new UnityEvent<List<LeaderboardEntry>>();
+            if (OnPlayerRankChanged == null)
+                OnPlayerRankChanged = new UnityEvent<int>();
         }
 
         private void Start()

@@ -1,0 +1,797 @@
+
+# Unity is running as administrator.
+
+Unity is running with Administrator privileges, which is not supported. Unity executes scripts and binary libraries in your project that may originate from third party sources and potentially be harmful to your computer. Unity may also execute scripts and binary libraries that are still under development and not yet fully tested. Running Unity with Administrator privileges may lead to catastrophic consequences, including but not limited to accidental data loss, change of global system settings or even bricking your device.
+
+| Restart Unity as a standard user | I wish to continue at my own risk |
+
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.3/staging' branch; Version is '6000.3.9f1 (7a9955a4f2fa) revision 8034645'; Using compiler version '194234433'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26100) ServerDatacenter' Language: 'en' Physical Memory: 16176 MB
+BatchMode: 0, IsHumanControllingUs: 1, StartBugReporterOnCrash: 1, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-02-23T14:28:56Z
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Administrator" at "2026-02-23T14:28:56.8759384Z"
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.4+4293ba1
+  Session Id:              c2765cf554ae4c8f925274428fb38f6a
+  Correlation Id:          801e8730218ca2cccb13ef3cd4f0381c
+  External correlation Id: 6607385424913462282
+  Machine Id:              LLp/YPy+TKfzpGYM73xtlWcXomg=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-Administrator" (connect: 0.02s, validation: 0.00s, handshake: 1.56s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Administrator-notifications" at "2026-02-23T14:28:58.4338588Z"
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 18968382090983-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.00
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Licensing Background thread has ended after 1.59s
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Unity.exe
+-projectPath
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game
+-executeMethod
+UnityEditor.EditorApplication.EnterPlaymode
+-logFile
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game\unity-screenshot.log
+Successfully changed project path to: C:\Users\Administrator\.openclaw\workspace\leaderboard-game
+C:/Users/Administrator/.openclaw/workspace/leaderboard-game
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+Player connection [7992]  Target information:
+
+Player connection [7992]  * "[IP] 172.31.20.54 [Port] 55504 [Flags] 2 [Guid] 301627607 [EditorId] 301627607 [Version] 1048832 [Id] WindowsEditor(7,EC2AMAZ-AVFMNU9) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [7992] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [7992] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Package Manager] Connected to IPC stream "Upm-5280" after 0.6 seconds.
+[Licensing::Client] Successfully resolved entitlement details
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.3.9f1 (7a9955a4f2fa)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Administrator/.openclaw/workspace/leaderboard-game/Assets
+[D3D12 Device Filter] Vendor Name: Microsoft
+[D3D12 Device Filter] Device Name: Microsoft Basic Render Driver
+[D3D12 Device Filter] Driver Version: 10.0.26100.32234
+[D3D12 Device Filter] Feature Level: 12.1
+[D3D12 Device Filter] Graphics Memory: 8088 MB
+[D3D12 Device Filter] Processor Count: 4
+[D3D12 Device Filter] Device Type: Integrated
+[D3D12 Device Filter] D3D12 API denied by user filter: {"Processor Count Comparator": Less Than Or Equal To"Processor Count": "4", "Device Type:": Do Not Care}
+GfxDevice: creating device client; kGfxThreadingModeThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Microsoft Basic Render Driver (ID=0x8c)
+    Vendor:   Microsoft
+    VRAM:     8088 MB
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56280
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003146 seconds.
+- Loaded All Assemblies, in  0.707 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:False
+Package Manager log level set to [2]
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.726 seconds
+Domain Reload Profiling: 1431ms
+	BeginReloadAssembly (233ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (9ms)
+	RebuildCommonClasses (70ms)
+	RebuildNativeTypeToScriptingClass (24ms)
+	initialDomainReloadingComplete (74ms)
+	LoadAllAssembliesAndSetupDomain (303ms)
+		LoadAssemblies (221ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (298ms)
+			TypeCache.Refresh (294ms)
+				TypeCache.ScanAssembly (269ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (727ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (637ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (86ms)
+			SetLoadedEditorAssemblies (6ms)
+			BeforeProcessingInitializeOnLoad (147ms)
+			ProcessInitializeOnLoadAttributes (260ms)
+			ProcessInitializeOnLoadMethodAttributes (138ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 39 packages:
+  Built-in packages:
+    com.unity.textmeshpro@5.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.textmeshpro@53f43edfd2e0)
+    com.unity.ugui@2.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.ugui@bb329a87fcdc)
+    com.unity.multiplayer.center@1.0.1 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.multiplayer.center@f01f4ba8d00a)
+    com.unity.modules.accessibility@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.accessibility)
+    com.unity.modules.adaptiveperformance@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.adaptiveperformance)
+    com.unity.modules.ai@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.physics2d)
+    com.unity.modules.screencapture@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vectorgraphics@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.vectorgraphics)
+    com.unity.modules.vehicles@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.video)
+    com.unity.modules.vr@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.vr)
+    com.unity.modules.wind@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.subsystems)
+    com.unity.modules.hierarchycore@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.hierarchycore)
+[Package Manager] com.unity.textmeshpro is deprecated: This package is no longer supported. TextMeshPro functionalities are now included in the com.unity.ugui package. To continue using them, consider adding it to your project dependencies.
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.04 seconds
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:80
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc - - 200 - application/grpc 60.2818ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\netcorerun\netcorerun.exe "C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\ScriptCompilationBuildProgram.exe" "Library/Bee/1900b0aE.dag.json" "Library/Bee/1900b0aE-inputdata.json" "Library\Bee\buildprogram0.traceevents"
+WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
+ExitCode: 4 Duration: 0s207ms
+Rebuilding DAG because FileSignature timestamp changed: Library/Bee/1900b0aE-inputdata.json
+*** Tundra requires additional run (0.13 seconds), 0 items updated, 186 evaluated
+ExitCode: 0 Duration: 0s420ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --dagfilejson="Library\Bee\1900b0aE.dag.json" --profile="Library/Bee/backend2.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
+ExitCode: 0 Duration: 2s484ms
+Finished compiling graph: 232 nodes, 2057 flattened edges (1933 ToBuild, 20 ToUse), maximum node priority 118
+[181/229    0s] WriteText Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.rsp
+[223/229    2s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll (+2 others)
+Assets\Scripts\Leaderboard\LeaderboardManager.cs(16,38): warning CS0414: The field 'LeaderboardManager.maxVisibleEntries' is assigned but its value is never used
+
+Assets\Scripts\Leaderboard\RankChangeDetector.cs(18,21): warning CS0414: The field 'RankChangeDetector.lastScore' is assigned but its value is never used
+
+Assets\Scripts\UI\LeaderboardEntryUI.cs(21,40): warning CS0414: The field 'LeaderboardEntryUI.slideSpeed' is assigned but its value is never used
+[224/229    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.pdb
+[225/229    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll
+[226/229    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll (+2 others)
+[227/229    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.pdb
+[228/229    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+*** Tundra build success (2.45 seconds), 7 items updated, 229 evaluated
+Total cache size 3797440
+Assets\Scripts\Leaderboard\LeaderboardManager.cs(16,38): warning CS0414: The field 'LeaderboardManager.maxVisibleEntries' is assigned but its value is never used
+Assets\Scripts\Leaderboard\RankChangeDetector.cs(18,21): warning CS0414: The field 'RankChangeDetector.lastScore' is assigned but its value is never used
+Assets\Scripts\UI\LeaderboardEntryUI.cs(21,40): warning CS0414: The field 'LeaderboardEntryUI.slideSpeed' is assigned but its value is never used
+AssetDatabase: script compilation time: 3.779499s
+Total cache size after purge 3797440, took 00:00:00.0304720
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.726 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.885 seconds
+Domain Reload Profiling: 1608ms
+	BeginReloadAssembly (352ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (21ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (87ms)
+	RebuildCommonClasses (65ms)
+	RebuildNativeTypeToScriptingClass (24ms)
+	initialDomainReloadingComplete (32ms)
+	LoadAllAssembliesAndSetupDomain (251ms)
+		LoadAssemblies (382ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (37ms)
+			TypeCache.Refresh (20ms)
+				TypeCache.ScanAssembly (12ms)
+			BuildScriptInfoCaches (10ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (885ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (668ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (47ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (220ms)
+			ProcessInitializeOnLoadAttributes (326ms)
+			ProcessInitializeOnLoadMethodAttributes (64ms)
+			AfterProcessingInitializeOnLoad (6ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (13ms)
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=9d13f1a0ad90a034fad851c363dd5046): Total: 5.939 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=1258 ms
+		Asset DB Callback time: managed=101 ms, native=49 ms
+		Scripting: domain reloads=1, domain reload time=726 ms, compile time=3783 ms, other=20 ms
+		Project Asset Count: scripts=203, non-scripts=125
+		Asset File Changes: new=3, changed=5, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.002ms
+	InvokePackagesCallback: 48.311ms
+	ApplyChangesToAssetFolders: 1.142ms
+	Scan: 178.633ms
+	OnSourceAssetsModified: 1.544ms
+	CategorizeAssetsWithTransientArtifact: 3.800ms
+	ProcessAssetsWithTransientArtifactChanges: 12.618ms
+	CategorizeAssets: 3.347ms
+	ImportOutOfDateAssets: 887.833ms (-2895.799ms without children)
+		CompileScripts: 3782.838ms
+		ReloadNativeAssets: 0.000ms
+		UnloadImportedAssets: 0.169ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.115ms
+		InitializingProgressBar: 0.001ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.509ms
+	PostProcessAllAssets: 102.266ms
+	Hotreload: 1.353ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.007ms
+	UnloadStreamsBegin: 2.996ms
+	PersistCurrentRevisions: 0.014ms
+	UnloadStreamsEnd: 0.001ms
+	GenerateScriptTypeHashes: 0.465ms
+	Untracked: 4695.462ms
+
+Application.AssetDatabase Initial Refresh End
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Scanning for USB devices : 0.336ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-leaderboard-game
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 445 unused Assets / (1.3 MB). Loaded Objects now: 1050.
+Memory consumption went from 124.9 MB to 123.5 MB.
+Total: 10.370700 ms (FindLiveObjects: 0.139700 ms CreateObjectMapping: 0.038200 ms MarkObjects: 8.812500 ms  DeleteObjects: 1.379400 ms)
+
+[LAYOUT] C:/Users/Administrator/AppData/Roaming/Unity/Editor-5.x/Preferences\Layouts\default does not exist. Copying base layouts.
+[LAYOUT] About to load C:/Users/Administrator/AppData/Roaming/Unity/Editor-5.x/Preferences\Layouts\default\Default.wlt, keepMainWindow=False
+[LAYOUT] About to save layout C:\Users\Administrator\.openclaw\workspace\leaderboard-game\UserSettings\Layouts\default-6000.dwlt
+[LAYOUT] About to save layout C:/Users/Administrator/AppData/Roaming/Unity/Editor-5.x/Preferences\Layouts\current\default-6000.dwlt
+[MODES] ModeService[default].InitializeCurrentMode
+[MODES] ModeService[default].RaiseModeChanged(default, default)
+This project uses Input Manager, which is marked for deprecation. To manage input in your project, use the <a href="https://docs.unity3d.com/Packages/com.unity.inputsystem@latest">Input System package</a> instead.
+Unity is running with Administrator privileges, which is not supported. Unity executes scripts and binary libraries in your project that may originate from third party sources and potentially be harmful to your computer. Unity may also execute scripts and binary libraries that are still under development and not yet fully tested. Running Unity with Administrator privileges may lead to catastrophic consequences, including but not limited to accidental data loss, change of global system settings or even bricking your device.
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+Failed to create the D3D11 device
+Dedicated video D3D11 device creation failed (error: 0x887a0004). This device is used specifically for video decoding, we will use software video decoding instead.
+[Project] Loading completed in 872.336 seconds
+	Project init time: 				9.004 seconds
+		Template init time: 		0.000 seconds
+		Package Manager init time: 		0.613 seconds
+		Asset Database init time: 		0.376 seconds
+		Global illumination init time: 	0.003 seconds
+		Assemblies load time: 			1.468 seconds
+		Unity extensions init time: 	0.001 seconds
+		Asset Database refresh time: 	5.939 seconds
+	Scene opening time: 			1.568 seconds
+##utp:{"type":"ProjectInfo","version":2,"phase":"Immediate","time":1771856950217,"processId":5280,"projectLoad":872.3364921,"projectInit":9.0039067,"templateInit":0.0,"packageManagerInit":0.6130658,"assetDatabaseInit":0.376112,"globalIlluminationInit":0.0026463,"assembliesLoad":1.468377,"unityExtensionsInit":0.0013004,"assetDatabaseRefresh":5.9394718,"sceneOpening":1.5678672}
+##utp:{"type":"EditorInfo","version":2,"phase":"Immediate","time":1771856950217,"processId":5280,"editorVersion":"6000.3.9f1 (7a9955a4f2fa)","branch":"6000.3/staging","buildType":"Release","platform":"Windows"}
+Reloading assemblies for play mode.
+Reloading assemblies after forced synchronous recompile.
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.871 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.044 seconds
+Domain Reload Profiling: 2914ms
+	BeginReloadAssembly (686ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (197ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (110ms)
+	RebuildCommonClasses (65ms)
+	RebuildNativeTypeToScriptingClass (24ms)
+	initialDomainReloadingComplete (34ms)
+	LoadAllAssembliesAndSetupDomain (60ms)
+		LoadAssemblies (327ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (31ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (17ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (2045ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (559ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (41ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (203ms)
+			ProcessInitializeOnLoadAttributes (244ms)
+			ProcessInitializeOnLoadMethodAttributes (60ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (931ms)
+Asset Pipeline Refresh (id=1147de870f34b5e449f7296245b3f47b): Total: 2.996 seconds - Initiated by StopAssetImportingV2(ForceSynchronousImport | ForceDomainReload)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=2093 ms
+		Asset DB Callback time: managed=17 ms, native=1 ms
+		Scripting: domain reloads=1, domain reload time=878 ms, compile time=4 ms, other=0 ms
+		Project Asset Count: scripts=203, non-scripts=125
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 5.755ms
+	ApplyChangesToAssetFolders: 0.482ms
+	Scan: 0.001ms
+	OnSourceAssetsModified: 0.002ms
+	CategorizeAssetsWithTransientArtifact: 0.002ms
+	ProcessAssetsWithTransientArtifactChanges: 0.260ms
+	CategorizeAssets: 2.635ms
+	ImportOutOfDateAssets: 2049.325ms (2042.006ms without children)
+		CompileScripts: 4.143ms
+		CollectScriptTypesHashes: 0.001ms
+		ReloadNativeAssets: 0.001ms
+		UnloadImportedAssets: 2.788ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.113ms
+		InitializingProgressBar: 0.000ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.273ms
+	PostProcessAllAssets: 17.858ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.025ms
+	UnloadStreamsBegin: 2.226ms
+	PersistCurrentRevisions: 0.014ms
+	UnloadStreamsEnd: 0.001ms
+	GenerateScriptTypeHashes: 0.283ms
+	Untracked: 917.541ms
+
+Loaded scene 'Temp/__Backupscenes/0.backup'
+	Deserialize:            2.806 ms
+	Integration:            46.062 ms
+	Integration of assets:  0.685 ms
+	Thread Wait Time:       -0.040 ms
+	Total Operation Time:   49.513 ms
+Asset Pipeline Refresh (id=bdfe3632d0a12cf43a009b8ed5ae83b1): Total: 0.009 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=83d28c68277266f44a0344956b82626d): Total: 0.009 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Start Indexing on Editor startup
+ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <1eb9db207454431c84a47bcd81e79c37>:0 
+  at UnityEditor.Search.SearchDatabase+<EnumerateAll>d__80.MoveNext () [0x00106] in <f29da4183e8c440eae36881e4f178001>:0 
+  at System.Linq.Enumerable.TryGetFirst[TSource] (System.Collections.Generic.IEnumerable`1[T] source, System.Boolean& found) [0x00045] in <6faa6124236442759eb396cfbfdad508>:0 
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00000] in <6faa6124236442759eb396cfbfdad508>:0 
+  at UnityEditor.Search.SearchDatabase.GetDefaultSearchDatabase () [0x00006] in <f29da4183e8c440eae36881e4f178001>:0 
+  at UnityEditor.Search.SearchInit.IndexationOnStartup () [0x0000c] in <f29da4183e8c440eae36881e4f178001>:0 
+  at UnityEditor.EditorApplication.Internal_CallDelayFunctions () [0x0002c] in <5016c3a47c2a4a0cbfa8e12eb592279b>:0 
+
+Created GICache directory at C:/Users/Administrator/AppData/LocalLow/Unity/Caches/GiCache. Took: 0.026s, timestamps: [881.142 - 881.168]
+[Licensing::Client] Successfully updated the access token
+[Licensing::Module] Successfully updated access token: "g6FikYNx"... (expires: 2026-02-23T15:10:15Z)
+TrimDiskCacheJob: Current cache size 0mb
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Client] Successfully resolved entitlement details
+Asset Pipeline Refresh (id=1baf951001a93ff40b28c04724aa0bc1): Total: 0.253 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Starting new worker id: 0 with log in C:/Users/Administrator/.openclaw/workspace/leaderboard-game/Logs/AssetImportWorker0.log
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+Loaded scene 'Temp/__Backupscenes/0.backup'
+	Deserialize:            15.922 ms
+	Integration:            36.539 ms
+	Integration of assets:  0.020 ms
+	Thread Wait Time:       0.012 ms
+	Total Operation Time:   52.493 ms
+Unloading 37 unused Assets / (281.2 KB). Loaded Objects now: 2160.
+Memory consumption went from 0.63 GB to 0.63 GB.
+Total: 94.283200 ms (FindLiveObjects: 1.153200 ms CreateObjectMapping: 0.183500 ms MarkObjects: 46.944800 ms  DeleteObjects: 46.000400 ms)
+
+[Licensing::Client] Successfully resolved entitlement details
+Opening scene 'Assets/Scenes/MainScene.unity'
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Loaded scene 'Assets/Scenes/MainScene.unity'
+	Deserialize:            8.297 ms
+	Integration:            147.319 ms
+	Integration of assets:  0.007 ms
+	Thread Wait Time:       1.073 ms
+	Total Operation Time:   156.696 ms
+Unloading 0 unused Assets / (8.6 KB). Loaded Objects now: 2195.
+Memory consumption went from 0.62 GB to 0.62 GB.
+Total: 243.774800 ms (FindLiveObjects: 0.341200 ms CreateObjectMapping: 0.058400 ms MarkObjects: 243.348400 ms  DeleteObjects: 0.024900 ms)
+
+Worker ready: AssetImportWorker0 0
+Reloading assemblies for play mode.
+Reloading assemblies after forced synchronous recompile.
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.865 seconds
+Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.187 seconds
+Domain Reload Profiling: 4074ms
+	BeginReloadAssembly (1633ms)
+		ExecutionOrderSort (1ms)
+		DisableScriptedObjects (197ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (2ms)
+		CreateAndSetChildDomain (857ms)
+	RebuildCommonClasses (67ms)
+	RebuildNativeTypeToScriptingClass (24ms)
+	initialDomainReloadingComplete (42ms)
+	LoadAllAssembliesAndSetupDomain (120ms)
+		LoadAssemblies (431ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (84ms)
+			TypeCache.Refresh (24ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (34ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (2188ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (557ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (43ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (221ms)
+			ProcessInitializeOnLoadAttributes (207ms)
+			ProcessInitializeOnLoadMethodAttributes (72ms)
+			AfterProcessingInitializeOnLoad (6ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (998ms)
+Asset Pipeline Refresh (id=475916aec7daa8443896111a9954a41f): Total: 4.250 seconds - Initiated by StopAssetImportingV2(ForceSynchronousImport | ForceDomainReload)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=2293 ms
+		Asset DB Callback time: managed=22 ms, native=8 ms
+		Scripting: domain reloads=1, domain reload time=1921 ms, compile time=4 ms, other=0 ms
+		Project Asset Count: scripts=203, non-scripts=125
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.002ms
+	InvokePackagesCallback: 10.801ms
+	ApplyChangesToAssetFolders: 0.425ms
+	Scan: 0.001ms
+	OnSourceAssetsModified: 0.003ms
+	CategorizeAssetsWithTransientArtifact: 0.005ms
+	ProcessAssetsWithTransientArtifactChanges: 0.424ms
+	CategorizeAssets: 6.607ms
+	ImportOutOfDateAssets: 2190.016ms (2185.242ms without children)
+		CompileScripts: 4.182ms
+		CollectScriptTypesHashes: 0.001ms
+		ReloadNativeAssets: 0.001ms
+		UnloadImportedAssets: 0.071ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.094ms
+		InitializingProgressBar: 0.001ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.425ms
+	PostProcessAllAssets: 22.523ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.681ms
+	UnloadStreamsBegin: 0.003ms
+	PersistCurrentRevisions: 0.018ms
+	UnloadStreamsEnd: 0.001ms
+	GenerateScriptTypeHashes: 0.275ms
+	Untracked: 2018.925ms
+
+Loaded scene 'Temp/__Backupscenes/0.backup'
+	Deserialize:            0.854 ms
+	Integration:            46.828 ms
+	Integration of assets:  0.002 ms
+	Thread Wait Time:       0.030 ms
+	Total Operation Time:   47.714 ms
+NullReferenceException: Object reference not set to an instance of an object
+  at LeaderboardGame.LeaderboardUIRuntime+<WaitForManager>d__17.MoveNext () [0x00044] in C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Assets\Scripts\UI\LeaderboardUIRuntime.cs:60 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) [0x00026] in <31f3cd5c2a074982a9d5664e7709cac1>:0 
+UnityEngine.MonoBehaviour:StartCoroutineManaged2_Injected(IntPtr, IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutineManaged2(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+LeaderboardGame.LeaderboardUIRuntime:OnEnable() (at Assets\Scripts\UI\LeaderboardUIRuntime.cs:52)
+UnityEngine.GameObject:Internal_AddComponentWithType_Injected(IntPtr, Type)
+UnityEngine.GameObject:Internal_AddComponentWithType(Type)
+UnityEngine.GameObject:AddComponent(Type)
+UnityEngine.GameObject:AddComponent()
+LeaderboardGame.SceneBuilder:WireUpManagers() (at Assets\Scripts\Setup\SceneBuilder.cs:318)
+LeaderboardGame.SceneBuilder:BuildScene() (at Assets\Scripts\Setup\SceneBuilder.cs:75)
+LeaderboardGame.SceneBuilder:Start() (at Assets\Scripts\Setup\SceneBuilder.cs:39)
+
+(Filename: Assets/Scripts/Setup/SceneBuilder.cs Line: 318)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at LeaderboardGame.RankUpEffect+<WaitForManager>d__7.MoveNext () [0x00044] in C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Assets\Scripts\UI\RankUpEffect.cs:37 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) [0x00026] in <31f3cd5c2a074982a9d5664e7709cac1>:0 
+UnityEngine.MonoBehaviour:StartCoroutineManaged2_Injected(IntPtr, IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutineManaged2(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+LeaderboardGame.RankUpEffect:OnEnable() (at Assets\Scripts\UI\RankUpEffect.cs:29)
+UnityEngine.GameObject:Internal_AddComponentWithType_Injected(IntPtr, Type)
+UnityEngine.GameObject:Internal_AddComponentWithType(Type)
+UnityEngine.GameObject:AddComponent(Type)
+UnityEngine.GameObject:AddComponent()
+LeaderboardGame.SceneBuilder:WireUpManagers() (at Assets\Scripts\Setup\SceneBuilder.cs:341)
+LeaderboardGame.SceneBuilder:BuildScene() (at Assets\Scripts\Setup\SceneBuilder.cs:75)
+LeaderboardGame.SceneBuilder:Start() (at Assets\Scripts\Setup\SceneBuilder.cs:39)
+
+(Filename: Assets/Scripts/Setup/SceneBuilder.cs Line: 341)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at LeaderboardGame.RankChangeDetector.OnEnable () [0x0000d] in C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Assets\Scripts\Leaderboard\RankChangeDetector.cs:24 
+UnityEngine.GameObject:Internal_AddComponentWithType_Injected(IntPtr, Type)
+UnityEngine.GameObject:Internal_AddComponentWithType(Type)
+UnityEngine.GameObject:AddComponent(Type)
+UnityEngine.GameObject:AddComponent()
+LeaderboardGame.SceneBuilder:WireUpManagers() (at Assets\Scripts\Setup\SceneBuilder.cs:354)
+LeaderboardGame.SceneBuilder:BuildScene() (at Assets\Scripts\Setup\SceneBuilder.cs:75)
+LeaderboardGame.SceneBuilder:Start() (at Assets\Scripts\Setup\SceneBuilder.cs:39)
+
+(Filename: Assets/Scripts/Setup/SceneBuilder.cs Line: 354)
+
+[Worker0] Start importing Assets/Scenes/MainScene.unity using Guid(0962d65de2d62ba469b6398a79e41b99) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+Start Indexing on Editor startup
+ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <1eb9db207454431c84a47bcd81e79c37>:0 
+  at UnityEditor.Search.SearchDatabase+<EnumerateAll>d__80.MoveNext () [0x00106] in <f29da4183e8c440eae36881e4f178001>:0 
+  at System.Linq.Enumerable.TryGetFirst[TSource] (System.Collections.Generic.IEnumerable`1[T] source, System.Boolean& found) [0x00045] in <6faa6124236442759eb396cfbfdad508>:0 
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00000] in <6faa6124236442759eb396cfbfdad508>:0 
+  at UnityEditor.Search.SearchDatabase.GetDefaultSearchDatabase () [0x00006] in <f29da4183e8c440eae36881e4f178001>:0 
+  at UnityEditor.Search.SearchInit.IndexationOnStartup () [0x0000c] in <f29da4183e8c440eae36881e4f178001>:0 
+  at UnityEditor.EditorApplication.Internal_CallDelayFunctions () [0x0002c] in <5016c3a47c2a4a0cbfa8e12eb592279b>:0 
+
+[Worker0]  -> (artifact id: 'ec358cf525d7b79dc0761a99a4146fc9') in 0.0135914 seconds
+Failed to import package with error: Cannot import package in play mode.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.AssetDatabase:ImportPackage (string,UnityEditor.ImportPackageOptions)
+UnityEditor.AssetDatabase:ImportPackage (string,bool)
+TMPro.TMP_PackageResourceImporter:OnGUI () (at ./Library/PackageCache/com.unity.ugui@bb329a87fcdc/Runtime/TMP/TMP_PackageResourceImporter.cs:63)
+TMPro.TMP_PackageResourceImporterWindow:OnGUI () (at ./Library/PackageCache/com.unity.ugui@bb329a87fcdc/Runtime/TMP/TMP_PackageResourceImporter.cs:268)
+UnityEditor.HostView:InvokeOnGUI (UnityEngine.Rect)
+UnityEditor.DockArea:DrawView (UnityEngine.Rect)
+UnityEditor.DockArea:OldOnGUI ()
+UnityEngine.UIElements.IMGUIContainer:DoOnGUI (UnityEngine.Event,UnityEngine.Matrix4x4,UnityEngine.Rect,bool,UnityEngine.Rect,System.Action,bool)
+UnityEngine.UIElements.IMGUIContainer:HandleIMGUIEvent (UnityEngine.Event,UnityEngine.Matrix4x4,UnityEngine.Rect,System.Action,bool)
+UnityEngine.UIElements.IMGUIContainer:HandleIMGUIEvent (UnityEngine.Event,System.Action,bool)
+UnityEngine.UIElements.IMGUIContainer:HandleIMGUIEvent (UnityEngine.Event,bool)
+UnityEngine.UIElements.IMGUIContainer:SendEventToIMGUIRaw (UnityEngine.UIElements.EventBase,bool,bool)
+UnityEngine.UIElements.IMGUIContainer:SendEventToIMGUI (UnityEngine.UIElements.EventBase,bool,bool)
+UnityEngine.UIElements.IMGUIContainer:HandleEventBubbleUp (UnityEngine.UIElements.EventBase)
+UnityEngine.UIElements.EventDispatchUtilities:HandleEventAcrossPropagationPathWithCompatibilityEvent (UnityEngine.UIElements.EventBase,UnityEngine.UIElements.EventBase,UnityEngine.UIElements.BaseVisualElementPanel,UnityEngine.UIElements.VisualElement,bool)
+UnityEngine.UIElements.EventDispatchUtilities:DispatchToCapturingElementOrElementUnderPointer (UnityEngine.UIElements.EventBase,UnityEngine.UIElements.BaseVisualElementPanel,int,UnityEngine.Vector2)
+UnityEngine.UIElements.PointerUpEvent:Dispatch (UnityEngine.UIElements.BaseVisualElementPanel)
+UnityEngine.UIElements.EventDispatcher:ProcessEvent (UnityEngine.UIElements.EventBase,UnityEngine.UIElements.BaseVisualElementPanel)
+UnityEngine.UIElements.EventDispatcher:Dispatch (UnityEngine.UIElements.EventBase,UnityEngine.UIElements.BaseVisualElementPanel,UnityEngine.UIElements.DispatchMode)
+UnityEngine.UIElements.BaseVisualElementPanel:SendEvent (UnityEngine.UIElements.EventBase,UnityEngine.UIElements.DispatchMode)
+UnityEngine.UIElements.UIElementsUtility:DoDispatch (UnityEngine.UIElements.BaseVisualElementPanel)
+UnityEngine.UIElements.UIElementsUtility:UnityEngine.UIElements.IUIElementsUtility.ProcessEvent (int,intptr,bool&)
+UnityEngine.UIElements.UIEventRegistration:ProcessEvent (int,intptr)
+UnityEngine.UIElements.UIEventRegistration/<>c:<.cctor>b__1_2 (int,intptr)
+UnityEngine.GUIUtility:ProcessEvent (int,intptr,bool&)
+
+[./Library/PackageCache/com.unity.ugui@bb329a87fcdc/Runtime/TMP/TMP_PackageResourceImporter.cs line 63]
+
+Failed to import package with error: Cannot import package in play mode.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.AssetDatabase:ImportPackage (string,UnityEditor.ImportPackageOptions)
+UnityEditor.AssetDatabase:ImportPackage (string,bool)
+TMPro.TMP_PackageResourceImporter:OnGUI () (at ./Library/PackageCache/com.unity.ugui@bb329a87fcdc/Runtime/TMP/TMP_PackageResourceImporter.cs:63)
+TMPro.TMP_PackageResourceImporterWindow:OnGUI () (at ./Library/PackageCache/com.unity.ugui@bb329a87fcdc/Runtime/TMP/TMP_PackageResourceImporter.cs:268)
+UnityEditor.HostView:InvokeOnGUI (UnityEngine.Rect)
+UnityEditor.DockArea:DrawView (UnityEngine.Rect)
+UnityEditor.DockArea:OldOnGUI ()
+UnityEngine.UIElements.IMGUIContainer:DoOnGUI (UnityEngine.Event,UnityEngine.Matrix4x4,UnityEngine.Rect,bool,UnityEngine.Rect,System.Action,bool)
+UnityEngine.UIElements.IMGUIContainer:HandleIMGUIEvent (UnityEngine.Event,UnityEngine.Matrix4x4,UnityEngine.Rect,System.Action,bool)
+UnityEngine.UIElements.IMGUIContainer:HandleIMGUIEvent (UnityEngine.Event,System.Action,bool)
+UnityEngine.UIElements.IMGUIContainer:HandleIMGUIEvent (UnityEngine.Event,bool)
+UnityEngine.UIElements.IMGUIContainer:SendEventToIMGUIRaw (UnityEngine.UIElements.EventBase,bool,bool)
+UnityEngine.UIElements.IMGUIContainer:SendEventToIMGUI (UnityEngine.UIElements.EventBase,bool,bool)
+UnityEngine.UIElements.IMGUIContainer:HandleEventBubbleUp (UnityEngine.UIElements.EventBase)
+UnityEngine.UIElements.EventDispatchUtilities:HandleEventAcrossPropagationPathWithCompatibilityEvent (UnityEngine.UIElements.EventBase,UnityEngine.UIElements.EventBase,UnityEngine.UIElements.BaseVisualElementPanel,UnityEngine.UIElements.VisualElement,bool)
+UnityEngine.UIElements.EventDispatchUtilities:DispatchToCapturingElementOrElementUnderPointer (UnityEngine.UIElements.EventBase,UnityEngine.UIElements.BaseVisualElementPanel,int,UnityEngine.Vector2)
+UnityEngine.UIElements.PointerUpEvent:Dispatch (UnityEngine.UIElements.BaseVisualElementPanel)
+UnityEngine.UIElements.EventDispatcher:ProcessEvent (UnityEngine.UIElements.EventBase,UnityEngine.UIElements.BaseVisualElementPanel)
+UnityEngine.UIElements.EventDispatcher:Dispatch (UnityEngine.UIElements.EventBase,UnityEngine.UIElements.BaseVisualElementPanel,UnityEngine.UIElements.DispatchMode)
+UnityEngine.UIElements.BaseVisualElementPanel:SendEvent (UnityEngine.UIElements.EventBase,UnityEngine.UIElements.DispatchMode)
+UnityEngine.UIElements.UIElementsUtility:DoDispatch (UnityEngine.UIElements.BaseVisualElementPanel)
+UnityEngine.UIElements.UIElementsUtility:UnityEngine.UIElements.IUIElementsUtility.ProcessEvent (int,intptr,bool&)
+UnityEngine.UIElements.UIEventRegistration:ProcessEvent (int,intptr)
+UnityEngine.UIElements.UIEventRegistration/<>c:<.cctor>b__1_2 (int,intptr)
+UnityEngine.GUIUtility:ProcessEvent (int,intptr,bool&)
+
+[./Library/PackageCache/com.unity.ugui@bb329a87fcdc/Runtime/TMP/TMP_PackageResourceImporter.cs line 63]
+
+TextMesh Pro Essential Resources are missing, which are crucial for proper functionality. To import them, go to 'Window > Text Mesh Pro > Import TMP Essential Resources' in the menu.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+TMPro.TMP_PackageResourceImporter:OnDestroy () (at ./Library/PackageCache/com.unity.ugui@bb329a87fcdc/Runtime/TMP/TMP_PackageResourceImporter.cs:30)
+TMPro.TMP_PackageResourceImporterWindow:OnDestroy () (at ./Library/PackageCache/com.unity.ugui@bb329a87fcdc/Runtime/TMP/TMP_PackageResourceImporter.cs:263)
+UnityEngine.Object:DestroyImmediate (UnityEngine.Object,bool)
+UnityEditor.DockArea:OnDestroy ()
+UnityEngine.Object:DestroyImmediate (UnityEngine.Object,bool)
+UnityEditor.View:OnDestroy ()
+UnityEngine.Object:DestroyImmediate (UnityEngine.Object,bool)
+UnityEditor.ContainerWindow:Close ()
+UnityEditor.ContainerWindow:RequestCloseSentByNativeCode ()
+
+(Filename: ./Library/PackageCache/com.unity.ugui@bb329a87fcdc/Runtime/TMP/TMP_PackageResourceImporter.cs Line: 30)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at LeaderboardGame.LeaderboardUIRuntime.OnDisable () [0x0000d] in C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Assets\Scripts\UI\LeaderboardUIRuntime.cs:68 
+
+(Filename: Assets/Scripts/UI/LeaderboardUIRuntime.cs Line: 68)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+Loaded scene 'Temp/__Backupscenes/0.backup'
+	Deserialize:            1.362 ms
+	Integration:            39.690 ms
+	Integration of assets:  0.003 ms
+	Thread Wait Time:       0.019 ms
+	Total Operation Time:   41.073 ms
+Unloading 4 unused Assets / (47.8 KB). Loaded Objects now: 2236.
+Memory consumption went from 0.70 GB to 0.70 GB.
+Total: 27.325400 ms (FindLiveObjects: 0.272800 ms CreateObjectMapping: 0.039100 ms MarkObjects: 26.931300 ms  DeleteObjects: 0.080600 ms)
+
+[Worker0] Start importing Assets/Editor/BuildGame.cs using Guid(4a1e7b03b69c2894fbc17659c5168c33) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker0]  -> (artifact id: '20f737a5dd49920dd55df8d8629fc846') in 0.5359234 seconds
+[Worker0] Start importing Assets/Scripts/UI/LeaderboardUIRuntime.cs using Guid(ba298176d37ce464f8a7cbe8f197bfd4) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker0]  -> (artifact id: '04667d30225c95673b9bc72f177a144f') in 0.0776016 seconds
+[Worker0] Start importing Assets/Scripts/Setup/SceneBuilder.cs using Guid(c25cc274e29d4bf4e9c742eb190beeb3) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker0]  -> (artifact id: 'dea342c5864f9346a0640c3ad7fbe763') in 0.0647648 seconds
+[Worker0] Start importing Assets/Scripts/Setup/AutoScreenshot.cs using Guid(c2b44222fc3556c4688e484ae50165ca) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker0]  -> (artifact id: 'cb9c7a93fdd048b702851426012839d3') in 0.0686522 seconds
+[Worker0] Start importing Assets/Editor/CreateMainScene.cs using Guid(ea4bf350895fd5d4388d6cadf05eea2a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker0]  -> (artifact id: '99aa831f5844cf04009591dfcdbd0aae') in 0.058299 seconds
+[Worker0] Start importing Assets/Scripts/Player/PlayerController.cs using Guid(fb5ac813bab6581408410132207a8a1f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker0]  -> (artifact id: '0dcd093e6decef3ee94da92fae81bfb6') in 0.0613513 seconds
+[Worker0] Start importing Assets/Scripts/UI/LeaderboardUI.cs using Guid(c9ad7c39d0201c24f940c21cf88ee83a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker0]  -> (artifact id: 'cb94dc932a17f2aea226e81fe5831ead') in 0.0865614 seconds
+[Worker0] Start importing Assets/Scripts/UI/RankUpEffect.cs using Guid(7ce01b92ec9d0c94d93ae81afa89a9cd) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker0]  -> (artifact id: 'fde09a9d37ef4cfcfdd86a162198ce55') in 0.0231165 seconds
+[Worker0] Start importing Assets/Scripts/UI/ScorePopup.cs using Guid(2da1b43a95e0df841a15a238d0a58e34) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker0]  -> (artifact id: 'e9b87f7c4a2f12cdff551f1c6ed49417') in 0.0452241 seconds
+[Worker0] Start importing Assets/Scripts/Leaderboard/LeaderboardEntry.cs using Guid(cc3d6b0eae7ca9245ae823e8e59be156) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker0]  -> (artifact id: '92039a8857fdf0ae2221a7cfa46128bb') in 0.0557721 seconds
+[Worker0] Start importing Assets/Scripts/Leaderboard/LeaderboardManager.cs using Guid(1e769cdc380929c40946ab28d757c53d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker0]  -> (artifact id: '393051297168f92a3302c2a6db8afa86') in 0.0300092 seconds
+[Worker0] Start importing Assets/Scenes/MainScene.unity using Guid(0962d65de2d62ba469b6398a79e41b99) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker0]  -> (artifact id: 'bf6e7a2c8bb88aea8c7278f990b132f2') in 0.0545811 seconds
+[Worker0] Start importing Assets/Scripts/UI/LeaderboardAnimator.cs using Guid(14a0a67311d82d74ba067f1dc5a6fa0a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker0]  -> (artifact id: 'fc21f668656f5c57a994671fbf5544d6') in 0.0493302 seconds
+[Worker0] Start importing Assets/Scripts/UI/TapFeedback.cs using Guid(931de4e5c93cc0e4a9764c1bdde78203) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker0]  -> (artifact id: 'd8fcd038cde41290918eb38277969278') in 0.0374676 seconds
+[Worker0] Start importing Assets/Scripts/UI/LeaderboardEntryUI.cs using Guid(7a00fdeded23cf0448f6fedfbff5e2df) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker0]  -> (artifact id: 'f5f6ac52952a1ebc4b6edb64d9323fd0') in 0.0312539 seconds
+[Worker0] Start importing Assets/Scripts/Leaderboard/RankChangeDetector.cs using Guid(8a8a778bf8db4ff45919bffbd09f4182) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) 
+[Worker0] (ScriptedImporter)
+[Worker0]  -> (artifact id: '9d16f6ea7f3c26d1d7d6ebc6730b7c6d') in 0.0208065 seconds

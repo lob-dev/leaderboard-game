@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 namespace LeaderboardGame
 {
@@ -19,10 +20,15 @@ namespace LeaderboardGame
 
         private void OnEnable()
         {
-            if (LeaderboardManager.Instance != null)
-            {
-                LeaderboardManager.Instance.OnPlayerRankChanged.AddListener(CheckRankChange);
-            }
+            StartCoroutine(WaitForManager());
+        }
+
+        private IEnumerator WaitForManager()
+        {
+            while (LeaderboardManager.Instance == null)
+                yield return null;
+
+            LeaderboardManager.Instance.OnPlayerRankChanged.AddListener(CheckRankChange);
         }
 
         private void OnDisable()
