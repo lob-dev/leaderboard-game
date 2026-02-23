@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 namespace LeaderboardGame
 {
@@ -91,6 +92,12 @@ namespace LeaderboardGame
                 var obj = Instantiate(entryPrefab, entryContainer);
                 obj.SetActive(true);
 
+                if (i == 0) {
+                    var r = obj.GetComponent<RectTransform>();
+                    Debug.Log($"[LeaderboardUI] First entry rect: pos={r.anchoredPosition}, size={r.sizeDelta}, active={obj.activeSelf}, parent={obj.transform.parent?.name}");
+                    Debug.Log($"[LeaderboardUI] Container rect: pos={entryContainer.GetComponent<RectTransform>().anchoredPosition}, size={entryContainer.GetComponent<RectTransform>().sizeDelta}");
+                }
+
                 var texts = obj.GetComponentsInChildren<TextMeshProUGUI>();
                 if (texts.Length >= 3)
                 {
@@ -129,6 +136,9 @@ namespace LeaderboardGame
 
                 entryObjects.Add(obj);
             }
+
+            // Force layout rebuild so ContentSizeFitter recalculates
+            LayoutRebuilder.ForceRebuildLayoutImmediate(entryContainer.GetComponent<RectTransform>());
 
             // Update player info bar
             var player = LeaderboardManager.Instance.GetLocalPlayer();
