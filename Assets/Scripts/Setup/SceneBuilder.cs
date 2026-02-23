@@ -327,9 +327,35 @@ namespace LeaderboardGame
             SetPrivateField(player, "comboText", comboText);
             SetPrivateField(player, "pointsPerTapText", pointsPerTapText);
 
+            // Add TapFeedback for juicy tap effects
+            var tapFeedback = playerObj.AddComponent<TapFeedback>();
+            tapFeedback.Init(
+                tapButton.GetComponent<RectTransform>(),
+                mainCanvas.GetComponent<RectTransform>(),
+                mainCanvas.transform
+            );
+            SetPrivateField(player, "tapFeedback", tapFeedback);
+
+            // Add RankUpEffect for celebration animations
+            var rankUpObj = new GameObject("RankUpEffect");
+            var rankUpEffect = rankUpObj.AddComponent<RankUpEffect>();
+            rankUpEffect.Init(mainCanvas.GetComponent<RectTransform>(), mainCanvas.transform);
+
+            // Add LeaderboardAnimator for ambient polish
+            var animatorObj = new GameObject("LeaderboardAnimator");
+            var lbAnimator = animatorObj.AddComponent<LeaderboardAnimator>();
+            // Find player bar background
+            var playerBarObj = GameObject.Find("PlayerBar");
+            if (playerBarObj != null)
+                lbAnimator.Init(playerBarObj.GetComponent<Image>());
+
             // Add RankChangeDetector
             var detectorObj = new GameObject("RankChangeDetector");
             detectorObj.AddComponent<RankChangeDetector>();
+
+            // Add AutoScreenshot
+            var screenshotObj = new GameObject("AutoScreenshot");
+            screenshotObj.AddComponent<AutoScreenshot>();
         }
 
         private GameObject CreateText(Transform parent, string name, string content, float size, TextAlignmentOptions alignment, Color color)

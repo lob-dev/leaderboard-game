@@ -19,6 +19,7 @@ namespace LeaderboardGame
         [SerializeField] private Button tapButton;
         [SerializeField] private TextMeshProUGUI comboText;
         [SerializeField] private TextMeshProUGUI pointsPerTapText;
+        [SerializeField] private TapFeedback tapFeedback;
 
         private int comboCount = 0;
         private float comboTimer = 0f;
@@ -72,7 +73,12 @@ namespace LeaderboardGame
 
             UpdateComboUI();
 
-            // TODO: Tap feedback (particles, sound, screen punch)
+            // Juicy tap feedback
+            if (tapFeedback != null)
+            {
+                Vector3 tapPos = tapButton != null ? tapButton.transform.position : Input.mousePosition;
+                tapFeedback.PlayTapFeedback(points, comboCount, tapPos);
+            }
         }
 
         private void UpdateComboUI()
