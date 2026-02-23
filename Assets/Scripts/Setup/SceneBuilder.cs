@@ -93,6 +93,11 @@ namespace LeaderboardGame
             var bg = prefab.AddComponent<Image>();
             bg.color = entryColor;
 
+            // LayoutElement so ContentSizeFitter can calculate preferred size
+            var le = prefab.AddComponent<LayoutElement>();
+            le.preferredHeight = 80;
+            le.minHeight = 80;
+
             // Rank
             var rankObj = CreateText(prefab.transform, "Rank", "#1", 36, TextAlignmentOptions.Left, accentColor);
             rankObj.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 60);
