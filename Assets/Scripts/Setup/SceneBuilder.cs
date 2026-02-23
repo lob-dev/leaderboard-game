@@ -170,7 +170,7 @@ namespace LeaderboardGame
 
             var scrollBg = scrollObj.AddComponent<Image>();
             scrollBg.color = backgroundColor;
-            scrollObj.AddComponent<Mask>().showMaskGraphic = true;
+            // Note: Don't add Mask here — the Viewport already has one. Double masking causes issues.
 
             // Viewport
             var viewport = new GameObject("Viewport");
