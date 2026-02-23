@@ -365,6 +365,9 @@ namespace LeaderboardGame
 
             var rect = obj.AddComponent<RectTransform>();
             var tmp = obj.AddComponent<TextMeshProUGUI>();
+            // Explicitly load default TMP font from Resources
+            var font = Resources.Load<TMP_FontAsset>("Fonts & Materials/LiberationSans SDF");
+            if (font != null) tmp.font = font;
             tmp.text = content;
             tmp.fontSize = size;
             tmp.alignment = alignment;
