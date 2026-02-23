@@ -20,4 +20,5 @@
 - Fixing your own bugs
 
 ## Current Blockers:
-- [ ] Unity Editor not installed — need Yotam to install Unity Hub + Unity 2022 LTS
+- [x] Unity Editor installed — Unity 6 (6000.3.9f1)
+- [ ] GitHub account for Lobster — need Yotam to create (lob-yh@proton.me, username: lobster-dev)
