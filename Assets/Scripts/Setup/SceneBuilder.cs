@@ -48,6 +48,7 @@ namespace LeaderboardGame
             // Canvas
             var canvasObj = new GameObject("MainCanvas");
             mainCanvas = canvasObj.AddComponent<Canvas>();
+            Debug.Log($"[SceneBuilder] Screen: {Screen.width}x{Screen.height}, fullscreen={Screen.fullScreen}");
             mainCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
             mainCanvas.sortingOrder = 0;
             var scaler = canvasObj.AddComponent<CanvasScaler>();

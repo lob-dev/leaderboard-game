@@ -83,7 +83,10 @@ namespace LeaderboardGame
             }
             entryObjects.Clear();
 
-            Debug.Log($"[LeaderboardUI] RefreshUI called with {entries.Count} entries. Container: {entryContainer?.name ?? "NULL"}, Prefab: {entryPrefab?.name ?? "NULL"}");
+            var containerRect = entryContainer.GetComponent<RectTransform>();
+            var viewportRect = containerRect.parent?.GetComponent<RectTransform>();
+            var scrollRectRect = viewportRect?.parent?.GetComponent<RectTransform>();
+            Debug.Log($"[LeaderboardUI] RefreshUI: {entries.Count} entries. ScrollRect={scrollRectRect?.rect}, Viewport={viewportRect?.rect}, Content={containerRect.rect}");
 
             // Create entry rows
             for (int i = 0; i < entries.Count; i++)
