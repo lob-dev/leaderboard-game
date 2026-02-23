@@ -59,6 +59,9 @@ namespace LeaderboardGame
 
             LeaderboardManager.Instance.OnLeaderboardUpdated.AddListener(RefreshUI);
             LeaderboardManager.Instance.OnPlayerRankChanged.AddListener(OnRankChanged);
+
+            // Trigger initial refresh (the first event may have fired before we subscribed)
+            RefreshUI(LeaderboardManager.Instance.GetEntries());
         }
 
         private void OnDisable()
