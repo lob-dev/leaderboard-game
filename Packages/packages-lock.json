@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.clockworklabs.spacetimedbsdk": {
+      "version": "https://github.com/clockworklabs/com.clockworklabs.spacetimedbsdk.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "b57cab6922cf4a37792990096574bb5b9b3b5c94"
+    },
     "com.unity.multiplayer.center": {
       "version": "1.0.1",
       "depth": 0,
