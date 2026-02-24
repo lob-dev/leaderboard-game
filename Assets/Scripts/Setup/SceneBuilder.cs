@@ -329,10 +329,13 @@ namespace LeaderboardGame
             // Add PlayerController and wire the button
             var playerObj = new GameObject("PlayerController");
             var player = playerObj.AddComponent<PlayerController>();
-            // Use reflection or serialized fields to set button and texts
+            // Use reflection to set button and texts
             SetPrivateField(player, "tapButton", tapButton);
             SetPrivateField(player, "comboText", comboText);
             SetPrivateField(player, "pointsPerTapText", pointsPerTapText);
+
+            // Directly wire onClick since reflection + Start() timing is unreliable
+            tapButton.onClick.AddListener(player.OnTap);
 
             // Add TapFeedback for juicy tap effects
             var tapFeedback = playerObj.AddComponent<TapFeedback>();

@@ -23,25 +23,25 @@ namespace LeaderboardGame
 
         private int comboCount = 0;
         private float comboTimer = 0f;
+        private bool buttonBound = false;
 
         private void Start()
         {
-            if (tapButton != null)
-            {
-                tapButton.onClick.AddListener(OnTap);
-            }
+            TryBindButton();
         }
 
         private void Update()
         {
-            // Handle keyboard/touch input
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            // Late-bind: tapButton may be set via reflection after Start()
+            if (!buttonBound)
             {
-                // Only count if not hitting UI button (button handles itself)
-                if (tapButton == null)
-                {
-                    OnTap();
-                }
+                TryBindButton();
+            }
+
+            // Handle keyboard input (Space key)
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                OnTap();
             }
 
             // Combo decay
@@ -78,6 +78,15 @@ namespace LeaderboardGame
             {
                 Vector3 tapPos = tapButton != null ? tapButton.transform.position : Input.mousePosition;
                 tapFeedback.PlayTapFeedback(points, comboCount, tapPos);
+            }
+        }
+
+        private void TryBindButton()
+        {
+            if (tapButton != null && !buttonBound)
+            {
+                tapButton.onClick.AddListener(OnTap);
+                buttonBound = true;
             }
         }
 
