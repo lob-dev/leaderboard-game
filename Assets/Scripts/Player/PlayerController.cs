@@ -71,6 +71,28 @@ namespace LeaderboardGame
             if (ItemSystem.Instance != null)
                 points *= ItemSystem.Instance.GetScoreMultiplier();
 
+            // === OBSERVER EFFECT: Cost scaling based on visibility ===
+            // Higher rank = higher cost multiplier = points are worth less (harder to climb)
+            // Lower rank = lower cost = points are worth more (easier to climb)
+            if (NarrativeSystem.Instance != null)
+            {
+                float costMult = NarrativeSystem.Instance.GetLocalPlayerCostMultiplier();
+                // Invert: high cost = less effective points
+                points = Mathf.Max(1, Mathf.RoundToInt(points / costMult));
+            }
+
+            // === PROXIMITY RIVALRY: +25% damage vs rivals ===
+            // When you have rivals nearby, your taps are more effective
+            if (LeaderboardManager.Instance != null)
+            {
+                var player = LeaderboardManager.Instance.GetLocalPlayer();
+                if (player != null && player.RivalCount > 0)
+                {
+                    float rivalBonus = 1.25f;
+                    points = Mathf.RoundToInt(points * rivalBonus);
+                }
+            }
+
             // Add to leaderboard
             if (LeaderboardManager.Instance != null)
             {
@@ -110,9 +132,32 @@ namespace LeaderboardGame
                 int pts = basePointsPerTap * comboMult;
                 if (ItemSystem.Instance != null)
                     pts *= ItemSystem.Instance.GetScoreMultiplier();
+                // Apply observer effect preview
+                if (NarrativeSystem.Instance != null)
+                {
+                    float costMult = NarrativeSystem.Instance.GetLocalPlayerCostMultiplier();
+                    pts = Mathf.Max(1, Mathf.RoundToInt(pts / costMult));
+                }
+                // Apply rival bonus preview
+                if (LeaderboardManager.Instance != null)
+                {
+                    var player = LeaderboardManager.Instance.GetLocalPlayer();
+                    if (player != null && player.RivalCount > 0)
+                        pts = Mathf.RoundToInt(pts * 1.25f);
+                }
                 string suffix = "";
-                if (ItemSystem.Instance != null && ItemSystem.Instance.GetScoreMultiplier() > 1)
-                    suffix = " x2!";
+                if (NarrativeSystem.Instance != null)
+                {
+                    float cost = NarrativeSystem.Instance.GetLocalPlayerCostMultiplier();
+                    if (cost > 1.5f) suffix = " ⚡HARD";
+                    else if (cost < 0.9f) suffix = " ✦EASY";
+                }
+                if (LeaderboardManager.Instance != null)
+                {
+                    var p = LeaderboardManager.Instance.GetLocalPlayer();
+                    if (p != null && p.RivalCount > 0)
+                        suffix += " 🔴RIVAL";
+                }
                 pointsPerTapText.text = $"+{pts}{suffix}";
             }
         }

@@ -39,6 +39,13 @@ namespace LeaderboardGame
         private TextMeshProUGUI boardVoiceText;
         private CanvasGroup boardVoiceCG;
 
+        // Synthesis UI
+        private Image visibilityFill;
+        private TextMeshProUGUI visibilityLabel;
+        private TextMeshProUGUI costLabel;
+        private TextMeshProUGUI rivalCountLabel;
+        private TextMeshProUGUI becomingLabel;
+
         private void Start()
         {
             BuildScene();
@@ -70,6 +77,7 @@ namespace LeaderboardGame
             entryPrefab = BuildEntryPrefab(canvasObj.transform);
             BuildHeader(canvasObj.transform);
             BuildBoardVoice(canvasObj.transform);
+            BuildSynthesisHUD(canvasObj.transform);
             BuildLeaderboardArea(canvasObj.transform);
             BuildPlayerBar(canvasObj.transform);
             BuildTapArea(canvasObj.transform);
@@ -200,6 +208,91 @@ namespace LeaderboardGame
             boardVoiceText.fontStyle = FontStyles.Italic;
         }
 
+        private void BuildSynthesisHUD(Transform parent)
+        {
+            // Synthesis HUD — sits between board voice and leaderboard
+            var hud = new GameObject("SynthesisHUD");
+            hud.transform.SetParent(parent, false);
+
+            var rect = hud.AddComponent<RectTransform>();
+            rect.anchorMin = new Vector2(0, 1);
+            rect.anchorMax = new Vector2(1, 1);
+            rect.pivot = new Vector2(0.5f, 1);
+            rect.sizeDelta = new Vector2(0, 70);
+            rect.anchoredPosition = new Vector2(0, -170); // below board voice
+
+            var bg = hud.AddComponent<Image>();
+            bg.color = new Color(0.06f, 0.06f, 0.1f, 0.9f);
+
+            // Left section: Visibility meter
+            var visContainer = new GameObject("VisibilityMeter");
+            visContainer.transform.SetParent(hud.transform, false);
+            var visRect = visContainer.AddComponent<RectTransform>();
+            visRect.anchorMin = new Vector2(0, 0.15f);
+            visRect.anchorMax = new Vector2(0.32f, 0.85f);
+            visRect.offsetMin = new Vector2(15, 0);
+            visRect.offsetMax = new Vector2(-5, 0);
+
+            // Visibility bar background
+            var visBg = new GameObject("VisBg");
+            visBg.transform.SetParent(visContainer.transform, false);
+            var visBgRect = visBg.AddComponent<RectTransform>();
+            visBgRect.anchorMin = new Vector2(0, 0);
+            visBgRect.anchorMax = new Vector2(1, 0.5f);
+            visBgRect.offsetMin = Vector2.zero;
+            visBgRect.offsetMax = Vector2.zero;
+            var visBgImg = visBg.AddComponent<Image>();
+            visBgImg.color = new Color(0.15f, 0.15f, 0.2f);
+
+            // Visibility bar fill
+            var visFillObj = new GameObject("VisFill");
+            visFillObj.transform.SetParent(visBg.transform, false);
+            var visFillRect = visFillObj.AddComponent<RectTransform>();
+            visFillRect.anchorMin = Vector2.zero;
+            visFillRect.anchorMax = Vector2.one;
+            visFillRect.offsetMin = Vector2.zero;
+            visFillRect.offsetMax = Vector2.zero;
+            visibilityFill = visFillObj.AddComponent<Image>();
+            visibilityFill.color = new Color(0.2f, 0.8f, 0.3f);
+            visibilityFill.type = Image.Type.Filled;
+            visibilityFill.fillMethod = Image.FillMethod.Horizontal;
+            visibilityFill.fillAmount = 0f;
+
+            // Visibility label
+            visibilityLabel = CreateText(visContainer.transform, "VisLabel", "👁 0%", 20, TextAlignmentOptions.Left, dimTextColor).GetComponent<TextMeshProUGUI>();
+            var visLabelRect = visibilityLabel.GetComponent<RectTransform>();
+            visLabelRect.anchorMin = new Vector2(0, 0.5f);
+            visLabelRect.anchorMax = new Vector2(1, 1);
+            visLabelRect.offsetMin = Vector2.zero;
+            visLabelRect.offsetMax = Vector2.zero;
+
+            // Cost label
+            costLabel = CreateText(visContainer.transform, "CostLabel", "COST: 1.0x", 16, TextAlignmentOptions.Left, dimTextColor).GetComponent<TextMeshProUGUI>();
+            var costRect = costLabel.GetComponent<RectTransform>();
+            // Place below the bar background area - need separate positioning
+            costRect.anchorMin = new Vector2(0, 0);
+            costRect.anchorMax = new Vector2(1, 0.15f);
+            costRect.offsetMin = Vector2.zero;
+            costRect.offsetMax = Vector2.zero;
+
+            // Middle section: Rival count
+            rivalCountLabel = CreateText(hud.transform, "RivalCount", "No rivals nearby", 20, TextAlignmentOptions.Center, dimTextColor).GetComponent<TextMeshProUGUI>();
+            var rivalRect = rivalCountLabel.GetComponent<RectTransform>();
+            rivalRect.anchorMin = new Vector2(0.32f, 0.15f);
+            rivalRect.anchorMax = new Vector2(0.68f, 0.85f);
+            rivalRect.offsetMin = new Vector2(5, 0);
+            rivalRect.offsetMax = new Vector2(-5, 0);
+
+            // Right section: Becoming
+            becomingLabel = CreateText(hud.transform, "Becoming", "TAP TO DISCOVER WHO YOU ARE", 18, TextAlignmentOptions.Right, dimTextColor).GetComponent<TextMeshProUGUI>();
+            var becRect = becomingLabel.GetComponent<RectTransform>();
+            becRect.anchorMin = new Vector2(0.68f, 0.15f);
+            becRect.anchorMax = new Vector2(1, 0.85f);
+            becRect.offsetMin = new Vector2(5, 0);
+            becRect.offsetMax = new Vector2(-15, 0);
+            becomingLabel.fontStyle = FontStyles.Bold;
+        }
+
         private void BuildLeaderboardArea(Transform parent)
         {
             var scrollObj = new GameObject("LeaderboardScroll");
@@ -209,7 +302,7 @@ namespace LeaderboardGame
             scrollRectT.anchorMin = new Vector2(0, 0);
             scrollRectT.anchorMax = new Vector2(1, 1);
             scrollRectT.offsetMin = new Vector2(0, 280);
-            scrollRectT.offsetMax = new Vector2(0, -170); // extra space for board voice
+            scrollRectT.offsetMax = new Vector2(0, -240); // extra space for board voice + synthesis HUD
 
             scrollRect = scrollObj.AddComponent<ScrollRect>();
             scrollRect.horizontal = false;
@@ -381,6 +474,7 @@ namespace LeaderboardGame
             var ui = uiObj.AddComponent<LeaderboardUIRuntime>();
             ui.Init(entryParent, entryPrefab, scrollRect, playerRankText, playerScoreText, playerNameText, playerTitleText,
                     accentColor, top3Color, entryColor, entryAltColor, playerEntryColor, textColor, dimTextColor);
+            ui.SetSynthesisUI(visibilityFill, visibilityLabel, costLabel, rivalCountLabel, becomingLabel);
 
             // PlayerController
             var playerObj = new GameObject("PlayerController");

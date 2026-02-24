@@ -35,6 +35,13 @@ namespace LeaderboardGame
         private Color rivalBorderColor = new Color(1f, 0.25f, 0.3f, 0.8f);
         private Color lastWordsColor = new Color(0.45f, 0.45f, 0.55f, 0.6f);
 
+        // Synthesis UI references
+        private Image visibilityFill;
+        private TextMeshProUGUI visibilityLabel;
+        private TextMeshProUGUI costLabel;
+        private TextMeshProUGUI rivalCountLabel;
+        private TextMeshProUGUI becomingLabel;
+
         private List<GameObject> entryObjects = new List<GameObject>();
         private int lastPlayerRank = -1;
 
@@ -59,6 +66,15 @@ namespace LeaderboardGame
             dimTextColor = dimText;
 
             StartCoroutine(WaitForManager());
+        }
+
+        public void SetSynthesisUI(Image visFill, TextMeshProUGUI visLabel, TextMeshProUGUI costLbl, TextMeshProUGUI rivalLbl, TextMeshProUGUI becomingLbl)
+        {
+            visibilityFill = visFill;
+            visibilityLabel = visLabel;
+            costLabel = costLbl;
+            rivalCountLabel = rivalLbl;
+            becomingLabel = becomingLbl;
         }
 
         private System.Collections.IEnumerator WaitForManager()
@@ -124,13 +140,76 @@ namespace LeaderboardGame
                 playerScoreText.text = player.Score.ToString("N0");
                 playerNameText.text = player.PlayerName;
                 
-                // Show playstyle title
+                // Show playstyle title prominently ("You Are Becoming")
                 if (playerTitleText != null)
                 {
                     if (!string.IsNullOrEmpty(player.PlaystyleTitle))
-                        playerTitleText.text = player.PlaystyleTitle;
+                        playerTitleText.text = $"⟐ {player.PlaystyleTitle} ⟐";
                     else
                         playerTitleText.text = "";
+                }
+
+                // === SYNTHESIS UI UPDATES ===
+                
+                // Visibility meter (Observer Effect)
+                if (visibilityFill != null)
+                {
+                    visibilityFill.fillAmount = player.Visibility;
+                    // Color: green at low vis, yellow mid, red high
+                    visibilityFill.color = Color.Lerp(
+                        new Color(0.2f, 0.8f, 0.3f),
+                        new Color(1f, 0.2f, 0.2f),
+                        player.Visibility
+                    );
+                }
+                if (visibilityLabel != null)
+                    visibilityLabel.text = $"👁 {Mathf.RoundToInt(player.Visibility * 100)}%";
+                if (costLabel != null)
+                {
+                    string costStr = player.CostMultiplier > 1.5f ? $"COST: {player.CostMultiplier:F1}x ⚡" :
+                                     player.CostMultiplier < 0.9f ? $"COST: {player.CostMultiplier:F1}x ✦" :
+                                     $"COST: {player.CostMultiplier:F1}x";
+                    costLabel.text = costStr;
+                    costLabel.color = player.CostMultiplier > 1.5f ? new Color(1f, 0.3f, 0.3f) :
+                                     player.CostMultiplier < 0.9f ? new Color(0.3f, 1f, 0.5f) :
+                                     dimTextColor;
+                }
+
+                // Rival count
+                if (rivalCountLabel != null)
+                {
+                    if (player.RivalCount > 0)
+                    {
+                        rivalCountLabel.text = $"🔴 {player.RivalCount} RIVAL{(player.RivalCount > 1 ? "S" : "")} (+25%)";
+                        rivalCountLabel.color = new Color(1f, 0.4f, 0.4f);
+                    }
+                    else
+                    {
+                        rivalCountLabel.text = "No rivals nearby";
+                        rivalCountLabel.color = dimTextColor;
+                    }
+                }
+
+                // Becoming label
+                if (becomingLabel != null)
+                {
+                    if (!string.IsNullOrEmpty(player.PlaystyleTitle))
+                    {
+                        becomingLabel.text = $"YOU ARE BECOMING: {player.PlaystyleTitle.ToUpper()}";
+                        if (player.PlaystyleTitle == "Striker")
+                            becomingLabel.color = new Color(1f, 0.4f, 0.2f);
+                        else if (player.PlaystyleTitle == "Stalwart")
+                            becomingLabel.color = new Color(0.3f, 0.7f, 1f);
+                        else if (player.PlaystyleTitle == "Nomad")
+                            becomingLabel.color = new Color(0.5f, 1f, 0.4f);
+                        else
+                            becomingLabel.color = accentColor;
+                    }
+                    else
+                    {
+                        becomingLabel.text = "TAP TO DISCOVER WHO YOU ARE";
+                        becomingLabel.color = dimTextColor;
+                    }
                 }
 
                 scrollRect.verticalNormalizedPosition = 1f;
@@ -171,16 +250,29 @@ namespace LeaderboardGame
                 }
             }
 
-            // Subtitle (playstyle title)
-            if (texts.Length >= 4 && !string.IsNullOrEmpty(entry.PlaystyleTitle))
+            // Subtitle: playstyle title + visibility for rivals
+            if (texts.Length >= 4)
             {
-                texts[3].text = entry.PlaystyleTitle;
-                texts[3].color = entry.IsLocalPlayer ? new Color(1f, 0.75f, 0.3f, 0.8f) : new Color(0.5f, 0.5f, 0.6f, 0.6f);
-                texts[3].gameObject.SetActive(true);
-            }
-            else if (texts.Length >= 4)
-            {
-                texts[3].gameObject.SetActive(false);
+                string subtitle = "";
+                if (!string.IsNullOrEmpty(entry.PlaystyleTitle))
+                    subtitle = entry.PlaystyleTitle;
+                if (entry.IsRival)
+                    subtitle = (subtitle.Length > 0 ? subtitle + " • " : "") + $"RIVAL (👁{Mathf.RoundToInt(entry.Visibility * 100)}%)";
+                else if (entry.Visibility > 0.7f && !entry.IsLocalPlayer)
+                    subtitle = (subtitle.Length > 0 ? subtitle + " • " : "") + $"👁{Mathf.RoundToInt(entry.Visibility * 100)}%";
+
+                if (!string.IsNullOrEmpty(subtitle))
+                {
+                    texts[3].text = subtitle;
+                    texts[3].color = entry.IsLocalPlayer ? new Color(1f, 0.75f, 0.3f, 0.8f) :
+                                     entry.IsRival ? new Color(1f, 0.4f, 0.4f, 0.8f) :
+                                     new Color(0.5f, 0.5f, 0.6f, 0.6f);
+                    texts[3].gameObject.SetActive(true);
+                }
+                else
+                {
+                    texts[3].gameObject.SetActive(false);
+                }
             }
 
             var bg = obj.GetComponent<Image>();

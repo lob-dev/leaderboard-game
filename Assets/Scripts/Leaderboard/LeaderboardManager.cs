@@ -188,11 +188,12 @@ namespace LeaderboardGame
                 e.Rank = i + 1;
             }
 
-            // Narrative updates
+            // Synthesis mechanics
             if (NarrativeSystem.Instance != null)
             {
-                NarrativeSystem.Instance.UpdateRivals(entries);
-                NarrativeSystem.Instance.UpdateAuras(entries);
+                NarrativeSystem.Instance.UpdateVisibility(entries);  // Observer Effect
+                NarrativeSystem.Instance.UpdateRivals(entries);      // Proximity Rivalry
+                NarrativeSystem.Instance.UpdateAuras(entries);       // Visual auras
             }
 
             OnLeaderboardUpdated?.Invoke(entries);
@@ -214,12 +215,12 @@ namespace LeaderboardGame
             };
 
             string[] activeTitles = {
-                "The Relentless", "The Devoted", "The Shadow",
-                "The Radiant", "The Mogul", "The Nocturnal",
-                "The Blur", "The Calm", "The Sweat",
-                "The Crispy", "The Effortless", "The Absolute",
-                "The Unstoppable", "The Precise", "The Carried",
-                "The Stuck", "The Viral", "The Hype"
+                "Striker", "Stalwart", "Nomad",
+                "Striker", "Stalwart", "Nomad",
+                "Striker", "Stalwart", "Nomad",
+                "Striker", "Stalwart", "Striker",
+                "Striker", "Striker", "Nomad",
+                "Stalwart", "Nomad", "Striker"
             };
 
             for (int i = 0; i < activeNames.Length; i++)

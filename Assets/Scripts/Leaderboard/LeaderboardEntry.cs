@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace LeaderboardGame
@@ -28,6 +29,12 @@ namespace LeaderboardGame
         // Bot narrative flavor
         public string GhostReason;        // Why they went inactive (flavor)
 
+        // === Synthesis mechanics ===
+        public float Visibility;          // 0.0-1.0, scales with rank (higher rank = more visible)
+        public float CostMultiplier;      // Observer Effect: how expensive it is to climb at this rank
+        public int RivalCount;            // Number of current proximity rivals
+        public List<string> RivalIds;     // IDs of proximity rivals (within 3 ranks)
+
         public LeaderboardEntry(string id, string name, int score, bool isLocal = false)
         {
             PlayerId = id;
@@ -46,6 +53,10 @@ namespace LeaderboardGame
             JustRankedUp = false;
             JustRankedDown = false;
             GhostReason = "";
+            Visibility = 0f;
+            CostMultiplier = 1f;
+            RivalCount = 0;
+            RivalIds = new List<string>();
         }
 
         public int CompareTo(LeaderboardEntry other)
