@@ -123,7 +123,9 @@ namespace LeaderboardGame
             {
                 if (entry.IsLocalPlayer) continue;
                 
-                // Random chance of gaining points
+                // Random chance of gaining points (blocked if frozen by item)
+                if (ItemSystem.Instance != null && ItemSystem.Instance.AreOpponentsFrozen())
+                    continue;
                 if (Random.value < 0.3f)
                 {
                     entry.Score += Random.Range(1, 15);

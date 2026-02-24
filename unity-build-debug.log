@@ -2,10 +2,10 @@
 Built from '6000.3/staging' branch; Version is '6000.3.9f1 (7a9955a4f2fa) revision 8034645'; Using compiler version '194234433'; Build Type 'Release'
 OS: 'Windows 11  (10.0.26100) ServerDatacenter' Language: 'en' Physical Memory: 16176 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Administrator" at "2026-02-24T17:03:10.3605905Z"
 System  architecture: x64
 Process architecture: x64
-Date: 2026-02-24T16:53:40Z
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Administrator" at "2026-02-24T16:53:40.9835794Z"
+Date: 2026-02-24T17:03:10Z
 
 COMMAND LINE ARGUMENTS:
 C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Unity.exe
@@ -16,7 +16,7 @@ C:\Users\Administrator\.openclaw\workspace\leaderboard-game
 -executeMethod
 BuildGame.Build
 -logFile
-C:\Users\Administrator\.openclaw\workspace\leaderboard-game\unity-build-fix.log
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game\unity-build-debug.log
 Successfully changed project path to: C:\Users\Administrator\.openclaw\workspace\leaderboard-game
 C:/Users/Administrator/.openclaw/workspace/leaderboard-game
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -54,25 +54,25 @@ C:/Users/Administrator/.openclaw/workspace/leaderboard-game
     "memorysetup-job-temp-allocator-block-size-background=1048576"
     "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
     "memorysetup-temp-allocator-size-cloud-worker=32768"
-Player connection [10472]  Target information:
+Player connection [10612]  Target information:
 
-Player connection [10472]  * "[IP] 172.31.20.54 [Port] 55504 [Flags] 2 [Guid] 1946380845 [EditorId] 1946380845 [Version] 1048832 [Id] WindowsEditor(7,EC2AMAZ-AVFMNU9) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [10612]  * "[IP] 172.31.20.54 [Port] 55504 [Flags] 2 [Guid] 2766859949 [EditorId] 2766859949 [Version] 1048832 [Id] WindowsEditor(7,EC2AMAZ-AVFMNU9) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [10472] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [10472] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [10612] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [10612] Host joined alternative multi-casting on [225.0.0.222:34997]...
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
 [Physics::Module] Id: 0xdecafbad
-[Package Manager] Connected to IPC stream "Upm-6604" after 0.6 seconds.
+[Package Manager] Connected to IPC stream "Upm-10716" after 0.6 seconds.
 [Licensing::Module] Licensing is not yet initialized.
 [Licensing::Client] Handshaking with LicensingClient:
   Version:                 1.17.4+4293ba1
-  Session Id:              51ff84ed326a4fb093298b4e2bd7b51d
+  Session Id:              a832d66126c843c0941c925f5d2b08ef
   Correlation Id:          801e8730218ca2cccb13ef3cd4f0381c
-  External correlation Id: 6572414703670534728
+  External correlation Id: 6514766981248120223
   Machine Id:              LLp/YPy+TKfzpGYM73xtlWcXomg=
-[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-Administrator" (connect: 0.00s, validation: 0.00s, handshake: 1.69s)
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Administrator-notifications" at "2026-02-24T16:53:42.6794307Z"
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-Administrator" (connect: 0.00s, validation: 0.00s, handshake: 1.80s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Administrator-notifications" at "2026-02-24T17:03:12.1587601Z"
 [Licensing::Module] Error: Access token is unavailable; failed to update
 [Licensing::Client] Successfully resolved entitlement details
 [Licensing::Module] License group:
@@ -82,8 +82,8 @@ Input System module state changed to: Initialized.
   Expiration: Unlimited
 [Licensing::Client] Successfully updated license, isAsync: True, time: 0.00
 [Licensing::Client] Successfully resolved entitlement details
-[Licensing::Module] Licensing Background thread has ended after 1.70s
-[Licensing::Module] Licensing is initialized (took 0.90s).
+[Licensing::Module] Licensing Background thread has ended after 1.81s
+[Licensing::Module] Licensing is initialized (took 0.88s).
 [Licensing::Client] Successfully resolved entitlement details
 Library Redirect Path: Library/
 [Physics::Module] Selected backend.
@@ -107,7 +107,7 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56604
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56716
 Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
 Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
 ImportWorker Server TCP listen port: 0
@@ -116,41 +116,41 @@ Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002746 seconds.
-- Loaded All Assemblies, in  0.707 seconds
+Registered in 0.002690 seconds.
+- Loaded All Assemblies, in  0.694 seconds
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.689 seconds
-Domain Reload Profiling: 1394ms
-	BeginReloadAssembly (224ms)
+- Finished resetting the current domain, in  0.727 seconds
+Domain Reload Profiling: 1418ms
+	BeginReloadAssembly (220ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (14ms)
-	RebuildCommonClasses (68ms)
+		CreateAndSetChildDomain (12ms)
+	RebuildCommonClasses (65ms)
 	RebuildNativeTypeToScriptingClass (24ms)
 	initialDomainReloadingComplete (71ms)
-	LoadAllAssembliesAndSetupDomain (318ms)
-		LoadAssemblies (208ms)
+	LoadAllAssembliesAndSetupDomain (310ms)
+		LoadAssemblies (206ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (312ms)
-			TypeCache.Refresh (309ms)
-				TypeCache.ScanAssembly (283ms)
+		AnalyzeDomain (305ms)
+			TypeCache.Refresh (302ms)
+				TypeCache.ScanAssembly (273ms)
 			BuildScriptInfoCaches (0ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (690ms)
+	FinalizeReload (728ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (623ms)
+		SetupLoadedEditorAssemblies (646ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (81ms)
+			InitializePlatformSupportModulesInManaged (85ms)
 			SetLoadedEditorAssemblies (6ms)
-			BeforeProcessingInitializeOnLoad (146ms)
-			ProcessInitializeOnLoadAttributes (265ms)
-			ProcessInitializeOnLoadMethodAttributes (125ms)
+			BeforeProcessingInitializeOnLoad (153ms)
+			ProcessInitializeOnLoadAttributes (278ms)
+			ProcessInitializeOnLoadMethodAttributes (123ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -208,146 +208,152 @@ Package Manager log level set to [2]
 Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
 WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
 DisplayProgressbar: Compiling Scripts
-ExitCode: 0 Duration: 0s591ms
-[223/229    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll (+2 others)
+Assets\Scripts\Setup\SceneBuilder.cs(62,17): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+Assets\Scripts\Leaderboard\LeaderboardManager.cs(16,38): warning CS0414: The field 'LeaderboardManager.maxVisibleEntries' is assigned but its value is never used
+Assets\Scripts\Leaderboard\RankChangeDetector.cs(19,21): warning CS0414: The field 'RankChangeDetector.lastScore' is assigned but its value is never used
 Assets\Scripts\UI\LeaderboardEntryUI.cs(21,40): warning CS0414: The field 'LeaderboardEntryUI.slideSpeed' is assigned but its value is never used
+ExitCode: 0 Duration: 2s329ms
+[223/229    2s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll (+2 others)
+Assets\Scripts\Setup\SceneBuilder.cs(62,17): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+
+Assets\Scripts\Leaderboard\LeaderboardManager.cs(16,38): warning CS0414: The field 'LeaderboardManager.maxVisibleEntries' is assigned but its value is never used
 
 Assets\Scripts\Leaderboard\RankChangeDetector.cs(19,21): warning CS0414: The field 'RankChangeDetector.lastScore' is assigned but its value is never used
 
-Assets\Scripts\Leaderboard\LeaderboardManager.cs(16,38): warning CS0414: The field 'LeaderboardManager.maxVisibleEntries' is assigned but its value is never used
+Assets\Scripts\UI\LeaderboardEntryUI.cs(21,40): warning CS0414: The field 'LeaderboardEntryUI.slideSpeed' is assigned but its value is never used
 [227/229    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.pdb
 [228/229    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll
-*** Tundra build success (0.50 seconds), 3 items updated, 229 evaluated
-Assets\Scripts\UI\LeaderboardEntryUI.cs(21,40): warning CS0414: The field 'LeaderboardEntryUI.slideSpeed' is assigned but its value is never used
-Assets\Scripts\Leaderboard\RankChangeDetector.cs(19,21): warning CS0414: The field 'RankChangeDetector.lastScore' is assigned but its value is never used
-Assets\Scripts\Leaderboard\LeaderboardManager.cs(16,38): warning CS0414: The field 'LeaderboardManager.maxVisibleEntries' is assigned but its value is never used
+*** Tundra build success (2.22 seconds), 3 items updated, 229 evaluated
 Total cache size 3797440
-AssetDatabase: script compilation time: 1.154858s
+AssetDatabase: script compilation time: 2.891116s
 Begin MonoManager ReloadAssembly
-Total cache size after purge 3797440, took 00:00:00.0361357
-- Loaded All Assemblies, in  0.745 seconds
+Total cache size after purge 3797440, took 00:00:00.0407085
+- Loaded All Assemblies, in  0.646 seconds
 Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.941 seconds
-Domain Reload Profiling: 1684ms
-	BeginReloadAssembly (401ms)
+- Finished resetting the current domain, in  0.760 seconds
+Domain Reload Profiling: 1403ms
+	BeginReloadAssembly (323ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (31ms)
+		DisableScriptedObjects (22ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (71ms)
-	RebuildCommonClasses (72ms)
-	RebuildNativeTypeToScriptingClass (23ms)
-	initialDomainReloadingComplete (34ms)
-	LoadAllAssembliesAndSetupDomain (211ms)
-		LoadAssemblies (367ms)
+		CreateAndSetChildDomain (66ms)
+	RebuildCommonClasses (63ms)
+	RebuildNativeTypeToScriptingClass (24ms)
+	initialDomainReloadingComplete (31ms)
+	LoadAllAssembliesAndSetupDomain (201ms)
+		LoadAssemblies (331ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (46ms)
+		AnalyzeDomain (36ms)
 			TypeCache.Refresh (20ms)
 				TypeCache.ScanAssembly (12ms)
-			BuildScriptInfoCaches (14ms)
-			ResolveRequiredComponents (6ms)
-	FinalizeReload (942ms)
+			BuildScriptInfoCaches (10ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (761ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (685ms)
+		SetupLoadedEditorAssemblies (542ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (46ms)
-			SetLoadedEditorAssemblies (7ms)
-			BeforeProcessingInitializeOnLoad (278ms)
-			ProcessInitializeOnLoadAttributes (276ms)
-			ProcessInitializeOnLoadMethodAttributes (69ms)
-			AfterProcessingInitializeOnLoad (8ms)
+			InitializePlatformSupportModulesInManaged (47ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (220ms)
+			ProcessInitializeOnLoadAttributes (203ms)
+			ProcessInitializeOnLoadMethodAttributes (62ms)
+			AfterProcessingInitializeOnLoad (6ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (14ms)
 Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Asset Pipeline Refresh (id=e4d593a3554366f41b99cbb06f92507e): Total: 3.238 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+Asset Pipeline Refresh (id=d4b6bd687a2d53b47acd4676c6768bb7): Total: 4.669 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
 	Summary:
 		Imports: total=0 (actual=0, local cache=0, cache server=0)
-		Asset DB Process Time: managed=0 ms, native=1172 ms
-		Asset DB Callback time: managed=114 ms, native=31 ms
-		Scripting: domain reloads=1, domain reload time=746 ms, compile time=1158 ms, other=15 ms
+		Asset DB Process Time: managed=0 ms, native=976 ms
+		Asset DB Callback time: managed=107 ms, native=28 ms
+		Scripting: domain reloads=1, domain reload time=646 ms, compile time=2894 ms, other=15 ms
 		Project Asset Count: scripts=211, non-scripts=162
 		Asset File Changes: new=0, changed=2, moved=0, deleted=0
 		Scan Filter Count: 0
-	InvokeCustomDependenciesCallbacks: 0.002ms
-	InvokePackagesCallback: 29.695ms
-	ApplyChangesToAssetFolders: 1.130ms
-	Scan: 67.169ms
-	OnSourceAssetsModified: 1.050ms
-	CategorizeAssetsWithTransientArtifact: 2.179ms
-	ProcessAssetsWithTransientArtifactChanges: 20.570ms
-	CategorizeAssets: 4.801ms
-	ImportOutOfDateAssets: 944.157ms (-214.959ms without children)
-		CompileScripts: 1158.254ms
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 27.297ms
+	ApplyChangesToAssetFolders: 0.838ms
+	Scan: 71.855ms
+	OnSourceAssetsModified: 1.322ms
+	CategorizeAssetsWithTransientArtifact: 2.529ms
+	ProcessAssetsWithTransientArtifactChanges: 11.970ms
+	CategorizeAssets: 4.033ms
+	ImportOutOfDateAssets: 762.818ms (-2131.847ms without children)
+		CompileScripts: 2893.793ms
 		ReloadNativeAssets: 0.000ms
-		UnloadImportedAssets: 0.221ms
-		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.141ms
+		UnloadImportedAssets: 0.365ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.107ms
 		InitializingProgressBar: 0.001ms
 		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
-		OnDemandSchedulerStart: 0.499ms
-	PostProcessAllAssets: 117.420ms
-	Hotreload: 1.355ms
+		OnDemandSchedulerStart: 0.399ms
+	PostProcessAllAssets: 110.066ms
+	Hotreload: 0.966ms
 	GatherAllCurrentPrimaryArtifactRevisions: 0.004ms
-	UnloadStreamsBegin: 3.932ms
+	UnloadStreamsBegin: 3.459ms
 	PersistCurrentRevisions: 0.024ms
 	UnloadStreamsEnd: 0.002ms
-	GenerateScriptTypeHashes: 0.405ms
-	Untracked: 2044.896ms
+	GenerateScriptTypeHashes: 0.323ms
+	Untracked: 3672.022ms
 
 Application.AssetDatabase Initial Refresh End
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Scanning for USB devices : 0.799ms
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Scanning for USB devices : 0.282ms
 Initializing Unity extensions:
 [MODES] ModeService[none].Initialize
 [MODES] ModeService[none].LoadModes
 [MODES] Loading mode Default (0) for mode-current-id-leaderboard-game
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 445 unused Assets / (1.3 MB). Loaded Objects now: 1060.
-Memory consumption went from 93.9 MB to 92.5 MB.
-Total: 21.524000 ms (FindLiveObjects: 0.150800 ms CreateObjectMapping: 0.037800 ms MarkObjects: 19.733600 ms  DeleteObjects: 1.600800 ms)
+Memory consumption went from 93.9 MB to 92.6 MB.
+Total: 10.806200 ms (FindLiveObjects: 0.130800 ms CreateObjectMapping: 0.029300 ms MarkObjects: 8.890500 ms  DeleteObjects: 1.753900 ms)
 
 Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aESkipCompile.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssembliesAndTypeDB
 WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
-ExitCode: 0 Duration: 1s148ms
-[2/3        1s] BuildPlayerDataGenerator Library/BuildPlayerData/Editor/TypeDb-All.json
-*** Tundra build success (1.04 seconds), 1 items updated, 3 evaluated
 Total cache size 3797440
-Total cache size after purge 3797440, took 00:00:00.0346449
-Asset Pipeline Refresh (id=781bb1cc3e5ecde468ddd9a277aded4d): Total: 0.021 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+ExitCode: 0 Duration: 0s621ms
+[2/3        0s] BuildPlayerDataGenerator Library/BuildPlayerData/Editor/TypeDb-All.json
+*** Tundra build success (0.52 seconds), 1 items updated, 3 evaluated
+Total cache size after purge 3797440, took 00:00:00.0279218
+Asset Pipeline Refresh (id=e8b50ccc1c1829b4e95cf49f374ce5ff): Total: 0.018 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
 [ScriptCompilation] Requested script compilation because: Recompiling scripts for player build.
 BuildPlayer: start building target 19
 Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aP.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssembliesAndTypeDB
 WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
 Total cache size 3797440
-Total cache size after purge 3797440, took 00:00:00.0113499
+Total cache size after purge 3797440, took 00:00:00.0114568
+Assets\Scripts\Setup\SceneBuilder.cs(62,17): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
 Assets\Scripts\UI\LeaderboardEntryUI.cs(21,40): warning CS0414: The field 'LeaderboardEntryUI.slideSpeed' is assigned but its value is never used
-Assets\Scripts\Leaderboard\LeaderboardManager.cs(16,38): warning CS0414: The field 'LeaderboardManager.maxVisibleEntries' is assigned but its value is never used
 Assets\Scripts\Leaderboard\RankChangeDetector.cs(19,21): warning CS0414: The field 'RankChangeDetector.lastScore' is assigned but its value is never used
-ExitCode: 0 Duration: 1s961ms
-[113/126    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.InternalAPIEngineBridge.004.dll
-[114/126    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.Multiplayer.Center.Common.dll
+Assets\Scripts\Leaderboard\LeaderboardManager.cs(16,38): warning CS0414: The field 'LeaderboardManager.maxVisibleEntries' is assigned but its value is never used
+ExitCode: 0 Duration: 1s840ms
+[113/126    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.Multiplayer.Center.Common.dll
+[114/126    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/UnityEngine.UI.dll
 [115/126    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.TextMeshPro.dll
-[116/126    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.TextMeshPro.pdb
-[117/126    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.Multiplayer.Center.Common.pdb
-[118/126    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.InternalAPIEngineBridge.004.pdb
-[119/126    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/UnityEngine.UI.pdb
-[120/126    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/UnityEngine.UI.dll
+[116/126    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.InternalAPIEngineBridge.004.dll
+[117/126    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/UnityEngine.UI.pdb
+[118/126    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.TextMeshPro.pdb
+[119/126    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.Multiplayer.Center.Common.pdb
+[120/126    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.InternalAPIEngineBridge.004.pdb
 [121/126    0s] Csc Library/Bee/artifacts/1900b0aP.dag/Assembly-CSharp.dll (+2 others)
+Assets\Scripts\Setup\SceneBuilder.cs(62,17): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+
 Assets\Scripts\UI\LeaderboardEntryUI.cs(21,40): warning CS0414: The field 'LeaderboardEntryUI.slideSpeed' is assigned but its value is never used
 
-Assets\Scripts\Leaderboard\LeaderboardManager.cs(16,38): warning CS0414: The field 'LeaderboardManager.maxVisibleEntries' is assigned but its value is never used
-
 Assets\Scripts\Leaderboard\RankChangeDetector.cs(19,21): warning CS0414: The field 'RankChangeDetector.lastScore' is assigned but its value is never used
+
+Assets\Scripts\Leaderboard\LeaderboardManager.cs(16,38): warning CS0414: The field 'LeaderboardManager.maxVisibleEntries' is assigned but its value is never used
 [122/126    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Assembly-CSharp.pdb
 [123/126    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Assembly-CSharp.dll
 [125/126    0s] BuildPlayerDataGenerator Library/BuildPlayerData/Player/RuntimeInitializeOnLoads.json (+1 other)
-*** Tundra build success (1.86 seconds), 12 items updated, 126 evaluated
+*** Tundra build success (1.77 seconds), 12 items updated, 126 evaluated
 Not rebuilding Data files -- no changes
 
 
@@ -641,19 +647,19 @@ Dependency assembly - System.Runtime.Loader.dll
 Dependency assembly - System.Workflow.ComponentModel.dll
 Dependency assembly - System.Reactive.PlatformServices.dll
 
-Asset Pipeline Refresh (id=3149d156077a5d64e98a5429fe60c583): Total: 0.014 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=4a727ef7fccf3f144b9d4fd8e115f277): Total: 0.113 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
 Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --dagfile="Library/Bee/Player2eb718e6.dag" --profile="Library/Bee/backend1.traceevents" Player
 WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
 DisplayProgressbar: Incremental Player Build
 Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\netcorerun\netcorerun.exe "C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\WinPlayerBuildProgram.exe" "C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Bee;C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/Tools/BuildPipeline" "Library/Bee/Player2eb718e6.dag.json" "Library/Bee/Player2eb718e6-inputdata.json" "Library\Bee\buildprogram0.traceevents"
 WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
-ExitCode: 4 Duration: 4s761ms
-ExitCode: 0 Duration: 0s886ms
+ExitCode: 4 Duration: 4s792ms
+ExitCode: 0 Duration: 0s556ms
 Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --dagfile="Library/Bee/Player2eb718e6.dag" --dagfilejson="Library\Bee\Player2eb718e6.dag.json" --profile="Library/Bee/backend2.traceevents" Player
 WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
 Total cache size 3797440
-Total cache size after purge 3797440, took 00:00:00.0161608
-ExitCode: 0 Duration: 0s334ms
+Total cache size after purge 3797440, took 00:00:00.0118051
+ExitCode: 0 Duration: 0s199ms
 Refreshing native plugins compatible for Editor in 0.00 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 
@@ -664,22 +670,22 @@ Do a clean build to view the Asset build report information.
 -------------------------------------------------------------------------------
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 23 unused Assets / (0.7 MB). Loaded Objects now: 1112.
-Memory consumption went from 97.8 MB to 97.1 MB.
-Total: 13.847300 ms (FindLiveObjects: 0.099500 ms CreateObjectMapping: 0.026100 ms MarkObjects: 13.107500 ms  DeleteObjects: 0.613200 ms)
+Memory consumption went from 97.9 MB to 97.2 MB.
+Total: 9.893700 ms (FindLiveObjects: 0.096800 ms CreateObjectMapping: 0.037400 ms MarkObjects: 9.236200 ms  DeleteObjects: 0.522300 ms)
 
 DisplayProgressNotification: Build Successful
 Build Finished, Result: Success.
-##utp:{"type":"PlayerBuildInfo","version":2,"phase":"Immediate","time":1771952039841,"processId":6604,"steps":[{"description":"Preprocess Player","duration":170},{"description":"Prepare For Build","duration":23},{"description":"ProducePlayerScriptAssemblies","duration":3570},{"description":"Verify Build setup","duration":152},{"description":"Prepare assets for target platform","duration":11},{"description":"Prepare splash screen","duration":10},{"description":"Run script only build","duration":83},{"description":"Postprocess built player","duration":6345}],"duration":10364}
+##utp:{"type":"PlayerBuildInfo","version":2,"phase":"Immediate","time":1771952608914,"processId":10716,"steps":[{"description":"Preprocess Player","duration":97},{"description":"Prepare For Build","duration":23},{"description":"ProducePlayerScriptAssemblies","duration":2805},{"description":"Verify Build setup","duration":94},{"description":"Prepare assets for target platform","duration":10},{"description":"Prepare splash screen","duration":11},{"description":"Run script only build","duration":198},{"description":"Postprocess built player","duration":6124}],"duration":9362}
 Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
 Loaded scene 'Temp/__Backupscenes/0.backup'
-	Deserialize:            2.755 ms
-	Integration:            25.828 ms
-	Integration of assets:  0.005 ms
+	Deserialize:            2.218 ms
+	Integration:            79.731 ms
+	Integration of assets:  0.002 ms
 	Thread Wait Time:       0.014 ms
-	Total Operation Time:   28.602 ms
+	Total Operation Time:   81.965 ms
 Unloading 0 unused Assets / (0 B). Loaded Objects now: 1112.
 Memory consumption went from 97.1 MB to 97.1 MB.
-Total: 9.471100 ms (FindLiveObjects: 0.123700 ms CreateObjectMapping: 0.039700 ms MarkObjects: 9.299500 ms  DeleteObjects: 0.006600 ms)
+Total: 13.888100 ms (FindLiveObjects: 0.116400 ms CreateObjectMapping: 0.021000 ms MarkObjects: 13.741000 ms  DeleteObjects: 0.008300 ms)
 
 Build result: Succeeded
 UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)

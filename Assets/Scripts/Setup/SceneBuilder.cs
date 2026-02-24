@@ -374,6 +374,15 @@ namespace LeaderboardGame
             if (playerBarObj != null)
                 lbAnimator.Init(playerBarObj.GetComponent<Image>());
 
+            // Add ItemSystem
+            var itemSystemObj = new GameObject("ItemSystem");
+            itemSystemObj.AddComponent<ItemSystem>();
+
+            // Add ItemUI
+            var itemUIObj = new GameObject("ItemUI");
+            var itemUI = itemUIObj.AddComponent<ItemUI>();
+            itemUI.Init(mainCanvas.GetComponent<RectTransform>(), mainCanvas.transform, dimTextColor);
+
             // Add RankChangeDetector
             var detectorObj = new GameObject("RankChangeDetector");
             detectorObj.AddComponent<RankChangeDetector>();

@@ -63,8 +63,13 @@ namespace LeaderboardGame
             comboCount = Mathf.Min(comboCount + 1, maxComboMultiplier);
             comboTimer = comboWindow;
 
-            // Calculate points
-            int points = basePointsPerTap * Mathf.Max(1, comboCount);
+            // Calculate points (with item modifiers)
+            int comboMult = Mathf.Max(1, comboCount);
+            if (ItemSystem.Instance != null)
+                comboMult *= ItemSystem.Instance.GetComboBonusMultiplier();
+            int points = basePointsPerTap * comboMult;
+            if (ItemSystem.Instance != null)
+                points *= ItemSystem.Instance.GetScoreMultiplier();
 
             // Add to leaderboard
             if (LeaderboardManager.Instance != null)
@@ -99,8 +104,16 @@ namespace LeaderboardGame
             }
             if (pointsPerTapText != null)
             {
-                int pts = basePointsPerTap * Mathf.Max(1, comboCount);
-                pointsPerTapText.text = $"+{pts}";
+                int comboMult = Mathf.Max(1, comboCount);
+                if (ItemSystem.Instance != null)
+                    comboMult *= ItemSystem.Instance.GetComboBonusMultiplier();
+                int pts = basePointsPerTap * comboMult;
+                if (ItemSystem.Instance != null)
+                    pts *= ItemSystem.Instance.GetScoreMultiplier();
+                string suffix = "";
+                if (ItemSystem.Instance != null && ItemSystem.Instance.GetScoreMultiplier() > 1)
+                    suffix = " x2!";
+                pointsPerTapText.text = $"+{pts}{suffix}";
             }
         }
     }
