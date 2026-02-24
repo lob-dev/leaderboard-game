@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
 namespace LeaderboardGame
@@ -56,6 +57,19 @@ namespace LeaderboardGame
             scaler.referenceResolution = new Vector2(1080, 1920);
             scaler.matchWidthOrHeight = 0.5f;
             canvasObj.AddComponent<GraphicRaycaster>();
+
+            // EventSystem is required for UI interactions (button clicks, etc.)
+            if (FindObjectOfType<EventSystem>() == null)
+            {
+                var eventSystemObj = new GameObject("EventSystem");
+                eventSystemObj.AddComponent<EventSystem>();
+                eventSystemObj.AddComponent<StandaloneInputModule>();
+                Debug.Log("[SceneBuilder] Created EventSystem + StandaloneInputModule");
+            }
+            else
+            {
+                Debug.Log("[SceneBuilder] EventSystem already exists");
+            }
 
             // Build entry prefab (hidden template)
             entryPrefab = BuildEntryPrefab(canvasObj.transform);
@@ -336,6 +350,7 @@ namespace LeaderboardGame
 
             // Directly wire onClick since reflection + Start() timing is unreliable
             tapButton.onClick.AddListener(player.OnTap);
+            Debug.Log($"[SceneBuilder] Button wired. tapButton={tapButton != null}, interactable={tapButton.interactable}, listeners={tapButton.onClick.GetPersistentEventCount()}+runtime");
 
             // Add TapFeedback for juicy tap effects
             var tapFeedback = playerObj.AddComponent<TapFeedback>();

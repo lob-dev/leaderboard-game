@@ -58,6 +58,7 @@ namespace LeaderboardGame
 
         public void OnTap()
         {
+            Debug.Log($"[PlayerController] OnTap called! Current score will increase by {basePointsPerTap}");
             // Build combo
             comboCount = Mathf.Min(comboCount + 1, maxComboMultiplier);
             comboTimer = comboWindow;

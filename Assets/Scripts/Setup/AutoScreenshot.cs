@@ -29,13 +29,27 @@ namespace LeaderboardGame
             // Wait for scene to build and a few frames of gameplay
             yield return new WaitForSeconds(3f);
             
-            // Simulate some taps
-            if (LeaderboardManager.Instance != null)
+            // Use actual PlayerController.OnTap() to simulate real button taps
+            var player = FindObjectOfType<PlayerController>();
+            if (player != null)
             {
                 for (int i = 0; i < 20; i++)
                 {
-                    LeaderboardManager.Instance.AddPlayerScore(10);
+                    player.OnTap();
                     yield return new WaitForSeconds(0.1f);
+                }
+                Debug.Log("[AutoScreenshot] Simulated 20 taps via PlayerController.OnTap()");
+            }
+            else
+            {
+                Debug.LogWarning("[AutoScreenshot] PlayerController not found, falling back to direct score");
+                if (LeaderboardManager.Instance != null)
+                {
+                    for (int i = 0; i < 20; i++)
+                    {
+                        LeaderboardManager.Instance.AddPlayerScore(10);
+                        yield return new WaitForSeconds(0.1f);
+                    }
                 }
             }
 
