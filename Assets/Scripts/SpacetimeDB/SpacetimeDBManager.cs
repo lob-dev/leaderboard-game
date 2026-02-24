@@ -70,9 +70,10 @@ namespace LeaderboardGame
             {
                 string savedToken = PlayerPrefs.GetString(AUTH_TOKEN_KEY, "");
 
+                // Module name is included in the URI for newer SpacetimeDB SDK versions
+                string uri = host.TrimEnd('/') + "/" + moduleName;
                 var builder = DbConnection.Builder()
-                    .WithUri(host)
-                    .WithModuleName(moduleName)
+                    .WithUri(uri)
                     .OnConnect(HandleConnect)
                     .OnConnectError(HandleConnectError)
                     .OnDisconnect(HandleDisconnect);
