@@ -181,7 +181,7 @@ namespace LeaderboardGame
             vpRect.sizeDelta = Vector2.zero;
             vpRect.offsetMin = Vector2.zero;
             vpRect.offsetMax = Vector2.zero;
-            viewport.AddComponent<Image>().color = Color.clear;
+            viewport.AddComponent<Image>().color = Color.white;  // Must have alpha>0 for Mask stencil to work
             viewport.AddComponent<Mask>().showMaskGraphic = false;
             scrollRect.viewport = vpRect;
 
@@ -196,8 +196,9 @@ namespace LeaderboardGame
 
             var contentLayout = content.AddComponent<VerticalLayoutGroup>();
             contentLayout.spacing = 2;
-            contentLayout.childControlHeight = false;
+            contentLayout.childControlHeight = true;
             contentLayout.childControlWidth = true;
+            contentLayout.childForceExpandHeight = false;
             contentLayout.childForceExpandWidth = true;
 
             var fitter = content.AddComponent<ContentSizeFitter>();

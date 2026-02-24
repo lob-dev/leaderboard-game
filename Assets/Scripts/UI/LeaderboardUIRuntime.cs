@@ -76,17 +76,13 @@ namespace LeaderboardGame
 
         private void RefreshUI(List<LeaderboardEntry> entries)
         {
-            // Clear existing
+            // Clear existing — must use DestroyImmediate so layout rebuild
+            // doesn't count zombie objects as children
             foreach (var obj in entryObjects)
             {
-                Destroy(obj);
+                DestroyImmediate(obj);
             }
             entryObjects.Clear();
-
-            var containerRect = entryContainer.GetComponent<RectTransform>();
-            var viewportRect = containerRect.parent?.GetComponent<RectTransform>();
-            var scrollRectRect = viewportRect?.parent?.GetComponent<RectTransform>();
-            Debug.Log($"[LeaderboardUI] RefreshUI: {entries.Count} entries. ScrollRect={scrollRectRect?.rect}, Viewport={viewportRect?.rect}, Content={containerRect.rect}");
 
             // Create entry rows
             for (int i = 0; i < entries.Count; i++)
@@ -94,12 +90,6 @@ namespace LeaderboardGame
                 var entry = entries[i];
                 var obj = Instantiate(entryPrefab, entryContainer);
                 obj.SetActive(true);
-
-                if (i == 0) {
-                    var r = obj.GetComponent<RectTransform>();
-                    Debug.Log($"[LeaderboardUI] First entry rect: pos={r.anchoredPosition}, size={r.sizeDelta}, active={obj.activeSelf}, parent={obj.transform.parent?.name}");
-                    Debug.Log($"[LeaderboardUI] Container rect: pos={entryContainer.GetComponent<RectTransform>().anchoredPosition}, size={entryContainer.GetComponent<RectTransform>().sizeDelta}");
-                }
 
                 var texts = obj.GetComponentsInChildren<TextMeshProUGUI>();
                 if (texts.Length >= 3)
@@ -141,7 +131,9 @@ namespace LeaderboardGame
             }
 
             // Force layout rebuild so ContentSizeFitter recalculates
-            LayoutRebuilder.ForceRebuildLayoutImmediate(entryContainer.GetComponent<RectTransform>());
+            var contentRect = entryContainer.GetComponent<RectTransform>();
+            Canvas.ForceUpdateCanvases();
+            LayoutRebuilder.ForceRebuildLayoutImmediate(contentRect);
 
             // Update player info bar
             var player = LeaderboardManager.Instance.GetLocalPlayer();
@@ -151,12 +143,8 @@ namespace LeaderboardGame
                 playerScoreText.text = player.Score.ToString("N0");
                 playerNameText.text = player.PlayerName;
 
-                // Auto-scroll to player position
-                if (entries.Count > 0)
-                {
-                    float normalizedPos = 1f - ((float)(player.Rank - 1) / entries.Count);
-                    scrollRect.verticalNormalizedPosition = Mathf.Lerp(scrollRect.verticalNormalizedPosition, normalizedPos, Time.deltaTime * 5f);
-                }
+                // Keep scroll at top for now (debug)
+                scrollRect.verticalNormalizedPosition = 1f;
             }
         }
 
