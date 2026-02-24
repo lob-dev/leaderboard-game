@@ -6,7 +6,7 @@ namespace LeaderboardGame
 {
     /// <summary>
     /// Core leaderboard system. Manages entries, sorting, and rank updates.
-    /// This is the heart of the game — the leaderboard IS the game.
+    /// Supports both offline (bot) mode and online (SpacetimeDB) mode.
     /// </summary>
     public class LeaderboardManager : MonoBehaviour
     {
@@ -16,13 +16,22 @@ namespace LeaderboardGame
         [SerializeField] private int maxVisibleEntries = 100;
         [SerializeField] private float updateInterval = 0.5f;
 
+        [Header("Mode")]
+        [Tooltip("When true, uses SpacetimeDB for online multiplayer. When false, uses local bots.")]
+        [SerializeField] private bool onlineMode = true;
+        [Tooltip("Keep bots alongside online players for a fuller leaderboard")]
+        [SerializeField] private bool fillWithBots = true;
+        [SerializeField] private int minBotsWhenOnline = 10;
+
         [Header("Events")]
         public UnityEvent<List<LeaderboardEntry>> OnLeaderboardUpdated;
         public UnityEvent<int> OnPlayerRankChanged;
 
         private List<LeaderboardEntry> entries = new List<LeaderboardEntry>();
+        private List<LeaderboardEntry> botEntries = new List<LeaderboardEntry>();
         private LeaderboardEntry localPlayer;
         private float updateTimer;
+        private bool isOnline;
 
         private void Awake()
         {
@@ -33,7 +42,6 @@ namespace LeaderboardGame
             }
             Instance = this;
 
-            // Initialize events (required for runtime-created components)
             if (OnLeaderboardUpdated == null)
                 OnLeaderboardUpdated = new UnityEvent<List<LeaderboardEntry>>();
             if (OnPlayerRankChanged == null)
@@ -42,7 +50,28 @@ namespace LeaderboardGame
 
         private void Start()
         {
-            InitializeWithFakeData();
+            if (onlineMode && SpacetimeDBManager.Instance != null)
+            {
+                // Wait for SpacetimeDB connection
+                SpacetimeDBManager.Instance.OnConnectedToServer += OnServerConnected;
+                SpacetimeDBManager.Instance.OnDisconnectedFromServer += OnServerDisconnected;
+                
+                // Start in offline mode until connected
+                InitializeWithFakeData();
+            }
+            else
+            {
+                InitializeWithFakeData();
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (SpacetimeDBManager.Instance != null)
+            {
+                SpacetimeDBManager.Instance.OnConnectedToServer -= OnServerConnected;
+                SpacetimeDBManager.Instance.OnDisconnectedFromServer -= OnServerDisconnected;
+            }
         }
 
         private void Update()
@@ -51,20 +80,101 @@ namespace LeaderboardGame
             if (updateTimer >= updateInterval)
             {
                 updateTimer = 0f;
-                SimulateOtherPlayers();
+                if (!isOnline)
+                {
+                    SimulateOtherPlayers();
+                }
                 SortAndRank();
             }
         }
 
+        private void OnServerConnected()
+        {
+            Debug.Log("[LeaderboardManager] Server connected - switching to online mode");
+            isOnline = true;
+        }
+
+        private void OnServerDisconnected()
+        {
+            Debug.Log("[LeaderboardManager] Server disconnected - falling back to offline mode");
+            isOnline = false;
+            // Keep current entries as-is, start simulating bots again
+        }
+
+        /// <summary>
+        /// Called by SpacetimeDBManager when player data arrives from the server.
+        /// Replaces online player entries while keeping bots if configured.
+        /// </summary>
+        public void SyncFromServer(List<SpacetimeDB.Types.Player> serverPlayers, SpacetimeDB.Identity? localIdentity)
+        {
+            entries.Clear();
+
+            // Add server players
+            foreach (var sp in serverPlayers)
+            {
+                bool isLocal = localIdentity.HasValue && sp.Identity == localIdentity.Value;
+                var entry = new LeaderboardEntry(
+                    sp.Identity.ToString(),
+                    sp.Name,
+                    (int)sp.Score,
+                    isLocal
+                );
+                entry.IsOnlinePlayer = true;
+
+                if (isLocal)
+                {
+                    localPlayer = entry;
+                }
+
+                entries.Add(entry);
+            }
+
+            // Fill with bots if configured
+            if (fillWithBots && botEntries.Count > 0)
+            {
+                int onlineCount = entries.Count;
+                int botsToAdd = Mathf.Max(0, minBotsWhenOnline - onlineCount);
+                botsToAdd = Mathf.Min(botsToAdd, botEntries.Count);
+                
+                for (int i = 0; i < botsToAdd; i++)
+                {
+                    entries.Add(botEntries[i]);
+                }
+            }
+
+            // Ensure we have a local player entry even if server hasn't registered us yet
+            if (localPlayer == null)
+            {
+                localPlayer = new LeaderboardEntry("local", "YOU", 0, true);
+                entries.Add(localPlayer);
+            }
+
+            SortAndRank();
+        }
+
         /// <summary>
         /// Add score to the local player. This is how you "play" the game.
+        /// In online mode, also sends the score to the server.
         /// </summary>
         public void AddPlayerScore(int amount)
         {
             if (localPlayer == null) return;
-            
+
             int oldRank = localPlayer.Rank;
-            localPlayer.Score += amount;
+
+            if (isOnline && SpacetimeDBManager.Instance != null)
+            {
+                // Server-authoritative: send to server, update will come back via subscription
+                SpacetimeDBManager.Instance.SendScoreToServer(amount);
+                
+                // Optimistic local update for responsiveness
+                localPlayer.Score += amount;
+            }
+            else
+            {
+                localPlayer.Score += amount;
+            }
+
             SortAndRank();
 
             if (localPlayer.Rank != oldRank)
@@ -76,6 +186,7 @@ namespace LeaderboardGame
         public LeaderboardEntry GetLocalPlayer() => localPlayer;
         public List<LeaderboardEntry> GetEntries() => entries;
         public int GetPlayerRank() => localPlayer?.Rank ?? -1;
+        public bool IsOnlineMode => isOnline;
 
         private void SortAndRank()
         {
@@ -108,7 +219,9 @@ namespace LeaderboardGame
             for (int i = 0; i < names.Length; i++)
             {
                 int score = Random.Range(50, 5000);
-                entries.Add(new LeaderboardEntry($"bot_{i}", names[i], score));
+                var bot = new LeaderboardEntry($"bot_{i}", names[i], score);
+                entries.Add(bot);
+                botEntries.Add(bot);
             }
 
             SortAndRank();
@@ -116,14 +229,15 @@ namespace LeaderboardGame
 
         /// <summary>
         /// Simulate other players gaining score over time to create pressure.
+        /// Only active in offline mode.
         /// </summary>
         private void SimulateOtherPlayers()
         {
             foreach (var entry in entries)
             {
                 if (entry.IsLocalPlayer) continue;
-                
-                // Random chance of gaining points (blocked if frozen by item)
+                if (entry.IsOnlinePlayer) continue;
+
                 if (ItemSystem.Instance != null && ItemSystem.Instance.AreOpponentsFrozen())
                     continue;
                 if (Random.value < 0.3f)

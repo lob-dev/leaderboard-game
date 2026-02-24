@@ -10,6 +10,7 @@ namespace LeaderboardGame
         public int Score;
         public int Rank;
         public bool IsLocalPlayer;
+        public bool IsOnlinePlayer;
 
         public LeaderboardEntry(string id, string name, int score, bool isLocal = false)
         {
@@ -17,6 +18,7 @@ namespace LeaderboardGame
             PlayerName = name;
             Score = score;
             IsLocalPlayer = isLocal;
+            IsOnlinePlayer = false;
         }
 
         public int CompareTo(LeaderboardEntry other)

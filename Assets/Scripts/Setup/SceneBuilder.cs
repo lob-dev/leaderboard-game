@@ -390,6 +390,24 @@ namespace LeaderboardGame
             // Add AutoScreenshot
             var screenshotObj = new GameObject("AutoScreenshot");
             screenshotObj.AddComponent<AutoScreenshot>();
+
+            // Add SpacetimeDB components for online multiplayer
+            var stdbObj = new GameObject("SpacetimeDB");
+            stdbObj.AddComponent<SpacetimeDBManager>();
+            // The SpacetimeDBNetworkManager drives the message processing loop
+            stdbObj.AddComponent<SpacetimeDB.SpacetimeDBNetworkManager>();
+
+            // Add online status indicator
+            var statusObj = new GameObject("OnlineStatus");
+            var statusUI = statusObj.AddComponent<OnlineStatusUI>();
+            var statusTextObj = CreateText(mainCanvas.transform, "StatusText", "● OFFLINE", 24, TMPro.TextAlignmentOptions.Right, dimTextColor);
+            var statusRect = statusTextObj.GetComponent<RectTransform>();
+            statusRect.anchorMin = new Vector2(1, 1);
+            statusRect.anchorMax = new Vector2(1, 1);
+            statusRect.pivot = new Vector2(1, 1);
+            statusRect.anchoredPosition = new Vector2(-20, -20);
+            statusRect.sizeDelta = new Vector2(200, 40);
+            SetPrivateField(statusUI, "statusText", statusTextObj.GetComponent<TMPro.TextMeshProUGUI>());
         }
 
         private GameObject CreateText(Transform parent, string name, string content, float size, TextAlignmentOptions alignment, Color color)
