@@ -52,11 +52,8 @@ namespace LeaderboardGame
         {
             if (onlineMode && SpacetimeDBManager.Instance != null)
             {
-                // Wait for SpacetimeDB connection
                 SpacetimeDBManager.Instance.OnConnectedToServer += OnServerConnected;
                 SpacetimeDBManager.Instance.OnDisconnectedFromServer += OnServerDisconnected;
-                
-                // Start in offline mode until connected
                 InitializeWithFakeData();
             }
             else
@@ -98,18 +95,12 @@ namespace LeaderboardGame
         {
             Debug.Log("[LeaderboardManager] Server disconnected - falling back to offline mode");
             isOnline = false;
-            // Keep current entries as-is, start simulating bots again
         }
 
-        /// <summary>
-        /// Called by SpacetimeDBManager when player data arrives from the server.
-        /// Replaces online player entries while keeping bots if configured.
-        /// </summary>
         public void SyncFromServer(List<SpacetimeDB.Types.Player> serverPlayers, SpacetimeDB.Identity? localIdentity)
         {
             entries.Clear();
 
-            // Add server players
             foreach (var sp in serverPlayers)
             {
                 bool isLocal = localIdentity.HasValue && sp.Identity == localIdentity.Value;
@@ -122,27 +113,20 @@ namespace LeaderboardGame
                 entry.IsOnlinePlayer = true;
 
                 if (isLocal)
-                {
                     localPlayer = entry;
-                }
 
                 entries.Add(entry);
             }
 
-            // Fill with bots if configured
             if (fillWithBots && botEntries.Count > 0)
             {
                 int onlineCount = entries.Count;
                 int botsToAdd = Mathf.Max(0, minBotsWhenOnline - onlineCount);
                 botsToAdd = Mathf.Min(botsToAdd, botEntries.Count);
-                
                 for (int i = 0; i < botsToAdd; i++)
-                {
                     entries.Add(botEntries[i]);
-                }
             }
 
-            // Ensure we have a local player entry even if server hasn't registered us yet
             if (localPlayer == null)
             {
                 localPlayer = new LeaderboardEntry("local", "YOU", 0, true);
@@ -152,10 +136,6 @@ namespace LeaderboardGame
             SortAndRank();
         }
 
-        /// <summary>
-        /// Add score to the local player. This is how you "play" the game.
-        /// In online mode, also sends the score to the server.
-        /// </summary>
         public void AddPlayerScore(int amount)
         {
             if (localPlayer == null) return;
@@ -164,16 +144,19 @@ namespace LeaderboardGame
 
             if (isOnline && SpacetimeDBManager.Instance != null)
             {
-                // Server-authoritative: send to server, update will come back via subscription
                 SpacetimeDBManager.Instance.SendScoreToServer(amount);
-                
-                // Optimistic local update for responsiveness
                 localPlayer.Score += amount;
             }
             else
             {
                 localPlayer.Score += amount;
             }
+
+            localPlayer.LastActiveTime = Time.time;
+
+            // Notify narrative system
+            if (NarrativeSystem.Instance != null)
+                NarrativeSystem.Instance.RecordTap();
 
             SortAndRank();
 
@@ -193,56 +176,121 @@ namespace LeaderboardGame
             entries.Sort();
             for (int i = 0; i < entries.Count; i++)
             {
-                entries[i].Rank = i + 1;
+                var e = entries[i];
+                // Track rank changes for animation
+                if (e.PreviousRank != -1 && e.Rank != e.PreviousRank)
+                {
+                    if (i + 1 < e.PreviousRank) e.JustRankedUp = true;
+                    else if (i + 1 > e.PreviousRank) e.JustRankedDown = true;
+                    e.RankChangeTime = Time.time;
+                }
+                e.PreviousRank = e.Rank;
+                e.Rank = i + 1;
             }
+
+            // Narrative updates
+            if (NarrativeSystem.Instance != null)
+            {
+                NarrativeSystem.Instance.UpdateRivals(entries);
+                NarrativeSystem.Instance.UpdateAuras(entries);
+            }
+
             OnLeaderboardUpdated?.Invoke(entries);
         }
 
         private void InitializeWithFakeData()
         {
-            // Create local player
             localPlayer = new LeaderboardEntry("local", "YOU", 0, true);
             entries.Add(localPlayer);
 
-            // Populate with AI players
-            string[] names = {
-                "xXSlayerXx", "ProGamer99", "NoobMaster", "ShadowWolf",
-                "PixelQueen", "BotLord", "CryptoKing", "NightOwl42",
-                "SpeedDemon", "ChillGuy", "TryHard101", "CasualKaren",
-                "MLG_Toast", "RageQuitter", "AFK_Andy", "SweatyPalms",
-                "LagMaster", "360NoScope", "EzClap", "TouchGrass",
-                "Smurf_Alt", "PogChamp", "GigaChad", "Ratio_King",
-                "L_Collector", "WinStreak", "Carried", "1TapGod",
-                "Boosted", "HardStuck"
+            // Active bot players
+            string[] activeNames = {
+                "xXSlayerXx", "ProGamer99", "ShadowWolf",
+                "PixelQueen", "CryptoKing", "NightOwl42",
+                "SpeedDemon", "ChillGuy", "TryHard101",
+                "MLG_Toast", "EzClap", "GigaChad",
+                "WinStreak", "1TapGod", "Boosted",
+                "HardStuck", "Ratio_King", "PogChamp"
             };
 
-            for (int i = 0; i < names.Length; i++)
+            string[] activeTitles = {
+                "The Relentless", "The Devoted", "The Shadow",
+                "The Radiant", "The Mogul", "The Nocturnal",
+                "The Blur", "The Calm", "The Sweat",
+                "The Crispy", "The Effortless", "The Absolute",
+                "The Unstoppable", "The Precise", "The Carried",
+                "The Stuck", "The Viral", "The Hype"
+            };
+
+            for (int i = 0; i < activeNames.Length; i++)
             {
                 int score = Random.Range(50, 5000);
-                var bot = new LeaderboardEntry($"bot_{i}", names[i], score);
+                var bot = new LeaderboardEntry($"bot_{i}", activeNames[i], score);
+                bot.PlaystyleTitle = activeTitles[i % activeTitles.Length];
                 entries.Add(bot);
                 botEntries.Add(bot);
+            }
+
+            // Ghost entries — dead players with Last Words
+            string[] ghostNames = {
+                "RageQuitter", "AFK_Andy", "LagMaster",
+                "CasualKaren", "SweatyPalms", "NoobMaster",
+                "TouchGrass", "L_Collector", "Smurf_Alt"
+            };
+
+            string[] lastWords = {
+                "I'll be back... I won't.",
+                "afk 5 min (it's been 3 months)",
+                "lag killed me, not you",
+                "this game used to be fun",
+                "my hands hurt. worth it? no.",
+                "I was #1 once. for 2 seconds.",
+                "going outside. heard it has good graphics.",
+                "collected 847 L's. that's a record, right?",
+                "this is my alt. my main is also dead."
+            };
+
+            string[] ghostReasons = {
+                "Rage quit after losing #3",
+                "Said 'brb' and never returned",
+                "Blamed the servers",
+                "Lost interest at rank #15",
+                "RSI from tapping",
+                "Brief glory, eternal rest",
+                "Touched grass, never came back",
+                "Accepted their fate",
+                "Pretended this wasn't their main"
+            };
+
+            for (int i = 0; i < ghostNames.Length; i++)
+            {
+                int score = Random.Range(10, 800);
+                var ghost = new LeaderboardEntry($"ghost_{i}", ghostNames[i], score);
+                ghost.IsGhost = true;
+                ghost.LastWords = lastWords[i % lastWords.Length];
+                ghost.GhostReason = ghostReasons[i % ghostReasons.Length];
+                ghost.PlaystyleTitle = ""; // ghosts have no title — they're gone
+                entries.Add(ghost);
+                botEntries.Add(ghost);
             }
 
             SortAndRank();
         }
 
-        /// <summary>
-        /// Simulate other players gaining score over time to create pressure.
-        /// Only active in offline mode.
-        /// </summary>
         private void SimulateOtherPlayers()
         {
             foreach (var entry in entries)
             {
                 if (entry.IsLocalPlayer) continue;
                 if (entry.IsOnlinePlayer) continue;
+                if (entry.IsGhost) continue; // Ghosts don't play
 
                 if (ItemSystem.Instance != null && ItemSystem.Instance.AreOpponentsFrozen())
                     continue;
                 if (Random.value < 0.3f)
                 {
                     entry.Score += Random.Range(1, 15);
+                    entry.LastActiveTime = Time.time;
                 }
             }
         }

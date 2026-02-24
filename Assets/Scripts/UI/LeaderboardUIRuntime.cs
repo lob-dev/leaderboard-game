@@ -7,7 +7,8 @@ using UnityEngine.EventSystems;
 namespace LeaderboardGame
 {
     /// <summary>
-    /// Runtime version of LeaderboardUI that gets wired up programmatically by SceneBuilder.
+    /// Runtime version of LeaderboardUI — now with narrative flavor.
+    /// Ghost entries, subtitles, auras, rival highlights, alive presence.
     /// </summary>
     public class LeaderboardUIRuntime : MonoBehaviour
     {
@@ -17,6 +18,7 @@ namespace LeaderboardGame
         private TextMeshProUGUI playerRankText;
         private TextMeshProUGUI playerScoreText;
         private TextMeshProUGUI playerNameText;
+        private TextMeshProUGUI playerTitleText; // Playstyle subtitle
 
         private Color accentColor;
         private Color top3Color;
@@ -26,11 +28,19 @@ namespace LeaderboardGame
         private Color textColor;
         private Color dimTextColor;
 
+        // Ghost colors
+        private Color ghostBgColor = new Color(0.08f, 0.08f, 0.1f, 0.6f);
+        private Color ghostTextColor = new Color(0.35f, 0.35f, 0.4f, 0.7f);
+        private Color ghostNameColor = new Color(0.4f, 0.4f, 0.45f, 0.5f);
+        private Color rivalBorderColor = new Color(1f, 0.25f, 0.3f, 0.8f);
+        private Color lastWordsColor = new Color(0.45f, 0.45f, 0.55f, 0.6f);
+
         private List<GameObject> entryObjects = new List<GameObject>();
         private int lastPlayerRank = -1;
 
         public void Init(Transform container, GameObject prefab, ScrollRect scroll,
                          TextMeshProUGUI rankText, TextMeshProUGUI scoreText, TextMeshProUGUI nameText,
+                         TextMeshProUGUI titleText,
                          Color accent, Color top3, Color entry, Color entryAlt, Color playerEntry, Color text, Color dimText)
         {
             entryContainer = container;
@@ -39,6 +49,7 @@ namespace LeaderboardGame
             playerRankText = rankText;
             playerScoreText = scoreText;
             playerNameText = nameText;
+            playerTitleText = titleText;
             accentColor = accent;
             top3Color = top3;
             entryColor = entry;
@@ -47,11 +58,8 @@ namespace LeaderboardGame
             textColor = text;
             dimTextColor = dimText;
 
-            // Start listening for manager updates now that all fields are set
             StartCoroutine(WaitForManager());
         }
-
-        // Note: Don't use OnEnable for manager subscription — Init hasn't been called yet when OnEnable fires.
 
         private System.Collections.IEnumerator WaitForManager()
         {
@@ -60,8 +68,6 @@ namespace LeaderboardGame
 
             LeaderboardManager.Instance.OnLeaderboardUpdated.AddListener(RefreshUI);
             LeaderboardManager.Instance.OnPlayerRankChanged.AddListener(OnRankChanged);
-
-            // Trigger initial refresh (the first event may have fired before we subscribed)
             RefreshUI(LeaderboardManager.Instance.GetEntries());
         }
 
@@ -76,61 +82,36 @@ namespace LeaderboardGame
 
         private void RefreshUI(List<LeaderboardEntry> entries)
         {
-            // Clear existing — must use DestroyImmediate so layout rebuild
-            // doesn't count zombie objects as children
             foreach (var obj in entryObjects)
-            {
                 DestroyImmediate(obj);
-            }
             entryObjects.Clear();
 
-            // Create entry rows
             for (int i = 0; i < entries.Count; i++)
             {
                 var entry = entries[i];
                 var obj = Instantiate(entryPrefab, entryContainer);
                 obj.SetActive(true);
 
-                var texts = obj.GetComponentsInChildren<TextMeshProUGUI>();
-                if (texts.Length >= 3)
-                {
-                    texts[0].text = $"#{entry.Rank}";
-                    texts[1].text = entry.PlayerName;
-                    texts[2].text = entry.Score.ToString("N0");
+                var texts = obj.GetComponentsInChildren<TextMeshProUGUI>(true);
+                // texts[0]=Rank, [1]=Name, [2]=Score, [3]=Subtitle (if exists)
 
-                    if (entry.IsLocalPlayer)
-                    {
-                        texts[0].color = accentColor;
-                        texts[1].color = accentColor;
-                        texts[2].color = accentColor;
-                    }
-                    else if (entry.Rank <= 3)
-                    {
-                        texts[0].color = top3Color;
-                        texts[1].color = textColor;
-                        texts[2].color = dimTextColor;
-                    }
-                    else
-                    {
-                        texts[0].color = dimTextColor;
-                        texts[1].color = textColor;
-                        texts[2].color = dimTextColor;
-                    }
-                }
+                if (entry.IsGhost)
+                    SetupGhostEntry(obj, entry, texts);
+                else
+                    SetupAliveEntry(obj, entry, texts, i);
 
-                var bg = obj.GetComponent<Image>();
-                if (bg != null)
-                {
-                    if (entry.IsLocalPlayer)
-                        bg.color = playerEntryColor;
-                    else
-                        bg.color = (i % 2 == 0) ? entryColor : entryAltColor;
-                }
+                // Aura glow (left border accent)
+                if (entry.AuraColor.a > 0.01f)
+                    AddAuraGlow(obj, entry.AuraColor);
+
+                // Rival border highlight
+                if (entry.IsRival)
+                    AddRivalHighlight(obj);
 
                 entryObjects.Add(obj);
             }
 
-            // Force layout rebuild so ContentSizeFitter recalculates
+            // Force layout rebuild
             var contentRect = entryContainer.GetComponent<RectTransform>();
             Canvas.ForceUpdateCanvases();
             LayoutRebuilder.ForceRebuildLayoutImmediate(contentRect);
@@ -142,17 +123,165 @@ namespace LeaderboardGame
                 playerRankText.text = $"#{player.Rank}";
                 playerScoreText.text = player.Score.ToString("N0");
                 playerNameText.text = player.PlayerName;
+                
+                // Show playstyle title
+                if (playerTitleText != null)
+                {
+                    if (!string.IsNullOrEmpty(player.PlaystyleTitle))
+                        playerTitleText.text = player.PlaystyleTitle;
+                    else
+                        playerTitleText.text = "";
+                }
 
-                // Keep scroll at top for now (debug)
                 scrollRect.verticalNormalizedPosition = 1f;
             }
+        }
+
+        private void SetupAliveEntry(GameObject obj, LeaderboardEntry entry, TextMeshProUGUI[] texts, int index)
+        {
+            if (texts.Length >= 3)
+            {
+                texts[0].text = $"#{entry.Rank}";
+                texts[1].text = entry.PlayerName;
+                texts[2].text = entry.Score.ToString("N0");
+
+                if (entry.IsLocalPlayer)
+                {
+                    texts[0].color = accentColor;
+                    texts[1].color = accentColor;
+                    texts[2].color = accentColor;
+                }
+                else if (entry.IsRival)
+                {
+                    texts[0].color = new Color(1f, 0.4f, 0.4f);
+                    texts[1].color = new Color(1f, 0.5f, 0.5f);
+                    texts[2].color = new Color(1f, 0.4f, 0.4f);
+                }
+                else if (entry.Rank <= 3)
+                {
+                    texts[0].color = top3Color;
+                    texts[1].color = textColor;
+                    texts[2].color = dimTextColor;
+                }
+                else
+                {
+                    texts[0].color = dimTextColor;
+                    texts[1].color = textColor;
+                    texts[2].color = dimTextColor;
+                }
+            }
+
+            // Subtitle (playstyle title)
+            if (texts.Length >= 4 && !string.IsNullOrEmpty(entry.PlaystyleTitle))
+            {
+                texts[3].text = entry.PlaystyleTitle;
+                texts[3].color = entry.IsLocalPlayer ? new Color(1f, 0.75f, 0.3f, 0.8f) : new Color(0.5f, 0.5f, 0.6f, 0.6f);
+                texts[3].gameObject.SetActive(true);
+            }
+            else if (texts.Length >= 4)
+            {
+                texts[3].gameObject.SetActive(false);
+            }
+
+            var bg = obj.GetComponent<Image>();
+            if (bg != null)
+            {
+                if (entry.IsLocalPlayer)
+                    bg.color = playerEntryColor;
+                else if (entry.IsRival)
+                    bg.color = new Color(0.2f, 0.1f, 0.1f, 0.9f);
+                else
+                    bg.color = (index % 2 == 0) ? entryColor : entryAltColor;
+            }
+        }
+
+        private void SetupGhostEntry(GameObject obj, LeaderboardEntry entry, TextMeshProUGUI[] texts)
+        {
+            if (texts.Length >= 3)
+            {
+                texts[0].text = $"#{entry.Rank}";
+                texts[0].color = ghostTextColor;
+                texts[0].fontStyle = FontStyles.Italic;
+
+                // Ghost name with strikethrough effect
+                texts[1].text = entry.PlayerName;
+                texts[1].color = ghostNameColor;
+                texts[1].fontStyle = FontStyles.Italic | FontStyles.Strikethrough;
+
+                texts[2].text = entry.Score.ToString("N0");
+                texts[2].color = ghostTextColor;
+                texts[2].fontStyle = FontStyles.Italic;
+            }
+
+            // Show "Last Words" as subtitle
+            if (texts.Length >= 4 && !string.IsNullOrEmpty(entry.LastWords))
+            {
+                texts[3].text = $"\"{entry.LastWords}\"";
+                texts[3].color = lastWordsColor;
+                texts[3].fontStyle = FontStyles.Italic;
+                texts[3].gameObject.SetActive(true);
+            }
+            else if (texts.Length >= 4)
+            {
+                texts[3].gameObject.SetActive(false);
+            }
+
+            var bg = obj.GetComponent<Image>();
+            if (bg != null)
+            {
+                bg.color = ghostBgColor;
+            }
+        }
+
+        private void AddAuraGlow(GameObject entryObj, Color auraColor)
+        {
+            // Add a thin colored bar on the left as an "aura"
+            var aura = new GameObject("Aura");
+            aura.transform.SetParent(entryObj.transform, false);
+
+            var rect = aura.AddComponent<RectTransform>();
+            rect.anchorMin = new Vector2(0, 0);
+            rect.anchorMax = new Vector2(0, 1);
+            rect.pivot = new Vector2(0, 0.5f);
+            rect.sizeDelta = new Vector2(4, 0);
+            rect.anchoredPosition = Vector2.zero;
+
+            var img = aura.AddComponent<Image>();
+            img.color = auraColor;
+            img.raycastTarget = false;
+
+            // Set as first child so it renders behind text
+            aura.transform.SetAsFirstSibling();
+        }
+
+        private void AddRivalHighlight(GameObject entryObj)
+        {
+            // Pulsing border effect for rival
+            var border = new GameObject("RivalBorder");
+            border.transform.SetParent(entryObj.transform, false);
+
+            var rect = border.AddComponent<RectTransform>();
+            rect.anchorMin = Vector2.zero;
+            rect.anchorMax = Vector2.one;
+            rect.sizeDelta = Vector2.zero;
+            rect.offsetMin = new Vector2(-2, -2);
+            rect.offsetMax = new Vector2(2, 2);
+
+            var outline = border.AddComponent<Outline>();
+            // Outline component is on Text — instead use Image
+            Destroy(outline);
+
+            // Use a slightly transparent overlay
+            var img = border.AddComponent<Image>();
+            img.color = new Color(1f, 0.2f, 0.3f, 0.08f);
+            img.raycastTarget = false;
+            border.transform.SetAsFirstSibling();
         }
 
         private void OnRankChanged(int newRank)
         {
             if (lastPlayerRank != -1 && newRank < lastPlayerRank)
             {
-                // Moved up! Could add screen effects here
                 Debug.Log($"[Leaderboard] Climbed to #{newRank}!");
             }
             lastPlayerRank = newRank;

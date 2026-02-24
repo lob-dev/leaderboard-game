@@ -7,8 +7,7 @@ namespace LeaderboardGame
 {
     /// <summary>
     /// Runtime scene builder - creates the full UI programmatically.
-    /// Attach this to an empty GameObject in the scene and it builds everything on Start.
-    /// This avoids needing to manually configure the scene in the editor.
+    /// Now with narrative layer: board voice, subtitles, alive presence.
     /// </summary>
     public class SceneBuilder : MonoBehaviour
     {
@@ -29,11 +28,16 @@ namespace LeaderboardGame
         private TextMeshProUGUI playerRankText;
         private TextMeshProUGUI playerScoreText;
         private TextMeshProUGUI playerNameText;
+        private TextMeshProUGUI playerTitleText;
         private TextMeshProUGUI comboText;
         private TextMeshProUGUI pointsPerTapText;
         private Button tapButton;
         private ScrollRect scrollRect;
         private GameObject entryPrefab;
+
+        // Narrative UI
+        private TextMeshProUGUI boardVoiceText;
+        private CanvasGroup boardVoiceCG;
 
         private void Start()
         {
@@ -42,11 +46,9 @@ namespace LeaderboardGame
 
         private void BuildScene()
         {
-            // Camera setup
             Camera.main.backgroundColor = backgroundColor;
             Camera.main.clearFlags = CameraClearFlags.SolidColor;
 
-            // Canvas
             var canvasObj = new GameObject("MainCanvas");
             mainCanvas = canvasObj.AddComponent<Canvas>();
             Debug.Log($"[SceneBuilder] Screen: {Screen.width}x{Screen.height}, fullscreen={Screen.fullScreen}");
@@ -58,35 +60,19 @@ namespace LeaderboardGame
             scaler.matchWidthOrHeight = 0.5f;
             canvasObj.AddComponent<GraphicRaycaster>();
 
-            // EventSystem is required for UI interactions (button clicks, etc.)
             if (FindObjectOfType<EventSystem>() == null)
             {
                 var eventSystemObj = new GameObject("EventSystem");
                 eventSystemObj.AddComponent<EventSystem>();
                 eventSystemObj.AddComponent<StandaloneInputModule>();
-                Debug.Log("[SceneBuilder] Created EventSystem + StandaloneInputModule");
-            }
-            else
-            {
-                Debug.Log("[SceneBuilder] EventSystem already exists");
             }
 
-            // Build entry prefab (hidden template)
             entryPrefab = BuildEntryPrefab(canvasObj.transform);
-
-            // Header bar
             BuildHeader(canvasObj.transform);
-
-            // Leaderboard scroll area
+            BuildBoardVoice(canvasObj.transform);
             BuildLeaderboardArea(canvasObj.transform);
-
-            // Player info bar (bottom)
             BuildPlayerBar(canvasObj.transform);
-
-            // Tap area
             BuildTapArea(canvasObj.transform);
-
-            // Wire up managers
             WireUpManagers();
         }
 
@@ -96,36 +82,61 @@ namespace LeaderboardGame
             prefab.transform.SetParent(parent, false);
 
             var rect = prefab.AddComponent<RectTransform>();
-            rect.sizeDelta = new Vector2(0, 80);
+            rect.sizeDelta = new Vector2(0, 90); // slightly taller for subtitle
 
-            var layout = prefab.AddComponent<HorizontalLayoutGroup>();
-            layout.padding = new RectOffset(20, 20, 8, 8);
-            layout.spacing = 15;
+            var layout = prefab.AddComponent<VerticalLayoutGroup>();
+            layout.padding = new RectOffset(8, 8, 4, 4);
+            layout.spacing = 0;
             layout.childAlignment = TextAnchor.MiddleLeft;
-            layout.childControlWidth = false;
-            layout.childForceExpandWidth = false;
+            layout.childControlWidth = true;
+            layout.childControlHeight = false;
+            layout.childForceExpandWidth = true;
+            layout.childForceExpandHeight = false;
 
             var bg = prefab.AddComponent<Image>();
             bg.color = entryColor;
 
-            // LayoutElement so ContentSizeFitter can calculate preferred size
             var le = prefab.AddComponent<LayoutElement>();
-            le.preferredHeight = 80;
-            le.minHeight = 80;
+            le.preferredHeight = 90;
+            le.minHeight = 90;
+
+            // Main row (rank, name, score) in a horizontal group
+            var mainRow = new GameObject("MainRow");
+            mainRow.transform.SetParent(prefab.transform, false);
+            var mainRowRect = mainRow.AddComponent<RectTransform>();
+            mainRowRect.sizeDelta = new Vector2(0, 54);
+            var mainRowLayout = mainRow.AddComponent<HorizontalLayoutGroup>();
+            mainRowLayout.padding = new RectOffset(12, 12, 0, 0);
+            mainRowLayout.spacing = 15;
+            mainRowLayout.childAlignment = TextAnchor.MiddleLeft;
+            mainRowLayout.childControlWidth = false;
+            mainRowLayout.childForceExpandWidth = false;
+            var mainRowLE = mainRow.AddComponent<LayoutElement>();
+            mainRowLE.preferredHeight = 54;
 
             // Rank
-            var rankObj = CreateText(prefab.transform, "Rank", "#1", 36, TextAlignmentOptions.Left, accentColor);
-            rankObj.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 60);
+            var rankObj = CreateText(mainRow.transform, "Rank", "#1", 34, TextAlignmentOptions.Left, accentColor);
+            rankObj.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 50);
 
             // Name
-            var nameObj = CreateText(prefab.transform, "Name", "Player", 32, TextAlignmentOptions.Left, textColor);
-            nameObj.GetComponent<RectTransform>().sizeDelta = new Vector2(550, 60);
+            var nameObj = CreateText(mainRow.transform, "Name", "Player", 30, TextAlignmentOptions.Left, textColor);
+            nameObj.GetComponent<RectTransform>().sizeDelta = new Vector2(550, 50);
             var nameLayout = nameObj.AddComponent<LayoutElement>();
             nameLayout.flexibleWidth = 1;
 
             // Score
-            var scoreObj = CreateText(prefab.transform, "Score", "0", 32, TextAlignmentOptions.Right, dimTextColor);
-            scoreObj.GetComponent<RectTransform>().sizeDelta = new Vector2(200, 60);
+            var scoreObj = CreateText(mainRow.transform, "Score", "0", 30, TextAlignmentOptions.Right, dimTextColor);
+            scoreObj.GetComponent<RectTransform>().sizeDelta = new Vector2(200, 50);
+
+            // Subtitle row (playstyle title or last words)
+            var subtitleObj = CreateText(prefab.transform, "Subtitle", "", 20, TextAlignmentOptions.Left, new Color(0.5f, 0.5f, 0.6f, 0.6f));
+            var subRect = subtitleObj.GetComponent<RectTransform>();
+            subRect.sizeDelta = new Vector2(0, 28);
+            var subLE = subtitleObj.AddComponent<LayoutElement>();
+            subLE.preferredHeight = 28;
+            var subTMP = subtitleObj.GetComponent<TextMeshProUGUI>();
+            subTMP.fontStyle = FontStyles.Italic;
+            subTMP.margin = new Vector4(32, 0, 12, 0); // indent to align under name
 
             prefab.SetActive(false);
             return prefab;
@@ -140,41 +151,65 @@ namespace LeaderboardGame
             rect.anchorMin = new Vector2(0, 1);
             rect.anchorMax = new Vector2(1, 1);
             rect.pivot = new Vector2(0.5f, 1);
-            rect.sizeDelta = new Vector2(0, 140);
+            rect.sizeDelta = new Vector2(0, 120);
             rect.anchoredPosition = Vector2.zero;
 
             var bg = header.AddComponent<Image>();
             bg.color = headerColor;
 
-            // Title
-            var title = CreateText(header.transform, "Title", "LEADERBOARD", 52, TextAlignmentOptions.Center, accentColor);
+            var title = CreateText(header.transform, "Title", "THE BOARD", 48, TextAlignmentOptions.Center, accentColor);
             var titleRect = title.GetComponent<RectTransform>();
-            titleRect.anchorMin = new Vector2(0, 0);
+            titleRect.anchorMin = new Vector2(0, 0.3f);
             titleRect.anchorMax = new Vector2(1, 1);
-            titleRect.offsetMin = new Vector2(20, 10);
-            titleRect.offsetMax = new Vector2(-20, -30);
+            titleRect.offsetMin = new Vector2(20, 0);
+            titleRect.offsetMax = new Vector2(-20, -20);
             title.GetComponent<TextMeshProUGUI>().fontStyle = FontStyles.Bold;
 
-            // Subtitle
-            var sub = CreateText(header.transform, "Subtitle", "Tap to climb. Don't stop.", 24, TextAlignmentOptions.Center, dimTextColor);
+            var sub = CreateText(header.transform, "Subtitle", "You are a name and a number. Climb.", 22, TextAlignmentOptions.Center, dimTextColor);
             var subRect = sub.GetComponent<RectTransform>();
             subRect.anchorMin = new Vector2(0, 0);
             subRect.anchorMax = new Vector2(1, 0.35f);
             subRect.offsetMin = new Vector2(20, 5);
             subRect.offsetMax = new Vector2(-20, -5);
+            sub.GetComponent<TextMeshProUGUI>().fontStyle = FontStyles.Italic;
+        }
+
+        private void BuildBoardVoice(Transform parent)
+        {
+            // Board voice — self-aware text that floats below header
+            var voiceObj = new GameObject("BoardVoice");
+            voiceObj.transform.SetParent(parent, false);
+
+            var rect = voiceObj.AddComponent<RectTransform>();
+            rect.anchorMin = new Vector2(0, 1);
+            rect.anchorMax = new Vector2(1, 1);
+            rect.pivot = new Vector2(0.5f, 1);
+            rect.sizeDelta = new Vector2(0, 50);
+            rect.anchoredPosition = new Vector2(0, -120); // just below header
+
+            boardVoiceCG = voiceObj.AddComponent<CanvasGroup>();
+            boardVoiceCG.alpha = 0f;
+            boardVoiceCG.blocksRaycasts = false;
+
+            boardVoiceText = CreateText(voiceObj.transform, "VoiceText", "", 22, TextAlignmentOptions.Center, new Color(0.65f, 0.6f, 0.75f)).GetComponent<TextMeshProUGUI>();
+            var vtRect = boardVoiceText.GetComponent<RectTransform>();
+            vtRect.anchorMin = Vector2.zero;
+            vtRect.anchorMax = Vector2.one;
+            vtRect.offsetMin = new Vector2(30, 0);
+            vtRect.offsetMax = new Vector2(-30, 0);
+            boardVoiceText.fontStyle = FontStyles.Italic;
         }
 
         private void BuildLeaderboardArea(Transform parent)
         {
-            // Scroll view
             var scrollObj = new GameObject("LeaderboardScroll");
             scrollObj.transform.SetParent(parent, false);
 
             var scrollRectT = scrollObj.AddComponent<RectTransform>();
             scrollRectT.anchorMin = new Vector2(0, 0);
             scrollRectT.anchorMax = new Vector2(1, 1);
-            scrollRectT.offsetMin = new Vector2(0, 280); // above player bar + tap area
-            scrollRectT.offsetMax = new Vector2(0, -140); // below header
+            scrollRectT.offsetMin = new Vector2(0, 280);
+            scrollRectT.offsetMax = new Vector2(0, -170); // extra space for board voice
 
             scrollRect = scrollObj.AddComponent<ScrollRect>();
             scrollRect.horizontal = false;
@@ -184,9 +219,7 @@ namespace LeaderboardGame
 
             var scrollBg = scrollObj.AddComponent<Image>();
             scrollBg.color = backgroundColor;
-            // Note: Don't add Mask here — the Viewport already has one. Double masking causes issues.
 
-            // Viewport
             var viewport = new GameObject("Viewport");
             viewport.transform.SetParent(scrollObj.transform, false);
             var vpRect = viewport.AddComponent<RectTransform>();
@@ -195,11 +228,10 @@ namespace LeaderboardGame
             vpRect.sizeDelta = Vector2.zero;
             vpRect.offsetMin = Vector2.zero;
             vpRect.offsetMax = Vector2.zero;
-            viewport.AddComponent<Image>().color = Color.white;  // Must have alpha>0 for Mask stencil to work
+            viewport.AddComponent<Image>().color = Color.white;
             viewport.AddComponent<Mask>().showMaskGraphic = false;
             scrollRect.viewport = vpRect;
 
-            // Content
             var content = new GameObject("Content");
             content.transform.SetParent(viewport.transform, false);
             var contentRect = content.AddComponent<RectTransform>();
@@ -238,25 +270,34 @@ namespace LeaderboardGame
             bg.color = playerEntryColor;
 
             // Rank
-            playerRankText = CreateText(bar.transform, "PlayerRank", "#31", 48, TextAlignmentOptions.Left, accentColor).GetComponent<TextMeshProUGUI>();
+            playerRankText = CreateText(bar.transform, "PlayerRank", "#31", 44, TextAlignmentOptions.Left, accentColor).GetComponent<TextMeshProUGUI>();
             var prRect = playerRankText.GetComponent<RectTransform>();
-            prRect.anchorMin = new Vector2(0, 0);
-            prRect.anchorMax = new Vector2(0.2f, 1);
-            prRect.offsetMin = new Vector2(20, 10);
+            prRect.anchorMin = new Vector2(0, 0.35f);
+            prRect.anchorMax = new Vector2(0.18f, 1);
+            prRect.offsetMin = new Vector2(20, 0);
             prRect.offsetMax = new Vector2(-5, -10);
             playerRankText.fontStyle = FontStyles.Bold;
 
             // Name
-            playerNameText = CreateText(bar.transform, "PlayerName", "YOU", 36, TextAlignmentOptions.Left, textColor).GetComponent<TextMeshProUGUI>();
+            playerNameText = CreateText(bar.transform, "PlayerName", "YOU", 32, TextAlignmentOptions.Left, textColor).GetComponent<TextMeshProUGUI>();
             var pnRect = playerNameText.GetComponent<RectTransform>();
-            pnRect.anchorMin = new Vector2(0.2f, 0);
+            pnRect.anchorMin = new Vector2(0.18f, 0.5f);
             pnRect.anchorMax = new Vector2(0.6f, 1);
-            pnRect.offsetMin = new Vector2(10, 10);
+            pnRect.offsetMin = new Vector2(10, 0);
             pnRect.offsetMax = new Vector2(-5, -10);
             playerNameText.fontStyle = FontStyles.Bold;
 
+            // Playstyle title under name
+            playerTitleText = CreateText(bar.transform, "PlayerTitle", "", 22, TextAlignmentOptions.Left, new Color(1f, 0.75f, 0.3f, 0.8f)).GetComponent<TextMeshProUGUI>();
+            var ptRect = playerTitleText.GetComponent<RectTransform>();
+            ptRect.anchorMin = new Vector2(0.18f, 0);
+            ptRect.anchorMax = new Vector2(0.6f, 0.5f);
+            ptRect.offsetMin = new Vector2(10, 10);
+            ptRect.offsetMax = new Vector2(-5, 0);
+            playerTitleText.fontStyle = FontStyles.Italic;
+
             // Score
-            playerScoreText = CreateText(bar.transform, "PlayerScore", "0", 44, TextAlignmentOptions.Right, accentColor).GetComponent<TextMeshProUGUI>();
+            playerScoreText = CreateText(bar.transform, "PlayerScore", "0", 40, TextAlignmentOptions.Right, accentColor).GetComponent<TextMeshProUGUI>();
             var psRect = playerScoreText.GetComponent<RectTransform>();
             psRect.anchorMin = new Vector2(0.6f, 0);
             psRect.anchorMax = new Vector2(1, 1);
@@ -266,7 +307,6 @@ namespace LeaderboardGame
 
         private void BuildTapArea(Transform parent)
         {
-            // Tap button area at bottom
             var tapArea = new GameObject("TapArea");
             tapArea.transform.SetParent(parent, false);
 
@@ -280,7 +320,6 @@ namespace LeaderboardGame
             var bg = tapArea.AddComponent<Image>();
             bg.color = headerColor;
 
-            // Tap button
             var btnObj = new GameObject("TapButton");
             btnObj.transform.SetParent(tapArea.transform, false);
 
@@ -310,7 +349,6 @@ namespace LeaderboardGame
             btRect.offsetMax = Vector2.zero;
             btnText.GetComponent<TextMeshProUGUI>().fontStyle = FontStyles.Bold;
 
-            // Combo text
             comboText = CreateText(tapArea.transform, "ComboText", "", 32, TextAlignmentOptions.Center, new Color(1f, 0.5f, 0f)).GetComponent<TextMeshProUGUI>();
             var comboRect = comboText.GetComponent<RectTransform>();
             comboRect.anchorMin = new Vector2(0.65f, 0.15f);
@@ -319,7 +357,6 @@ namespace LeaderboardGame
             comboRect.offsetMax = Vector2.zero;
             comboText.fontStyle = FontStyles.Bold;
 
-            // Points per tap
             pointsPerTapText = CreateText(tapArea.transform, "PointsText", "+10", 28, TextAlignmentOptions.Center, dimTextColor).GetComponent<TextMeshProUGUI>();
             var ptsRect = pointsPerTapText.GetComponent<RectTransform>();
             ptsRect.anchorMin = new Vector2(0.65f, 0.55f);
@@ -330,29 +367,32 @@ namespace LeaderboardGame
 
         private void WireUpManagers()
         {
-            // Add LeaderboardManager
+            // LeaderboardManager
             var managerObj = new GameObject("LeaderboardManager");
-            var manager = managerObj.AddComponent<LeaderboardManager>();
+            managerObj.AddComponent<LeaderboardManager>();
 
-            // Add LeaderboardUI and wire it up
+            // NarrativeSystem
+            var narrativeObj = new GameObject("NarrativeSystem");
+            var narrative = narrativeObj.AddComponent<NarrativeSystem>();
+            narrative.Init(boardVoiceText, boardVoiceCG);
+
+            // LeaderboardUI with narrative support
             var uiObj = new GameObject("LeaderboardUI");
             var ui = uiObj.AddComponent<LeaderboardUIRuntime>();
-            ui.Init(entryParent, entryPrefab, scrollRect, playerRankText, playerScoreText, playerNameText,
+            ui.Init(entryParent, entryPrefab, scrollRect, playerRankText, playerScoreText, playerNameText, playerTitleText,
                     accentColor, top3Color, entryColor, entryAltColor, playerEntryColor, textColor, dimTextColor);
 
-            // Add PlayerController and wire the button
+            // PlayerController
             var playerObj = new GameObject("PlayerController");
             var player = playerObj.AddComponent<PlayerController>();
-            // Use reflection to set button and texts
             SetPrivateField(player, "tapButton", tapButton);
             SetPrivateField(player, "comboText", comboText);
             SetPrivateField(player, "pointsPerTapText", pointsPerTapText);
 
-            // Directly wire onClick since reflection + Start() timing is unreliable
             tapButton.onClick.AddListener(player.OnTap);
-            Debug.Log($"[SceneBuilder] Button wired. tapButton={tapButton != null}, interactable={tapButton.interactable}, listeners={tapButton.onClick.GetPersistentEventCount()}+runtime");
+            Debug.Log($"[SceneBuilder] Button wired. tapButton={tapButton != null}, interactable={tapButton.interactable}");
 
-            // Add TapFeedback for juicy tap effects
+            // TapFeedback
             var tapFeedback = playerObj.AddComponent<TapFeedback>();
             tapFeedback.Init(
                 tapButton.GetComponent<RectTransform>(),
@@ -361,53 +401,51 @@ namespace LeaderboardGame
             );
             SetPrivateField(player, "tapFeedback", tapFeedback);
 
-            // Add RankUpEffect for celebration animations
+            // RankUpEffect
             var rankUpObj = new GameObject("RankUpEffect");
             var rankUpEffect = rankUpObj.AddComponent<RankUpEffect>();
             rankUpEffect.Init(mainCanvas.GetComponent<RectTransform>(), mainCanvas.transform);
 
-            // Add LeaderboardAnimator for ambient polish
+            // LeaderboardAnimator
             var animatorObj = new GameObject("LeaderboardAnimator");
             var lbAnimator = animatorObj.AddComponent<LeaderboardAnimator>();
-            // Find player bar background
             var playerBarObj = GameObject.Find("PlayerBar");
             if (playerBarObj != null)
                 lbAnimator.Init(playerBarObj.GetComponent<Image>());
 
-            // Add ItemSystem
+            // ItemSystem
             var itemSystemObj = new GameObject("ItemSystem");
             itemSystemObj.AddComponent<ItemSystem>();
 
-            // Add ItemUI
+            // ItemUI
             var itemUIObj = new GameObject("ItemUI");
             var itemUI = itemUIObj.AddComponent<ItemUI>();
             itemUI.Init(mainCanvas.GetComponent<RectTransform>(), mainCanvas.transform, dimTextColor);
 
-            // Add RankChangeDetector
+            // RankChangeDetector
             var detectorObj = new GameObject("RankChangeDetector");
             detectorObj.AddComponent<RankChangeDetector>();
 
-            // Add AutoScreenshot
+            // AutoScreenshot
             var screenshotObj = new GameObject("AutoScreenshot");
             screenshotObj.AddComponent<AutoScreenshot>();
 
-            // Add SpacetimeDB components for online multiplayer
+            // SpacetimeDB
             var stdbObj = new GameObject("SpacetimeDB");
             stdbObj.AddComponent<SpacetimeDBManager>();
-            // The SpacetimeDBNetworkManager drives the message processing loop
             stdbObj.AddComponent<SpacetimeDB.SpacetimeDBNetworkManager>();
 
-            // Add online status indicator
+            // Online status
             var statusObj = new GameObject("OnlineStatus");
             var statusUI = statusObj.AddComponent<OnlineStatusUI>();
-            var statusTextObj = CreateText(mainCanvas.transform, "StatusText", "● OFFLINE", 24, TMPro.TextAlignmentOptions.Right, dimTextColor);
+            var statusTextObj = CreateText(mainCanvas.transform, "StatusText", "● OFFLINE", 24, TextAlignmentOptions.Right, dimTextColor);
             var statusRect = statusTextObj.GetComponent<RectTransform>();
             statusRect.anchorMin = new Vector2(1, 1);
             statusRect.anchorMax = new Vector2(1, 1);
             statusRect.pivot = new Vector2(1, 1);
             statusRect.anchoredPosition = new Vector2(-20, -20);
             statusRect.sizeDelta = new Vector2(200, 40);
-            SetPrivateField(statusUI, "statusText", statusTextObj.GetComponent<TMPro.TextMeshProUGUI>());
+            SetPrivateField(statusUI, "statusText", statusTextObj.GetComponent<TextMeshProUGUI>());
         }
 
         private GameObject CreateText(Transform parent, string name, string content, float size, TextAlignmentOptions alignment, Color color)
@@ -417,7 +455,6 @@ namespace LeaderboardGame
 
             var rect = obj.AddComponent<RectTransform>();
             var tmp = obj.AddComponent<TextMeshProUGUI>();
-            // Explicitly load default TMP font from Resources
             var font = Resources.Load<TMP_FontAsset>("Fonts & Materials/LiberationSans SDF");
             if (font != null) tmp.font = font;
             tmp.text = content;
