@@ -1055,3 +1055,140 @@ C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR
 [BUSY     263s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
 [BUSY     274s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
 [BUSY     284s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     295s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     305s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     315s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     325s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     335s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     346s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     356s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     366s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     377s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     387s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     398s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     408s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     418s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     428s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     439s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[301/308   447s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+*** Tundra requires additional run (610.34 seconds - 0:10:10), 78 items updated, 308 evaluated
+*** Additional run caused by: timestamp change of Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.wasm
+ExitCode: 4 Duration: 10m:10s
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\netcorerun\netcorerun.exe "C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\WebGLPlayerBuildProgram.exe" "C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/Bee;C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/Tools/BuildPipeline" "Library/Bee/Player3612b428.dag.json" "Library/Bee/Player3612b428-inputdata.json" "Library\Bee\buildprogram2.traceevents"
+WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
+ExitCode: 0 Duration: 1s847ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --dagfile="Library/Bee/Player3612b428.dag" --dagfilejson="Library\Bee\Player3612b428.dag.json" --profile="Library/Bee/backend4.traceevents" Player
+WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
+Finished compiling graph: 498 nodes, 1284 flattened edges (1280 ToBuild, 2 ToUse), maximum node priority 308
+[301/308    1s] Merging JavaScript Code Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.framework.js
+[302/308    5s] PreprocessJS Library/Bee/artifacts/WebGLWebGL.loader.js
+[BUSY      11s] Brotli Build/WebGL/Build/WebGL.data.br
+[BUSY      16s] Brotli Build/WebGL/Build/WebGL.wasm.br
+[BUSY      21s] Brotli Build/WebGL/Build/WebGL.data.br
+[BUSY      26s] Brotli Build/WebGL/Build/WebGL.wasm.br
+[BUSY      31s] Brotli Build/WebGL/Build/WebGL.data.br
+[BUSY      36s] Brotli Build/WebGL/Build/WebGL.wasm.br
+[BUSY      41s] Brotli Build/WebGL/Build/WebGL.data.br
+[BUSY      46s] Brotli Build/WebGL/Build/WebGL.wasm.br
+[BUSY      51s] Brotli Build/WebGL/Build/WebGL.data.br
+[303/308   52s] Brotli Build/WebGL/Build/WebGL.data.br
+[BUSY      57s] Brotli Build/WebGL/Build/WebGL.wasm.br
+[BUSY      68s] Brotli Build/WebGL/Build/WebGL.wasm.br
+[BUSY      78s] Brotli Build/WebGL/Build/WebGL.wasm.br
+[BUSY      88s] Brotli Build/WebGL/Build/WebGL.wasm.br
+[BUSY      98s] Brotli Build/WebGL/Build/WebGL.wasm.br
+[BUSY     108s] Brotli Build/WebGL/Build/WebGL.wasm.br
+[BUSY     118s] Brotli Build/WebGL/Build/WebGL.wasm.br
+[BUSY     128s] Brotli Build/WebGL/Build/WebGL.wasm.br
+[BUSY     138s] Brotli Build/WebGL/Build/WebGL.wasm.br
+[BUSY     148s] Brotli Build/WebGL/Build/WebGL.wasm.br
+[BUSY     158s] Brotli Build/WebGL/Build/WebGL.wasm.br
+[BUSY     168s] Brotli Build/WebGL/Build/WebGL.wasm.br
+[BUSY     179s] Brotli Build/WebGL/Build/WebGL.wasm.br
+[BUSY     189s] Brotli Build/WebGL/Build/WebGL.wasm.br
+[BUSY     199s] Brotli Build/WebGL/Build/WebGL.wasm.br
+[304/308   203s] Brotli Build/WebGL/Build/WebGL.wasm.br
+*** Tundra requires additional run (204.34 seconds - 0:03:24), 4 items updated, 308 evaluated
+*** Additional run caused by: timestamp change of Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.framework.js
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\netcorerun\netcorerun.exe "C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\WebGLPlayerBuildProgram.exe" "C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/Bee;C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/Tools/BuildPipeline" "Library/Bee/Player3612b428.dag.json" "Library/Bee/Player3612b428-inputdata.json" "Library\Bee\buildprogram3.traceevents"
+WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
+ExitCode: 4 Duration: 3m:24s
+ExitCode: 0 Duration: 0s801ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --dagfile="Library/Bee/Player3612b428.dag" --dagfilejson="Library\Bee\Player3612b428.dag.json" --profile="Library/Bee/backend5.traceevents" Player
+WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
+Finished compiling graph: 498 nodes, 1284 flattened edges (1280 ToBuild, 2 ToUse), maximum node priority 308
+[305/308    1s] Brotli Build/WebGL/Build/WebGL.framework.js.br
+[307/308    0s] CopyFiles Build/WebGL/Build/WebGL.loader.js
+*** Tundra build success (1.38 seconds), 2 items updated, 308 evaluated
+ExitCode: 0 Duration: 1s407ms
+[websockify wrapper] Start node and websockify.js
+Total cache size 17440178
+Total cache size after purge 17440178, took 00:00:00.2238089
+Refreshing native plugins compatible for Editor in 16.50 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+
+-------------------------------------------------------------------------------
+Build Report
+Information on used Assets is not available, since player data was not rebuilt.
+Do a clean build to view the Asset build report information.
+-------------------------------------------------------------------------------
+[Licensing::Client] Successfully resolved entitlement details
+[websockify wrapper] Proxying from :35020 to localhost:34999
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 27 unused Assets / (0.7 MB). Loaded Objects now: 1184.
+Memory consumption went from 100.8 MB to 100.1 MB.
+Total: 73.164000 ms (FindLiveObjects: 12.606300 ms CreateObjectMapping: 0.060600 ms MarkObjects: 27.400900 ms  DeleteObjects: 33.095200 ms)
+
+DisplayProgressNotification: Build Successful
+Build Finished, Result: Success.
+##utp:{"type":"PlayerBuildInfo","version":2,"phase":"Immediate","time":1772034405759,"processId":24720,"steps":[{"description":"Preprocess Player","duration":65},{"description":"Prepare For Build","duration":0},{"description":"ProducePlayerScriptAssemblies","duration":14146},{"description":"Verify Build setup","duration":247},{"description":"Prepare assets for target platform","duration":20},{"description":"Prepare splash screen","duration":22},{"description":"Run script only build","duration":132},{"description":"Postprocess built player","duration":853768}],"duration":868400}
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Loaded scene 'Temp/__Backupscenes/0.backup'
+	Deserialize:            7.852 ms
+	Integration:            58.126 ms
+	Integration of assets:  0.641 ms
+	Thread Wait Time:       -0.509 ms
+	Total Operation Time:   66.109 ms
+Unloading 0 unused Assets / (0 B). Loaded Objects now: 1184.
+Memory consumption went from 99.8 MB to 99.8 MB.
+Total: 9.557400 ms (FindLiveObjects: 0.115000 ms CreateObjectMapping: 0.021000 ms MarkObjects: 9.415100 ms  DeleteObjects: 0.005300 ms)
+
+WebGL Build result: Succeeded
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+BuildGame:BuildWebGL () (at Assets/Editor/BuildGame.cs:41)
+
+(Filename: Assets/Editor/BuildGame.cs Line: 41)
+
+Batchmode quit successfully invoked - shutting down!
+[websockify wrapper] Kill
+[websockify wrapper] Process killed
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-Administrator-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-Administrator channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+[websockify wrapper] Kill
+abort_threads: Failed aborting id: 0000000000000484, mono_thread_manage will ignore it
+
+abort_threads: Failed aborting id: 00000000000028A8, mono_thread_manage will ignore it
+
+abort_threads: Failed aborting id: 0000000000000484, mono_thread_manage will ignore it
+
+abort_threads: Failed aborting id: 00000000000028A8, mono_thread_manage will ignore it
+
+debugger-agent: Unable to listen on 2904
+Exiting batchmode successfully now!
+Exiting without the bug reporter. Application will terminate with return code 0
