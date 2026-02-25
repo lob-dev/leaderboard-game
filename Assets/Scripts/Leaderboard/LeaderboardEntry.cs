@@ -35,6 +35,10 @@ namespace LeaderboardGame
         public int RivalCount;            // Number of current proximity rivals
         public List<string> RivalIds;     // IDs of proximity rivals (within 3 ranks)
 
+        // === Powerup display ===
+        public ItemType? ActivePowerup;       // Currently active powerup (null = none)
+        public float PowerupExpireTime;       // Time.time when the powerup display expires
+
         public LeaderboardEntry(string id, string name, int score, bool isLocal = false)
         {
             PlayerId = id;
@@ -57,6 +61,8 @@ namespace LeaderboardGame
             CostMultiplier = 1f;
             RivalCount = 0;
             RivalIds = new List<string>();
+            ActivePowerup = null;
+            PowerupExpireTime = 0f;
         }
 
         public int CompareTo(LeaderboardEntry other)

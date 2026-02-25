@@ -237,7 +237,18 @@ namespace LeaderboardGame
             if (texts.Length >= 3)
             {
                 texts[0].text = $"#{entry.Rank}";
-                texts[1].text = entry.PlayerName;
+
+                // Show powerup icon next to name if they have an active powerup
+                if (entry.ActivePowerup.HasValue)
+                {
+                    var pwData = ItemDefinitions.Get(entry.ActivePowerup.Value);
+                    texts[1].text = $"{entry.PlayerName} <color=#{ColorUtility.ToHtmlStringRGB(pwData.Color)}>[{pwData.Emoji}]</color>";
+                }
+                else
+                {
+                    texts[1].text = entry.PlayerName;
+                }
+
                 texts[2].text = entry.Score.ToString("N0");
 
                 if (entry.IsLocalPlayer)

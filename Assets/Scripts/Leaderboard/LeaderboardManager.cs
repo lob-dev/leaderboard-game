@@ -288,6 +288,23 @@ namespace LeaderboardGame
 
                 if (ItemSystem.Instance != null && ItemSystem.Instance.AreOpponentsFrozen())
                     continue;
+                // Expire powerup display
+                if (entry.ActivePowerup.HasValue && Time.time >= entry.PowerupExpireTime)
+                {
+                    entry.ActivePowerup = null;
+                }
+
+                // Chance to pick up a powerup (roughly every ~10s per bot)
+                if (!entry.ActivePowerup.HasValue && Random.value < 0.01f)
+                {
+                    var types = (ItemType[])System.Enum.GetValues(typeof(ItemType));
+                    var picked = types[Random.Range(0, types.Length)];
+                    var data = ItemDefinitions.Get(picked);
+                    entry.ActivePowerup = picked;
+                    // Show icon for duration (or 3s for instant items)
+                    entry.PowerupExpireTime = Time.time + (data.Duration > 0f ? data.Duration : 3f);
+                }
+
                 if (Random.value < 0.3f)
                 {
                     entry.Score += Random.Range(1, 15);

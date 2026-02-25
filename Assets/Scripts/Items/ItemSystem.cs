@@ -55,6 +55,15 @@ namespace LeaderboardGame
             {
                 activeTimers.Remove(key);
                 HandleItemExpiry(key);
+
+                // Clear local player's powerup display if this was their active one
+                if (LeaderboardManager.Instance != null)
+                {
+                    var lp = LeaderboardManager.Instance.GetLocalPlayer();
+                    if (lp != null && lp.ActivePowerup.HasValue && lp.ActivePowerup.Value == key)
+                        lp.ActivePowerup = null;
+                }
+
                 OnItemExpired?.Invoke(key);
                 Debug.Log($"[ItemSystem] Item expired: {key}");
             }
@@ -136,6 +145,17 @@ namespace LeaderboardGame
             {
                 // Instant effect
                 ApplyInstantEffect(type);
+            }
+
+            // Update local player's powerup display on leaderboard
+            if (LeaderboardManager.Instance != null)
+            {
+                var lp = LeaderboardManager.Instance.GetLocalPlayer();
+                if (lp != null)
+                {
+                    lp.ActivePowerup = type;
+                    lp.PowerupExpireTime = Time.time + (data.Duration > 0f ? data.Duration : 3f);
+                }
             }
 
             OnItemCollected?.Invoke(type);
