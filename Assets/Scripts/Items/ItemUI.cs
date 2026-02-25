@@ -188,12 +188,12 @@ namespace LeaderboardGame
         {
             var data = ItemDefinitions.Get(type);
 
-            // Instant items: just show a flash notification
+            // Always show a pickup notification with the powerup name
+            StartCoroutine(ShowNotification(data));
+
+            // Instant items: no active bar indicator needed
             if (data.Duration <= 0f)
-            {
-                StartCoroutine(ShowNotification(data));
                 return;
-            }
 
             // Duration items: add to active bar if not already there
             foreach (var ind in activeIndicators)
@@ -212,7 +212,7 @@ namespace LeaderboardGame
             indicator.transform.SetParent(activeBarRect, false);
 
             var rect = indicator.AddComponent<RectTransform>();
-            rect.sizeDelta = new Vector2(120, 40);
+            rect.sizeDelta = new Vector2(180, 40);
 
             var bg = indicator.AddComponent<Image>();
             bg.color = new Color(data.Color.r, data.Color.g, data.Color.b, 0.6f);
@@ -229,21 +229,33 @@ namespace LeaderboardGame
             var emojiObj = new GameObject("Emoji");
             emojiObj.transform.SetParent(indicator.transform, false);
             var emojiRect = emojiObj.AddComponent<RectTransform>();
-            emojiRect.sizeDelta = new Vector2(35, 36);
+            emojiRect.sizeDelta = new Vector2(30, 36);
             var emojiTmp = emojiObj.AddComponent<TextMeshProUGUI>();
             emojiTmp.text = data.Emoji;
-            emojiTmp.fontSize = 22;
+            emojiTmp.fontSize = 18;
             emojiTmp.alignment = TextAlignmentOptions.Center;
             emojiTmp.color = Color.white;
+
+            // Name label
+            var nameObj = new GameObject("Name");
+            nameObj.transform.SetParent(indicator.transform, false);
+            var nameRect = nameObj.AddComponent<RectTransform>();
+            nameRect.sizeDelta = new Vector2(90, 36);
+            var nameTmp = nameObj.AddComponent<TextMeshProUGUI>();
+            nameTmp.text = data.Name;
+            nameTmp.fontSize = 14;
+            nameTmp.alignment = TextAlignmentOptions.Center;
+            nameTmp.color = Color.white;
+            nameTmp.fontStyle = FontStyles.Bold;
 
             // Timer text
             var timerObj = new GameObject("Timer");
             timerObj.transform.SetParent(indicator.transform, false);
             var timerRect = timerObj.AddComponent<RectTransform>();
-            timerRect.sizeDelta = new Vector2(60, 36);
+            timerRect.sizeDelta = new Vector2(45, 36);
             var timerTmp = timerObj.AddComponent<TextMeshProUGUI>();
             timerTmp.text = $"{data.Duration:F1}s";
-            timerTmp.fontSize = 20;
+            timerTmp.fontSize = 16;
             timerTmp.alignment = TextAlignmentOptions.Center;
             timerTmp.color = Color.white;
 
@@ -278,7 +290,7 @@ namespace LeaderboardGame
             textRect.offsetMax = Vector2.zero;
 
             var tmp = textObj.AddComponent<TextMeshProUGUI>();
-            tmp.text = $"{data.Emoji} {data.Description}";
+            tmp.text = $"{data.Emoji} {data.Name}\n<size=24>{data.Description}</size>";
             tmp.fontSize = 32;
             tmp.alignment = TextAlignmentOptions.Center;
             tmp.color = Color.white;
