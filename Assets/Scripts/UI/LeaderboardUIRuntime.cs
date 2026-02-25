@@ -185,7 +185,7 @@ namespace LeaderboardGame
                 if (playerTitleText != null)
                 {
                     if (!string.IsNullOrEmpty(player.PlaystyleTitle))
-                        playerTitleText.text = $"⟐ {player.PlaystyleTitle} ⟐";
+                        playerTitleText.text = $"- {player.PlaystyleTitle} -";
                     else
                         playerTitleText.text = "";
                 }
@@ -206,11 +206,11 @@ namespace LeaderboardGame
                     );
                 }
                 if (visibilityLabel != null)
-                    visibilityLabel.text = $"👁 {Mathf.RoundToInt(player.Visibility * 100)}%";
+                    visibilityLabel.text = $"[EYE] {Mathf.RoundToInt(player.Visibility * 100)}%";
                 if (costLabel != null)
                 {
-                    string costStr = player.CostMultiplier > 1.5f ? $"COST: {player.CostMultiplier:F1}x ⚡" :
-                                     player.CostMultiplier < 0.9f ? $"COST: {player.CostMultiplier:F1}x ✦" :
+                    string costStr = player.CostMultiplier > 1.5f ? $"COST: {player.CostMultiplier:F1}x [!]" :
+                                     player.CostMultiplier < 0.9f ? $"COST: {player.CostMultiplier:F1}x [*]" :
                                      $"COST: {player.CostMultiplier:F1}x";
                     costLabel.text = costStr;
                     costLabel.color = player.CostMultiplier > 1.5f ? new Color(1f, 0.3f, 0.3f) :
@@ -223,7 +223,7 @@ namespace LeaderboardGame
                 {
                     if (player.RivalCount > 0)
                     {
-                        rivalCountLabel.text = $"🔴 {player.RivalCount} RIVAL{(player.RivalCount > 1 ? "S" : "")} (+25%)";
+                        rivalCountLabel.text = $"[!] {player.RivalCount} RIVAL{(player.RivalCount > 1 ? "S" : "")} (+25%)";
                         rivalCountLabel.color = new Color(1f, 0.4f, 0.4f);
                     }
                     else
@@ -363,9 +363,9 @@ namespace LeaderboardGame
                 if (!string.IsNullOrEmpty(entry.PlaystyleTitle))
                     subtitle = entry.PlaystyleTitle;
                 if (entry.IsRival)
-                    subtitle = (subtitle.Length > 0 ? subtitle + " • " : "") + $"RIVAL (👁{Mathf.RoundToInt(entry.Visibility * 100)}%)";
+                    subtitle = (subtitle.Length > 0 ? subtitle + " - " : "") + $"RIVAL ([EYE]{Mathf.RoundToInt(entry.Visibility * 100)}%)";
                 else if (entry.Visibility > 0.7f && !entry.IsLocalPlayer)
-                    subtitle = (subtitle.Length > 0 ? subtitle + " • " : "") + $"👁{Mathf.RoundToInt(entry.Visibility * 100)}%";
+                    subtitle = (subtitle.Length > 0 ? subtitle + " - " : "") + $"[EYE]{Mathf.RoundToInt(entry.Visibility * 100)}%";
 
                 if (!string.IsNullOrEmpty(subtitle))
                 {

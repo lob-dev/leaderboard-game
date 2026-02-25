@@ -287,7 +287,7 @@ namespace LeaderboardGame
             // Visibility updates use RectTransform anchor scaling instead.
 
             // Visibility label
-            visibilityLabel = CreateText(visContainer.transform, "VisLabel", "👁 0%", 20, TextAlignmentOptions.Left, dimTextColor).GetComponent<TextMeshProUGUI>();
+            visibilityLabel = CreateText(visContainer.transform, "VisLabel", "[EYE] 0%", 20, TextAlignmentOptions.Left, dimTextColor).GetComponent<TextMeshProUGUI>();
             var visLabelRect = visibilityLabel.GetComponent<RectTransform>();
             visLabelRect.anchorMin = new Vector2(0, 0.5f);
             visLabelRect.anchorMax = new Vector2(1, 1);
@@ -625,7 +625,7 @@ namespace LeaderboardGame
             // Online status
             var statusObj = new GameObject("OnlineStatus");
             var statusUI = statusObj.AddComponent<OnlineStatusUI>();
-            var statusTextObj = CreateText(mainCanvas.transform, "StatusText", "● OFFLINE", 24, TextAlignmentOptions.Right, dimTextColor);
+            var statusTextObj = CreateText(mainCanvas.transform, "StatusText", "* OFFLINE", 24, TextAlignmentOptions.Right, dimTextColor);
             var statusRect = statusTextObj.GetComponent<RectTransform>();
             statusRect.anchorMin = new Vector2(1, 1);
             statusRect.anchorMax = new Vector2(1, 1);

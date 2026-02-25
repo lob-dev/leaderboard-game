@@ -16,11 +16,11 @@ namespace LeaderboardGame
 
             if (SpacetimeDBManager.Instance != null && SpacetimeDBManager.Instance.IsConnected)
             {
-                statusText.text = "<color=#00FF00>● ONLINE</color>";
+                statusText.text = "<color=#00FF00>* ONLINE</color>";
             }
             else
             {
-                statusText.text = "<color=#FF6600>● OFFLINE</color>";
+                statusText.text = "<color=#FF6600>* OFFLINE</color>";
             }
         }
     }

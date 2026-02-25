@@ -169,14 +169,14 @@ namespace LeaderboardGame
                 if (NarrativeSystem.Instance != null)
                 {
                     float cost = NarrativeSystem.Instance.GetLocalPlayerCostMultiplier();
-                    if (cost > 1.5f) suffix = " ⚡HARD";
-                    else if (cost < 0.9f) suffix = " ✦EASY";
+                    if (cost > 1.5f) suffix = " [!]HARD";
+                    else if (cost < 0.9f) suffix = " [*]EASY";
                 }
                 if (LeaderboardManager.Instance != null)
                 {
                     var p = LeaderboardManager.Instance.GetLocalPlayer();
                     if (p != null && p.RivalCount > 0)
-                        suffix += " 🔴RIVAL";
+                        suffix += " [!]RIVAL";
                 }
                 pointsPerTapText.text = $"+{pts}{suffix}";
             }

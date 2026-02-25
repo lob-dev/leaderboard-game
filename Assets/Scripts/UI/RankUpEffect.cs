@@ -93,13 +93,13 @@ namespace LeaderboardGame
             var tmp = bannerObj.AddComponent<TextMeshProUGUI>();
             
             if (newRank == 1)
-                tmp.text = "👑 #1 — YOU'RE ON TOP!";
+                tmp.text = "<color=#FFD700>[CROWN]</color> #1 -- YOU'RE ON TOP!";
             else if (newRank <= 3)
-                tmp.text = $"🔥 #{newRank} — TOP 3!";
+                tmp.text = $"<color=#FF4500>[FIRE]</color> #{newRank} -- TOP 3!";
             else if (positionsGained >= 5)
-                tmp.text = $"🚀 #{newRank} — {positionsGained} RANKS UP!";
+                tmp.text = $"<color=#00BFFF>[ROCKET]</color> #{newRank} -- {positionsGained} RANKS UP!";
             else
-                tmp.text = $"↑ #{newRank}";
+                tmp.text = $"^ #{newRank}";
 
             tmp.fontSize = positionsGained >= 3 ? 52 : 40;
             tmp.alignment = TextAlignmentOptions.Center;
