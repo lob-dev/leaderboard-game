@@ -254,9 +254,8 @@ namespace LeaderboardGame
             visFillRect.offsetMax = Vector2.zero;
             visibilityFill = visFillObj.AddComponent<Image>();
             visibilityFill.color = new Color(0.2f, 0.8f, 0.3f);
-            visibilityFill.type = Image.Type.Filled;
-            visibilityFill.fillMethod = Image.FillMethod.Horizontal;
-            visibilityFill.fillAmount = 0f;
+            // Don't use Image.Type.Filled — fillAmount is ignored without a sprite.
+            // Visibility updates use RectTransform anchor scaling instead.
 
             // Visibility label
             visibilityLabel = CreateText(visContainer.transform, "VisLabel", "👁 0%", 20, TextAlignmentOptions.Left, dimTextColor).GetComponent<TextMeshProUGUI>();
@@ -495,9 +494,8 @@ namespace LeaderboardGame
             barFillRect.offsetMax = Vector2.zero;
             chargeFillImage = barFill.AddComponent<Image>();
             chargeFillImage.color = new Color(0.2f, 1f, 0.4f);
-            chargeFillImage.type = Image.Type.Filled;
-            chargeFillImage.fillMethod = Image.FillMethod.Horizontal;
-            chargeFillImage.fillAmount = 1f;
+            // Don't use Image.Type.Filled — fillAmount is ignored without a sprite.
+            // ChargeHUDUpdater uses RectTransform anchor scaling instead.
 
             // Text label
             chargeText = CreateText(hud.transform, "ChargeLabel", "\u26a1 10/10", 26, TextAlignmentOptions.Right, accentColor).GetComponent<TextMeshProUGUI>();

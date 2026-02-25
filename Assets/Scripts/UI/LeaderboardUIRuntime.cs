@@ -43,7 +43,8 @@ namespace LeaderboardGame
         private TextMeshProUGUI becomingLabel;
 
         private List<GameObject> entryObjects = new List<GameObject>();
-        private Image localPlayerChargeFill; // live-updated charge meter for local player
+        private RectTransform localPlayerChargeFillRect; // live-updated charge meter for local player
+        private Image localPlayerChargeFillImg;
         private int lastPlayerRank = -1;
 
         public void Init(Transform container, GameObject prefab, ScrollRect scroll,
@@ -102,7 +103,8 @@ namespace LeaderboardGame
             foreach (var obj in entryObjects)
                 DestroyImmediate(obj);
             entryObjects.Clear();
-            localPlayerChargeFill = null;
+            localPlayerChargeFillRect = null;
+            localPlayerChargeFillImg = null;
 
             for (int i = 0; i < entries.Count; i++)
             {
@@ -156,10 +158,12 @@ namespace LeaderboardGame
 
                 // === SYNTHESIS UI UPDATES ===
                 
-                // Visibility meter (Observer Effect)
+                // Visibility meter (Observer Effect) — use anchor scaling (fillAmount needs a sprite)
                 if (visibilityFill != null)
                 {
-                    visibilityFill.fillAmount = player.Visibility;
+                    var visRect = visibilityFill.GetComponent<RectTransform>();
+                    if (visRect != null)
+                        visRect.anchorMax = new Vector2(player.Visibility, 1f);
                     // Color: green at low vis, yellow mid, red high
                     visibilityFill.color = Color.Lerp(
                         new Color(0.2f, 0.8f, 0.3f),
@@ -391,12 +395,18 @@ namespace LeaderboardGame
             rect.sizeDelta = new Vector2(0, 4);
             rect.anchoredPosition = Vector2.zero;
 
+            // LayoutElement so VerticalLayoutGroup doesn't mess with positioning
+            var le = meterObj.AddComponent<LayoutElement>();
+            le.preferredHeight = 4;
+            le.minHeight = 4;
+
             // Background
             var bgImg = meterObj.AddComponent<Image>();
             bgImg.color = new Color(0.15f, 0.15f, 0.2f, 0.8f);
             bgImg.raycastTarget = false;
 
-            // Fill
+            // Fill — use RectTransform anchor scaling instead of Image.fillAmount
+            // (fillAmount requires a sprite; without one Unity ignores it and draws full rect)
             var fillObj = new GameObject("ChargeFill");
             fillObj.transform.SetParent(meterObj.transform, false);
 
@@ -408,28 +418,27 @@ namespace LeaderboardGame
 
             var fillImg = fillObj.AddComponent<Image>();
             fillImg.raycastTarget = false;
-            fillImg.type = Image.Type.Filled;
-            fillImg.fillMethod = Image.FillMethod.Horizontal;
 
             if (entry.IsLocalPlayer && ChargeManager.Instance != null)
             {
-                // Store reference for live updates in Update()
-                localPlayerChargeFill = fillImg;
+                // Store references for live updates in Update()
+                localPlayerChargeFillRect = fillRect;
+                localPlayerChargeFillImg = fillImg;
                 float pct = ChargeManager.Instance.FillPercent;
-                fillImg.fillAmount = pct;
+                fillRect.anchorMax = new Vector2(pct, 1f);
                 fillImg.color = Color.Lerp(new Color(1f, 0.2f, 0.2f), new Color(0.2f, 1f, 0.4f), pct);
             }
             else if (entry.IsGhost)
             {
                 // Ghosts: empty meter
-                fillImg.fillAmount = 0f;
+                fillRect.anchorMax = new Vector2(0f, 1f);
                 fillImg.color = new Color(0.3f, 0.3f, 0.35f, 0.4f);
             }
             else
             {
                 // Bots/other players: simulate a semi-random charge level based on activity
                 float fakeFill = 0.3f + 0.7f * Mathf.PerlinNoise(entry.Score * 0.01f, Time.time * 0.5f);
-                fillImg.fillAmount = fakeFill;
+                fillRect.anchorMax = new Vector2(fakeFill, 1f);
                 fillImg.color = Color.Lerp(new Color(1f, 0.2f, 0.2f), new Color(0.2f, 1f, 0.4f), fakeFill);
             }
         }
@@ -437,11 +446,12 @@ namespace LeaderboardGame
         private void Update()
         {
             // Live-update the local player's charge meter every frame
-            if (localPlayerChargeFill != null && ChargeManager.Instance != null)
+            if (localPlayerChargeFillRect != null && ChargeManager.Instance != null)
             {
                 float pct = ChargeManager.Instance.FillPercent;
-                localPlayerChargeFill.fillAmount = pct;
-                localPlayerChargeFill.color = Color.Lerp(new Color(1f, 0.2f, 0.2f), new Color(0.2f, 1f, 0.4f), pct);
+                localPlayerChargeFillRect.anchorMax = new Vector2(pct, 1f);
+                if (localPlayerChargeFillImg != null)
+                    localPlayerChargeFillImg.color = Color.Lerp(new Color(1f, 0.2f, 0.2f), new Color(0.2f, 1f, 0.4f), pct);
             }
         }
 
