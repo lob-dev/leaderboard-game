@@ -124,6 +124,9 @@ namespace LeaderboardGame
                 if (entry.IsRival)
                     AddRivalHighlight(obj);
 
+                // Add charge meter bar to all entries
+                AddChargeMeter(obj, entry);
+
                 entryObjects.Add(obj);
             }
 
@@ -371,6 +374,61 @@ namespace LeaderboardGame
             img.color = new Color(1f, 0.2f, 0.3f, 0.08f);
             img.raycastTarget = false;
             border.transform.SetAsFirstSibling();
+        }
+
+        private void AddChargeMeter(GameObject entryObj, LeaderboardEntry entry)
+        {
+            // Thin charge bar at the bottom of each leaderboard entry
+            var meterObj = new GameObject("ChargeMeter");
+            meterObj.transform.SetParent(entryObj.transform, false);
+
+            var rect = meterObj.AddComponent<RectTransform>();
+            rect.anchorMin = new Vector2(0, 0);
+            rect.anchorMax = new Vector2(1, 0);
+            rect.pivot = new Vector2(0, 0);
+            rect.sizeDelta = new Vector2(0, 4);
+            rect.anchoredPosition = Vector2.zero;
+
+            // Background
+            var bgImg = meterObj.AddComponent<Image>();
+            bgImg.color = new Color(0.15f, 0.15f, 0.2f, 0.8f);
+            bgImg.raycastTarget = false;
+
+            // Fill
+            var fillObj = new GameObject("ChargeFill");
+            fillObj.transform.SetParent(meterObj.transform, false);
+
+            var fillRect = fillObj.AddComponent<RectTransform>();
+            fillRect.anchorMin = Vector2.zero;
+            fillRect.anchorMax = Vector2.one;
+            fillRect.offsetMin = Vector2.zero;
+            fillRect.offsetMax = Vector2.zero;
+
+            var fillImg = fillObj.AddComponent<Image>();
+            fillImg.raycastTarget = false;
+            fillImg.type = Image.Type.Filled;
+            fillImg.fillMethod = Image.FillMethod.Horizontal;
+
+            if (entry.IsLocalPlayer && ChargeManager.Instance != null)
+            {
+                // Real charge data for local player
+                float pct = ChargeManager.Instance.FillPercent;
+                fillImg.fillAmount = pct;
+                fillImg.color = Color.Lerp(new Color(1f, 0.2f, 0.2f), new Color(0.2f, 1f, 0.4f), pct);
+            }
+            else if (entry.IsGhost)
+            {
+                // Ghosts: empty meter
+                fillImg.fillAmount = 0f;
+                fillImg.color = new Color(0.3f, 0.3f, 0.35f, 0.4f);
+            }
+            else
+            {
+                // Bots/other players: simulate a semi-random charge level based on activity
+                float fakeFill = 0.3f + 0.7f * Mathf.PerlinNoise(entry.Score * 0.01f, Time.time * 0.5f);
+                fillImg.fillAmount = fakeFill;
+                fillImg.color = Color.Lerp(new Color(1f, 0.2f, 0.2f), new Color(0.2f, 1f, 0.4f), fakeFill);
+            }
         }
 
         private void OnRankChanged(int newRank)

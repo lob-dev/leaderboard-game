@@ -458,6 +458,61 @@ namespace LeaderboardGame
             ptsRect.offsetMax = Vector2.zero;
         }
 
+        private TextMeshProUGUI chargeText;
+        private Image chargeFillImage;
+
+        private void BuildChargeHUD(Transform parent)
+        {
+            // Charge display sits above the tap area
+            var hud = new GameObject("ChargeHUD");
+            hud.transform.SetParent(parent, false);
+
+            var rect = hud.AddComponent<RectTransform>();
+            rect.anchorMin = new Vector2(0, 0);
+            rect.anchorMax = new Vector2(1, 0);
+            rect.pivot = new Vector2(0.5f, 0);
+            rect.sizeDelta = new Vector2(0, 40);
+            rect.anchoredPosition = new Vector2(0, 155); // just above player bar
+
+            // Bar background
+            var barBg = new GameObject("ChargeBarBg");
+            barBg.transform.SetParent(hud.transform, false);
+            var barBgRect = barBg.AddComponent<RectTransform>();
+            barBgRect.anchorMin = new Vector2(0.05f, 0.2f);
+            barBgRect.anchorMax = new Vector2(0.7f, 0.8f);
+            barBgRect.offsetMin = Vector2.zero;
+            barBgRect.offsetMax = Vector2.zero;
+            var barBgImg = barBg.AddComponent<Image>();
+            barBgImg.color = new Color(0.12f, 0.12f, 0.18f);
+
+            // Bar fill
+            var barFill = new GameObject("ChargeBarFill");
+            barFill.transform.SetParent(barBg.transform, false);
+            var barFillRect = barFill.AddComponent<RectTransform>();
+            barFillRect.anchorMin = Vector2.zero;
+            barFillRect.anchorMax = Vector2.one;
+            barFillRect.offsetMin = Vector2.zero;
+            barFillRect.offsetMax = Vector2.zero;
+            chargeFillImage = barFill.AddComponent<Image>();
+            chargeFillImage.color = new Color(0.2f, 1f, 0.4f);
+            chargeFillImage.type = Image.Type.Filled;
+            chargeFillImage.fillMethod = Image.FillMethod.Horizontal;
+            chargeFillImage.fillAmount = 1f;
+
+            // Text label
+            chargeText = CreateText(hud.transform, "ChargeLabel", "\u26a1 10/10", 26, TextAlignmentOptions.Right, accentColor).GetComponent<TextMeshProUGUI>();
+            var ctRect = chargeText.GetComponent<RectTransform>();
+            ctRect.anchorMin = new Vector2(0.7f, 0);
+            ctRect.anchorMax = new Vector2(0.98f, 1);
+            ctRect.offsetMin = Vector2.zero;
+            ctRect.offsetMax = Vector2.zero;
+            chargeText.fontStyle = FontStyles.Bold;
+
+            // Update loop via a simple MonoBehaviour
+            var updater = hud.AddComponent<ChargeHUDUpdater>();
+            updater.Init(chargeFillImage, chargeText);
+        }
+
         private void WireUpManagers()
         {
             // LeaderboardManager
@@ -506,6 +561,13 @@ namespace LeaderboardGame
             var playerBarObj = GameObject.Find("PlayerBar");
             if (playerBarObj != null)
                 lbAnimator.Init(playerBarObj.GetComponent<Image>());
+
+            // ChargeManager
+            var chargeObj = new GameObject("ChargeManager");
+            chargeObj.AddComponent<ChargeManager>();
+
+            // Charge HUD (in tap area)
+            BuildChargeHUD(mainCanvas.transform);
 
             // ItemSystem
             var itemSystemObj = new GameObject("ItemSystem");

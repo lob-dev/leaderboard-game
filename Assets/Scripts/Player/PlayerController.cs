@@ -58,6 +58,13 @@ namespace LeaderboardGame
 
         public void OnTap()
         {
+            // Charge gate: consume 1 charge per tap (blocked if empty)
+            if (ChargeManager.Instance != null && !ChargeManager.Instance.TryConsume())
+            {
+                Debug.Log("[PlayerController] No charges! Tap blocked.");
+                return;
+            }
+
             Debug.Log($"[PlayerController] OnTap called! Current score will increase by {basePointsPerTap}");
             // Build combo
             comboCount = Mathf.Min(comboCount + 1, maxComboMultiplier);
@@ -70,6 +77,9 @@ namespace LeaderboardGame
             int points = basePointsPerTap * comboMult;
             if (ItemSystem.Instance != null)
                 points *= ItemSystem.Instance.GetScoreMultiplier();
+            // Damage Boost item multiplier
+            if (ItemSystem.Instance != null)
+                points = Mathf.RoundToInt(points * ItemSystem.Instance.GetDamageMultiplier());
 
             // === OBSERVER EFFECT: Cost scaling based on visibility ===
             // Higher rank = higher cost multiplier = points are worth less (harder to climb)
@@ -132,6 +142,8 @@ namespace LeaderboardGame
                 int pts = basePointsPerTap * comboMult;
                 if (ItemSystem.Instance != null)
                     pts *= ItemSystem.Instance.GetScoreMultiplier();
+                if (ItemSystem.Instance != null)
+                    pts = Mathf.RoundToInt(pts * ItemSystem.Instance.GetDamageMultiplier());
                 // Apply observer effect preview
                 if (NarrativeSystem.Instance != null)
                 {

@@ -14,7 +14,19 @@ namespace LeaderboardGame
         /// <summary>Each tap scores a bonus based on current combo (combo booster).</summary>
         ComboBooster,
         /// <summary>Instantly grants a large score bonus.</summary>
-        ScoreBomb
+        ScoreBomb,
+        /// <summary>+50% damage (score per tap) for 10s.</summary>
+        DamageBoost,
+        /// <summary>2x recharge rate for 8s.</summary>
+        ChargeRush,
+        /// <summary>Max charges increased to 15 for 15s.</summary>
+        MaxCapacity,
+        /// <summary>Instantly refill all charges.</summary>
+        InstantReload,
+        /// <summary>Taps cost 0 charges for 6s.</summary>
+        RapidFire,
+        /// <summary>Fill to 20 charges with temporary max of 20 for 12s.</summary>
+        Overcharge
     }
 
     /// <summary>
@@ -79,6 +91,60 @@ namespace LeaderboardGame
                         Description = "+500 instant!",
                         Duration = 0f,
                         Color = new UnityEngine.Color(1f, 0.2f, 0.2f)
+                    };
+                case ItemType.DamageBoost:
+                    return new ItemData
+                    {
+                        Name = "Damage Boost",
+                        Emoji = "\ud83d\udca5",
+                        Description = "+50% damage!",
+                        Duration = 10f,
+                        Color = new UnityEngine.Color(1f, 0.6f, 0.1f)
+                    };
+                case ItemType.ChargeRush:
+                    return new ItemData
+                    {
+                        Name = "Charge Rush",
+                        Emoji = "\u26a1",
+                        Description = "2x recharge speed!",
+                        Duration = 8f,
+                        Color = new UnityEngine.Color(0.3f, 0.9f, 0.5f)
+                    };
+                case ItemType.MaxCapacity:
+                    return new ItemData
+                    {
+                        Name = "Max Capacity",
+                        Emoji = "\ud83d\udd0b",
+                        Description = "Hold 15 charges!",
+                        Duration = 15f,
+                        Color = new UnityEngine.Color(0.2f, 0.6f, 1f)
+                    };
+                case ItemType.InstantReload:
+                    return new ItemData
+                    {
+                        Name = "Instant Reload",
+                        Emoji = "\ud83d\udd04",
+                        Description = "Charges refilled!",
+                        Duration = 0f,
+                        Color = new UnityEngine.Color(0.4f, 1f, 0.4f)
+                    };
+                case ItemType.RapidFire:
+                    return new ItemData
+                    {
+                        Name = "Rapid Fire",
+                        Emoji = "\ud83d\udd25",
+                        Description = "Free taps!",
+                        Duration = 6f,
+                        Color = new UnityEngine.Color(1f, 0.3f, 0.1f)
+                    };
+                case ItemType.Overcharge:
+                    return new ItemData
+                    {
+                        Name = "Overcharge",
+                        Emoji = "\u26a1\u26a1",
+                        Description = "20 charges!",
+                        Duration = 12f,
+                        Color = new UnityEngine.Color(0.9f, 0.9f, 0.2f)
                     };
                 default:
                     return new ItemData { Name = "Unknown", Duration = 0f, Color = UnityEngine.Color.white };

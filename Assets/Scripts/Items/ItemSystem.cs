@@ -54,6 +54,7 @@ namespace LeaderboardGame
             foreach (var key in expired)
             {
                 activeTimers.Remove(key);
+                HandleItemExpiry(key);
                 OnItemExpired?.Invoke(key);
                 Debug.Log($"[ItemSystem] Item expired: {key}");
             }
@@ -66,7 +67,6 @@ namespace LeaderboardGame
                 while (autoTapTimer >= interval)
                 {
                     autoTapTimer -= interval;
-                    // Find PlayerController and trigger tap
                     var player = FindObjectOfType<PlayerController>();
                     if (player != null) player.OnTap();
                 }
@@ -103,6 +103,14 @@ namespace LeaderboardGame
             return mult;
         }
 
+        /// <summary>Get the damage multiplier from active items (DamageBoost = 1.5x).</summary>
+        public float GetDamageMultiplier()
+        {
+            float mult = 1f;
+            if (IsActive(ItemType.DamageBoost)) mult *= 1.5f;
+            return mult;
+        }
+
         /// <summary>Get combo bonus multiplier from active items.</summary>
         public int GetComboBonusMultiplier()
         {
@@ -122,6 +130,7 @@ namespace LeaderboardGame
             {
                 // Duration-based: set or refresh timer
                 activeTimers[type] = data.Duration;
+                ApplyBuffStart(type);
             }
             else
             {
@@ -132,6 +141,51 @@ namespace LeaderboardGame
             OnItemCollected?.Invoke(type);
         }
 
+        private void ApplyBuffStart(ItemType type)
+        {
+            var cm = ChargeManager.Instance;
+            if (cm == null) return;
+
+            switch (type)
+            {
+                case ItemType.ChargeRush:
+                    cm.SetRechargeMultiplier(2f);
+                    break;
+                case ItemType.MaxCapacity:
+                    cm.SetBuffMaxCharges(15);
+                    break;
+                case ItemType.RapidFire:
+                    cm.SetFreeTaps(true);
+                    break;
+                case ItemType.Overcharge:
+                    cm.SetBuffMaxCharges(20);
+                    cm.SetCharges(20);
+                    break;
+            }
+        }
+
+        private void HandleItemExpiry(ItemType type)
+        {
+            var cm = ChargeManager.Instance;
+            if (cm == null) return;
+
+            switch (type)
+            {
+                case ItemType.ChargeRush:
+                    cm.ClearRechargeMultiplier();
+                    break;
+                case ItemType.MaxCapacity:
+                    cm.ClearBuffMaxCharges();
+                    break;
+                case ItemType.RapidFire:
+                    cm.SetFreeTaps(false);
+                    break;
+                case ItemType.Overcharge:
+                    cm.ClearBuffMaxCharges();
+                    break;
+            }
+        }
+
         private void ApplyInstantEffect(ItemType type)
         {
             switch (type)
@@ -140,6 +194,10 @@ namespace LeaderboardGame
                     if (LeaderboardManager.Instance != null)
                         LeaderboardManager.Instance.AddPlayerScore(500);
                     break;
+                case ItemType.InstantReload:
+                    if (ChargeManager.Instance != null)
+                        ChargeManager.Instance.Refill();
+                    break;
             }
         }
 
@@ -147,7 +205,6 @@ namespace LeaderboardGame
         {
             var values = (ItemType[])System.Enum.GetValues(typeof(ItemType));
             var type = values[Random.Range(0, values.Length)];
-            // Random position in the upper portion of screen (normalized 0-1)
             var pos = new Vector2(Random.Range(0.15f, 0.85f), Random.Range(0.4f, 0.8f));
             OnItemSpawned?.Invoke(type, itemLifetime, pos);
             Debug.Log($"[ItemSystem] Spawned: {type} at ({pos.x:F2}, {pos.y:F2})");
