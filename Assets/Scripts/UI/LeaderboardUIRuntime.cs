@@ -212,7 +212,10 @@ namespace LeaderboardGame
                     }
                 }
 
-                scrollRect.verticalNormalizedPosition = 1f;
+                // Only scroll to top on first load, not on every refresh
+                // (prevents hijacking user's scroll position)
+                if (lastPlayerRank == -1)
+                    scrollRect.verticalNormalizedPosition = 1f;
             }
         }
 
