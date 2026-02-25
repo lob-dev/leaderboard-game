@@ -50,9 +50,10 @@ namespace LeaderboardGame
         // Auto-scroll to player
         private RectTransform localPlayerEntryRect;
         private float lastUserScrollTime = -999f;
-        private float autoScrollIdleDelay = 3f; // seconds of no scrolling before auto-centering
+        private float autoScrollIdleDelay = 6f; // seconds of no scrolling before auto-centering
         private bool userIsDragging;
         private float autoScrollSpeed = 5f;
+        private bool isAutoScrolling;
 
         public void Init(Transform container, GameObject prefab, ScrollRect scroll,
                          TextMeshProUGUI rankText, TextMeshProUGUI scoreText, TextMeshProUGUI nameText,
@@ -119,7 +120,9 @@ namespace LeaderboardGame
 
         private void OnScrollValueChanged(Vector2 _)
         {
-            if (userIsDragging)
+            // Track all user-initiated scroll changes (drag, wheel, touch)
+            // but ignore changes caused by our own auto-scroll
+            if (!isAutoScrolling)
                 lastUserScrollTime = Time.time;
         }
 
@@ -636,7 +639,9 @@ namespace LeaderboardGame
             float current = scrollRect.verticalNormalizedPosition;
             if (Mathf.Abs(current - targetNormalized) > 0.001f)
             {
+                isAutoScrolling = true;
                 scrollRect.verticalNormalizedPosition = Mathf.Lerp(current, targetNormalized, Time.deltaTime * autoScrollSpeed);
+                isAutoScrolling = false;
             }
         }
 
