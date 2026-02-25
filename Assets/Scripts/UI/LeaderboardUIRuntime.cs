@@ -131,6 +131,10 @@ namespace LeaderboardGame
                 // Add charge meter bar to all entries
                 AddChargeMeter(obj, entry);
 
+                // Attach ambient row animation (skip local player — handled by LeaderboardAnimator)
+                if (!entry.IsLocalPlayer)
+                    AttachRowAnimator(obj, entry);
+
                 entryObjects.Add(obj);
             }
 
@@ -441,6 +445,32 @@ namespace LeaderboardGame
                 fillRect.anchorMax = new Vector2(fakeFill, 1f);
                 fillImg.color = Color.Lerp(new Color(1f, 0.2f, 0.2f), new Color(0.2f, 1f, 0.4f), fakeFill);
             }
+        }
+
+        private void AttachRowAnimator(GameObject obj, LeaderboardEntry entry)
+        {
+            var animator = obj.AddComponent<RowAnimator>();
+            var bg = obj.GetComponent<Image>();
+            var texts = obj.GetComponentsInChildren<TextMeshProUGUI>(true);
+            TextMeshProUGUI scoreText = texts.Length >= 3 ? texts[2] : null;
+
+            // Find rival border image if present
+            Image rivalBorder = null;
+            var borderTransform = obj.transform.Find("RivalBorder");
+            if (borderTransform != null)
+                rivalBorder = borderTransform.GetComponent<Image>();
+
+            RowAnimator.RowType type;
+            if (entry.IsGhost)
+                type = RowAnimator.RowType.Ghost;
+            else if (entry.IsRival)
+                type = RowAnimator.RowType.Rival;
+            else if (entry.Rank <= 3)
+                type = RowAnimator.RowType.Top3;
+            else
+                type = RowAnimator.RowType.Normal;
+
+            animator.Init(type, bg, scoreText, rivalBorder);
         }
 
         private void Update()
