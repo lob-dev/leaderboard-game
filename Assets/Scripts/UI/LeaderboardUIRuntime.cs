@@ -132,6 +132,12 @@ namespace LeaderboardGame
             localPlayerChargeFillImg = null;
             localPlayerEntryRect = null;
 
+            // Preload all avatar images in parallel
+            var playerIds = new List<string>();
+            foreach (var e in entries)
+                if (!string.IsNullOrEmpty(e.PlayerId)) playerIds.Add(e.PlayerId);
+            AvatarLoader.Preload(playerIds, this);
+
             for (int i = 0; i < entries.Count; i++)
             {
                 var entry = entries[i];
@@ -289,12 +295,31 @@ namespace LeaderboardGame
             if (avatarTransform == null) return;
 
             var avatarBg = avatarTransform.GetComponent<Image>();
+            var initialTransform = avatarTransform.Find("Initial");
+
+            if (avatarBg != null && !string.IsNullOrEmpty(entry.PlayerId))
+            {
+                // Try cached avatar image first
+                bool cached = AvatarLoader.LoadAvatar(entry.PlayerId, avatarBg, this);
+                if (cached)
+                {
+                    // Avatar image loaded — hide initial text
+                    if (initialTransform != null)
+                        initialTransform.gameObject.SetActive(false);
+                    // For ghosts, dim the avatar
+                    if (entry.IsGhost)
+                        avatarBg.color = new Color(1f, 1f, 1f, 0.4f);
+                    return;
+                }
+            }
+
+            // Fallback: colored circle with initial (while loading or no player ID)
             if (avatarBg != null)
                 avatarBg.color = entry.IsGhost ? ghostBgColor : GetAvatarColor(entry.PlayerId, entry.IsLocalPlayer);
 
-            var initialTransform = avatarTransform.Find("Initial");
             if (initialTransform != null)
             {
+                initialTransform.gameObject.SetActive(true);
                 var tmp = initialTransform.GetComponent<TextMeshProUGUI>();
                 if (tmp != null)
                 {

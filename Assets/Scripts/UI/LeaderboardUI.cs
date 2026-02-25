@@ -102,8 +102,42 @@ namespace LeaderboardGame
             if (avatarTransform != null)
             {
                 var avatarBg = avatarTransform.GetComponent<Image>();
-                if (avatarBg != null)
+                var initialTransform = avatarTransform.Find("Initial");
+
+                // Try to load avatar image from DiceBear
+                if (avatarBg != null && !string.IsNullOrEmpty(entry.PlayerId))
                 {
+                    bool cached = AvatarLoader.LoadAvatar(entry.PlayerId, avatarBg, this);
+                    if (cached)
+                    {
+                        // Avatar loaded — hide initial text
+                        if (initialTransform != null)
+                            initialTransform.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        // Fallback to colored circle with initial while loading
+                        if (entry.IsLocalPlayer)
+                            avatarBg.color = localPlayerColor;
+                        else
+                        {
+                            int hash = 0;
+                            if (!string.IsNullOrEmpty(entry.PlayerId))
+                                foreach (char c in entry.PlayerId) hash = hash * 31 + c;
+                            avatarBg.color = avatarPalette[Mathf.Abs(hash) % avatarPalette.Length];
+                        }
+                        if (initialTransform != null)
+                        {
+                            initialTransform.gameObject.SetActive(true);
+                            var tmp = initialTransform.GetComponent<TextMeshProUGUI>();
+                            if (tmp != null)
+                                tmp.text = !string.IsNullOrEmpty(entry.PlayerName) ? entry.PlayerName.Substring(0, 1).ToUpper() : "?";
+                        }
+                    }
+                }
+                else if (avatarBg != null)
+                {
+                    // No player ID — fallback to initial
                     if (entry.IsLocalPlayer)
                         avatarBg.color = localPlayerColor;
                     else
@@ -113,13 +147,12 @@ namespace LeaderboardGame
                             foreach (char c in entry.PlayerId) hash = hash * 31 + c;
                         avatarBg.color = avatarPalette[Mathf.Abs(hash) % avatarPalette.Length];
                     }
-                }
-                var initialTransform = avatarTransform.Find("Initial");
-                if (initialTransform != null)
-                {
-                    var tmp = initialTransform.GetComponent<TextMeshProUGUI>();
-                    if (tmp != null)
-                        tmp.text = !string.IsNullOrEmpty(entry.PlayerName) ? entry.PlayerName.Substring(0, 1).ToUpper() : "?";
+                    if (initialTransform != null)
+                    {
+                        var tmp = initialTransform.GetComponent<TextMeshProUGUI>();
+                        if (tmp != null)
+                            tmp.text = !string.IsNullOrEmpty(entry.PlayerName) ? entry.PlayerName.Substring(0, 1).ToUpper() : "?";
+                    }
                 }
             }
 
