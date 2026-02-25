@@ -43,6 +43,7 @@ namespace LeaderboardGame
         private TextMeshProUGUI becomingLabel;
 
         private List<GameObject> entryObjects = new List<GameObject>();
+        private Image localPlayerChargeFill; // live-updated charge meter for local player
         private int lastPlayerRank = -1;
 
         public void Init(Transform container, GameObject prefab, ScrollRect scroll,
@@ -101,6 +102,7 @@ namespace LeaderboardGame
             foreach (var obj in entryObjects)
                 DestroyImmediate(obj);
             entryObjects.Clear();
+            localPlayerChargeFill = null;
 
             for (int i = 0; i < entries.Count; i++)
             {
@@ -411,7 +413,8 @@ namespace LeaderboardGame
 
             if (entry.IsLocalPlayer && ChargeManager.Instance != null)
             {
-                // Real charge data for local player
+                // Store reference for live updates in Update()
+                localPlayerChargeFill = fillImg;
                 float pct = ChargeManager.Instance.FillPercent;
                 fillImg.fillAmount = pct;
                 fillImg.color = Color.Lerp(new Color(1f, 0.2f, 0.2f), new Color(0.2f, 1f, 0.4f), pct);
@@ -428,6 +431,17 @@ namespace LeaderboardGame
                 float fakeFill = 0.3f + 0.7f * Mathf.PerlinNoise(entry.Score * 0.01f, Time.time * 0.5f);
                 fillImg.fillAmount = fakeFill;
                 fillImg.color = Color.Lerp(new Color(1f, 0.2f, 0.2f), new Color(0.2f, 1f, 0.4f), fakeFill);
+            }
+        }
+
+        private void Update()
+        {
+            // Live-update the local player's charge meter every frame
+            if (localPlayerChargeFill != null && ChargeManager.Instance != null)
+            {
+                float pct = ChargeManager.Instance.FillPercent;
+                localPlayerChargeFill.fillAmount = pct;
+                localPlayerChargeFill.color = Color.Lerp(new Color(1f, 0.2f, 0.2f), new Color(0.2f, 1f, 0.4f), pct);
             }
         }
 
