@@ -73,6 +73,18 @@ namespace LeaderboardGame
             }
         }
 
+        private static readonly Color[] avatarPalette = new Color[]
+        {
+            new Color(0.90f, 0.30f, 0.30f),
+            new Color(0.20f, 0.65f, 0.90f),
+            new Color(0.30f, 0.80f, 0.40f),
+            new Color(0.85f, 0.55f, 0.20f),
+            new Color(0.65f, 0.40f, 0.90f),
+            new Color(0.90f, 0.75f, 0.20f),
+            new Color(0.20f, 0.80f, 0.75f),
+            new Color(0.85f, 0.35f, 0.70f),
+        };
+
         private void SetupEntryRow(GameObject obj, LeaderboardEntry entry)
         {
             var texts = obj.GetComponentsInChildren<TextMeshProUGUI>();
@@ -81,6 +93,32 @@ namespace LeaderboardGame
                 texts[0].text = $"#{entry.Rank}";
                 texts[1].text = entry.PlayerName;
                 texts[2].text = entry.Score.ToString("N0");
+            }
+
+            // Set avatar
+            var avatarTransform = obj.transform.Find("MainRow/Avatar");
+            if (avatarTransform != null)
+            {
+                var avatarBg = avatarTransform.GetComponent<Image>();
+                if (avatarBg != null)
+                {
+                    if (entry.IsLocalPlayer)
+                        avatarBg.color = localPlayerColor;
+                    else
+                    {
+                        int hash = 0;
+                        if (!string.IsNullOrEmpty(entry.PlayerId))
+                            foreach (char c in entry.PlayerId) hash = hash * 31 + c;
+                        avatarBg.color = avatarPalette[Mathf.Abs(hash) % avatarPalette.Length];
+                    }
+                }
+                var initialTransform = avatarTransform.Find("Initial");
+                if (initialTransform != null)
+                {
+                    var tmp = initialTransform.GetComponent<TextMeshProUGUI>();
+                    if (tmp != null)
+                        tmp.text = !string.IsNullOrEmpty(entry.PlayerName) ? entry.PlayerName.Substring(0, 1).ToUpper() : "?";
+                }
             }
 
             // Color coding

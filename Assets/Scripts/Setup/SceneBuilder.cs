@@ -126,6 +126,35 @@ namespace LeaderboardGame
             var rankObj = CreateText(mainRow.transform, "Rank", "#1", 34, TextAlignmentOptions.Left, accentColor);
             rankObj.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 50);
 
+            // Avatar icon (colored circle with initial)
+            var avatarContainer = new GameObject("Avatar");
+            avatarContainer.transform.SetParent(mainRow.transform, false);
+            var avatarRect = avatarContainer.AddComponent<RectTransform>();
+            avatarRect.sizeDelta = new Vector2(42, 42);
+            var avatarLE = avatarContainer.AddComponent<LayoutElement>();
+            avatarLE.preferredWidth = 42;
+            avatarLE.preferredHeight = 42;
+            avatarLE.minWidth = 42;
+
+            // Circle background
+            var avatarBg = avatarContainer.AddComponent<Image>();
+            avatarBg.color = accentColor;
+            avatarBg.raycastTarget = false;
+
+            // Circular mask
+            var avatarMask = avatarContainer.AddComponent<Mask>();
+            avatarMask.showMaskGraphic = true;
+
+            // Initial letter
+            var initialObj = CreateText(avatarContainer.transform, "Initial", "?", 22, TextAlignmentOptions.Center, Color.white);
+            var initialRect = initialObj.GetComponent<RectTransform>();
+            initialRect.anchorMin = Vector2.zero;
+            initialRect.anchorMax = Vector2.one;
+            initialRect.sizeDelta = Vector2.zero;
+            initialRect.anchoredPosition = Vector2.zero;
+            var initialTMP = initialObj.GetComponent<TextMeshProUGUI>();
+            initialTMP.fontStyle = FontStyles.Bold;
+
             // Name
             var nameObj = CreateText(mainRow.transform, "Name", "Player", 30, TextAlignmentOptions.Left, textColor);
             nameObj.GetComponent<RectTransform>().sizeDelta = new Vector2(550, 50);

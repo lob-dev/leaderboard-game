@@ -232,8 +232,54 @@ namespace LeaderboardGame
             }
         }
 
+        private static readonly Color[] avatarPalette = new Color[]
+        {
+            new Color(0.90f, 0.30f, 0.30f), // Red
+            new Color(0.20f, 0.65f, 0.90f), // Blue
+            new Color(0.30f, 0.80f, 0.40f), // Green
+            new Color(0.85f, 0.55f, 0.20f), // Orange
+            new Color(0.65f, 0.40f, 0.90f), // Purple
+            new Color(0.90f, 0.75f, 0.20f), // Yellow
+            new Color(0.20f, 0.80f, 0.75f), // Teal
+            new Color(0.85f, 0.35f, 0.70f), // Pink
+        };
+
+        private Color GetAvatarColor(string playerId, bool isLocal)
+        {
+            if (isLocal) return accentColor;
+            int hash = 0;
+            if (!string.IsNullOrEmpty(playerId))
+                foreach (char c in playerId) hash = hash * 31 + c;
+            return avatarPalette[Mathf.Abs(hash) % avatarPalette.Length];
+        }
+
+        private void SetupAvatar(GameObject obj, LeaderboardEntry entry)
+        {
+            var avatarTransform = obj.transform.Find("MainRow/Avatar");
+            if (avatarTransform == null) return;
+
+            var avatarBg = avatarTransform.GetComponent<Image>();
+            if (avatarBg != null)
+                avatarBg.color = entry.IsGhost ? ghostBgColor : GetAvatarColor(entry.PlayerId, entry.IsLocalPlayer);
+
+            var initialTransform = avatarTransform.Find("Initial");
+            if (initialTransform != null)
+            {
+                var tmp = initialTransform.GetComponent<TextMeshProUGUI>();
+                if (tmp != null)
+                {
+                    string initial = !string.IsNullOrEmpty(entry.PlayerName) ? entry.PlayerName.Substring(0, 1).ToUpper() : "?";
+                    tmp.text = initial;
+                    tmp.color = entry.IsGhost ? ghostTextColor : Color.white;
+                    if (entry.IsGhost) tmp.fontStyle = FontStyles.Italic;
+                }
+            }
+        }
+
         private void SetupAliveEntry(GameObject obj, LeaderboardEntry entry, TextMeshProUGUI[] texts, int index)
         {
+            SetupAvatar(obj, entry);
+
             if (texts.Length >= 3)
             {
                 texts[0].text = $"#{entry.Rank}";
@@ -316,6 +362,8 @@ namespace LeaderboardGame
 
         private void SetupGhostEntry(GameObject obj, LeaderboardEntry entry, TextMeshProUGUI[] texts)
         {
+            SetupAvatar(obj, entry);
+
             if (texts.Length >= 3)
             {
                 texts[0].text = $"#{entry.Rank}";
