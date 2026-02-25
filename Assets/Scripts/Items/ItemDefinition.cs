@@ -60,7 +60,7 @@ namespace LeaderboardGame
                     return new ItemData
                     {
                         Name = "Auto Tap",
-                        Emoji = "\u26a1",
+                        Emoji = "AT",
                         Description = "Auto-taps for you!",
                         Duration = 5f,
                         Color = new UnityEngine.Color(0.3f, 0.6f, 1f)
@@ -69,7 +69,7 @@ namespace LeaderboardGame
                     return new ItemData
                     {
                         Name = "Freeze",
-                        Emoji = "\u2744",
+                        Emoji = "*",
                         Description = "Opponents frozen!",
                         Duration = 6f,
                         Color = new UnityEngine.Color(0.4f, 0.9f, 1f)
@@ -78,7 +78,7 @@ namespace LeaderboardGame
                     return new ItemData
                     {
                         Name = "Combo Boost",
-                        Emoji = "\ud83d\udd25",
+                        Emoji = "CB",
                         Description = "Combo x2 bonus!",
                         Duration = 10f,
                         Color = new UnityEngine.Color(1f, 0.4f, 0.1f)
@@ -87,7 +87,7 @@ namespace LeaderboardGame
                     return new ItemData
                     {
                         Name = "Score Bomb",
-                        Emoji = "\ud83d\udca3",
+                        Emoji = "!",
                         Description = "+500 instant!",
                         Duration = 0f,
                         Color = new UnityEngine.Color(1f, 0.2f, 0.2f)
@@ -96,7 +96,7 @@ namespace LeaderboardGame
                     return new ItemData
                     {
                         Name = "Damage Boost",
-                        Emoji = "\ud83d\udca5",
+                        Emoji = "++",
                         Description = "+50% damage!",
                         Duration = 10f,
                         Color = new UnityEngine.Color(1f, 0.6f, 0.1f)
@@ -105,7 +105,7 @@ namespace LeaderboardGame
                     return new ItemData
                     {
                         Name = "Charge Rush",
-                        Emoji = "\u26a1",
+                        Emoji = ">>",
                         Description = "2x recharge speed!",
                         Duration = 8f,
                         Color = new UnityEngine.Color(0.3f, 0.9f, 0.5f)
@@ -114,7 +114,7 @@ namespace LeaderboardGame
                     return new ItemData
                     {
                         Name = "Max Capacity",
-                        Emoji = "\ud83d\udd0b",
+                        Emoji = "MC",
                         Description = "Hold 15 charges!",
                         Duration = 15f,
                         Color = new UnityEngine.Color(0.2f, 0.6f, 1f)
@@ -123,7 +123,7 @@ namespace LeaderboardGame
                     return new ItemData
                     {
                         Name = "Instant Reload",
-                        Emoji = "\ud83d\udd04",
+                        Emoji = "IR",
                         Description = "Charges refilled!",
                         Duration = 0f,
                         Color = new UnityEngine.Color(0.4f, 1f, 0.4f)
@@ -132,7 +132,7 @@ namespace LeaderboardGame
                     return new ItemData
                     {
                         Name = "Rapid Fire",
-                        Emoji = "\ud83d\udd25",
+                        Emoji = "RF",
                         Description = "Free taps!",
                         Duration = 6f,
                         Color = new UnityEngine.Color(1f, 0.3f, 0.1f)
@@ -141,7 +141,7 @@ namespace LeaderboardGame
                     return new ItemData
                     {
                         Name = "Overcharge",
-                        Emoji = "\u26a1\u26a1",
+                        Emoji = "OC",
                         Description = "20 charges!",
                         Duration = 12f,
                         Color = new UnityEngine.Color(0.9f, 0.9f, 0.2f)
