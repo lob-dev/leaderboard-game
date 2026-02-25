@@ -111,6 +111,14 @@ namespace LeaderboardGame
 
             UpdateComboUI();
 
+            // Audio feedback
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlayTap(comboCount);
+                if (comboCount > 1)
+                    AudioManager.Instance.PlayCombo(comboCount);
+            }
+
             // Juicy tap feedback
             if (tapFeedback != null)
             {

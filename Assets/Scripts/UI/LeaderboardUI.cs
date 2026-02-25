@@ -88,11 +88,13 @@ namespace LeaderboardGame
         private void SetupEntryRow(GameObject obj, LeaderboardEntry entry)
         {
             var texts = obj.GetComponentsInChildren<TextMeshProUGUI>();
-            if (texts.Length >= 3)
+            // DFS order: [0]=Rank, [1]=Avatar/Initial, [2]=Name, [3]=Score, [4]=Subtitle
+            // Skip index 1 (avatar initial) — handled separately below.
+            if (texts.Length >= 4)
             {
                 texts[0].text = $"#{entry.Rank}";
-                texts[1].text = entry.PlayerName;
-                texts[2].text = entry.Score.ToString("N0");
+                texts[2].text = entry.PlayerName;
+                texts[3].text = entry.Score.ToString("N0");
             }
 
             // Set avatar

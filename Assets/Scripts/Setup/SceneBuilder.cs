@@ -605,9 +605,13 @@ namespace LeaderboardGame
             var itemUI = itemUIObj.AddComponent<ItemUI>();
             itemUI.Init(mainCanvas.GetComponent<RectTransform>(), mainCanvas.transform, dimTextColor);
 
+            // AudioManager (procedural sounds — must be before RankChangeDetector)
+            var audioObj = new GameObject("AudioManager");
+            audioObj.AddComponent<AudioManager>();
+
             // RankChangeDetector
             var detectorObj = new GameObject("RankChangeDetector");
-            detectorObj.AddComponent<RankChangeDetector>();
+            var detector = detectorObj.AddComponent<RankChangeDetector>();
 
             // AutoScreenshot
             var screenshotObj = new GameObject("AutoScreenshot");

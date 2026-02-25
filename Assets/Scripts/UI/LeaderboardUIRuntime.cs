@@ -310,7 +310,10 @@ namespace LeaderboardGame
         {
             SetupAvatar(obj, entry);
 
-            if (texts.Length >= 3)
+            // NOTE: GetComponentsInChildren returns texts in DFS order:
+            // [0]=Rank, [1]=Avatar/Initial, [2]=Name, [3]=Score, [4]=Subtitle
+            // We skip index 1 (avatar initial) — it's handled by SetupAvatar.
+            if (texts.Length >= 4)
             {
                 texts[0].text = $"#{entry.Rank}";
 
@@ -318,43 +321,43 @@ namespace LeaderboardGame
                 if (entry.ActivePowerup.HasValue)
                 {
                     var pwData = ItemDefinitions.Get(entry.ActivePowerup.Value);
-                    texts[1].text = $"{entry.PlayerName} <color=#{ColorUtility.ToHtmlStringRGB(pwData.Color)}>[{pwData.Emoji}]</color>";
+                    texts[2].text = $"{entry.PlayerName} <color=#{ColorUtility.ToHtmlStringRGB(pwData.Color)}>[{pwData.Emoji}]</color>";
                 }
                 else
                 {
-                    texts[1].text = entry.PlayerName;
+                    texts[2].text = entry.PlayerName;
                 }
 
-                texts[2].text = entry.Score.ToString("N0");
+                texts[3].text = entry.Score.ToString("N0");
 
                 if (entry.IsLocalPlayer)
                 {
                     texts[0].color = accentColor;
-                    texts[1].color = accentColor;
                     texts[2].color = accentColor;
+                    texts[3].color = accentColor;
                 }
                 else if (entry.IsRival)
                 {
                     texts[0].color = new Color(1f, 0.4f, 0.4f);
-                    texts[1].color = new Color(1f, 0.5f, 0.5f);
-                    texts[2].color = new Color(1f, 0.4f, 0.4f);
+                    texts[2].color = new Color(1f, 0.5f, 0.5f);
+                    texts[3].color = new Color(1f, 0.4f, 0.4f);
                 }
                 else if (entry.Rank <= 3)
                 {
                     texts[0].color = top3Color;
-                    texts[1].color = textColor;
-                    texts[2].color = dimTextColor;
+                    texts[2].color = textColor;
+                    texts[3].color = dimTextColor;
                 }
                 else
                 {
                     texts[0].color = dimTextColor;
-                    texts[1].color = textColor;
-                    texts[2].color = dimTextColor;
+                    texts[2].color = textColor;
+                    texts[3].color = dimTextColor;
                 }
             }
 
             // Subtitle: playstyle title + visibility for rivals
-            if (texts.Length >= 4)
+            if (texts.Length >= 5)
             {
                 string subtitle = "";
                 if (!string.IsNullOrEmpty(entry.PlaystyleTitle))
@@ -366,15 +369,15 @@ namespace LeaderboardGame
 
                 if (!string.IsNullOrEmpty(subtitle))
                 {
-                    texts[3].text = subtitle;
-                    texts[3].color = entry.IsLocalPlayer ? new Color(1f, 0.75f, 0.3f, 0.8f) :
+                    texts[4].text = subtitle;
+                    texts[4].color = entry.IsLocalPlayer ? new Color(1f, 0.75f, 0.3f, 0.8f) :
                                      entry.IsRival ? new Color(1f, 0.4f, 0.4f, 0.8f) :
                                      new Color(0.5f, 0.5f, 0.6f, 0.6f);
-                    texts[3].gameObject.SetActive(true);
+                    texts[4].gameObject.SetActive(true);
                 }
                 else
                 {
-                    texts[3].gameObject.SetActive(false);
+                    texts[4].gameObject.SetActive(false);
                 }
             }
 
@@ -394,33 +397,36 @@ namespace LeaderboardGame
         {
             SetupAvatar(obj, entry);
 
-            if (texts.Length >= 3)
+            // NOTE: GetComponentsInChildren returns texts in DFS order:
+            // [0]=Rank, [1]=Avatar/Initial, [2]=Name, [3]=Score, [4]=Subtitle
+            // We skip index 1 (avatar initial) — it's handled by SetupAvatar.
+            if (texts.Length >= 4)
             {
                 texts[0].text = $"#{entry.Rank}";
                 texts[0].color = ghostTextColor;
                 texts[0].fontStyle = FontStyles.Italic;
 
                 // Ghost name with strikethrough effect
-                texts[1].text = entry.PlayerName;
-                texts[1].color = ghostNameColor;
-                texts[1].fontStyle = FontStyles.Italic | FontStyles.Strikethrough;
+                texts[2].text = entry.PlayerName;
+                texts[2].color = ghostNameColor;
+                texts[2].fontStyle = FontStyles.Italic | FontStyles.Strikethrough;
 
-                texts[2].text = entry.Score.ToString("N0");
-                texts[2].color = ghostTextColor;
-                texts[2].fontStyle = FontStyles.Italic;
+                texts[3].text = entry.Score.ToString("N0");
+                texts[3].color = ghostTextColor;
+                texts[3].fontStyle = FontStyles.Italic;
             }
 
             // Show "Last Words" as subtitle
-            if (texts.Length >= 4 && !string.IsNullOrEmpty(entry.LastWords))
+            if (texts.Length >= 5 && !string.IsNullOrEmpty(entry.LastWords))
             {
-                texts[3].text = $"\"{entry.LastWords}\"";
-                texts[3].color = lastWordsColor;
-                texts[3].fontStyle = FontStyles.Italic;
-                texts[3].gameObject.SetActive(true);
+                texts[4].text = $"\"{entry.LastWords}\"";
+                texts[4].color = lastWordsColor;
+                texts[4].fontStyle = FontStyles.Italic;
+                texts[4].gameObject.SetActive(true);
             }
-            else if (texts.Length >= 4)
+            else if (texts.Length >= 5)
             {
-                texts[3].gameObject.SetActive(false);
+                texts[4].gameObject.SetActive(false);
             }
 
             var bg = obj.GetComponent<Image>();
@@ -541,7 +547,7 @@ namespace LeaderboardGame
             var animator = obj.AddComponent<RowAnimator>();
             var bg = obj.GetComponent<Image>();
             var texts = obj.GetComponentsInChildren<TextMeshProUGUI>(true);
-            TextMeshProUGUI scoreText = texts.Length >= 3 ? texts[2] : null;
+            TextMeshProUGUI scoreText = texts.Length >= 4 ? texts[3] : null;
 
             // Find rival border image if present
             Image rivalBorder = null;

@@ -57,11 +57,15 @@ namespace LeaderboardGame
                     OnOvertake?.Invoke(overtaken.PlayerName);
                 }
 
+                // Audio: overtake swoosh
+                if (AudioManager.Instance != null)
+                    AudioManager.Instance.PlayOvertakeSwoosh();
+
                 // Milestones
-                if (newRank <= 10 && lastRank > 10) OnMilestoneReached?.Invoke(10);
-                if (newRank <= 5 && lastRank > 5) OnMilestoneReached?.Invoke(5);
-                if (newRank <= 3 && lastRank > 3) OnMilestoneReached?.Invoke(3);
-                if (newRank == 1 && lastRank > 1) OnMilestoneReached?.Invoke(1);
+                if (newRank <= 10 && lastRank > 10) { OnMilestoneReached?.Invoke(10); if (AudioManager.Instance != null) AudioManager.Instance.PlayRankUp(10); }
+                if (newRank <= 5 && lastRank > 5) { OnMilestoneReached?.Invoke(5); if (AudioManager.Instance != null) AudioManager.Instance.PlayRankUp(5); }
+                if (newRank <= 3 && lastRank > 3) { OnMilestoneReached?.Invoke(3); if (AudioManager.Instance != null) AudioManager.Instance.PlayRankUp(3); }
+                if (newRank == 1 && lastRank > 1) { OnMilestoneReached?.Invoke(1); if (AudioManager.Instance != null) AudioManager.Instance.PlayRankUp(1); }
             }
             else if (newRank > lastRank)
             {
@@ -72,6 +76,9 @@ namespace LeaderboardGame
                     var overtaker = entries[lastRank - 1];
                     OnOvertakenBy?.Invoke(overtaker.PlayerName);
                 }
+                // Audio: negative swoosh
+                if (AudioManager.Instance != null)
+                    AudioManager.Instance.PlayOvertakeSwoosh(false);
             }
 
             lastRank = newRank;

@@ -1,0 +1,1057 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.3/staging' branch; Version is '6000.3.9f1 (7a9955a4f2fa) revision 8034645'; Using compiler version '194234433'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26100) ServerDatacenter' Language: 'en' Physical Memory: 16176 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Administrator" at "2026-02-25T15:32:09.3851068Z"
+Process architecture: x64
+Date: 2026-02-25T15:32:09Z
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Unity.exe
+-batchmode
+-nographics
+-quit
+-projectPath
+.
+-logFile
+unity-audio-webgl.log
+-buildTarget
+WebGL
+-executeMethod
+BuildGame.BuildWebGL
+Successfully changed project path to: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
+C:/Users/Administrator/.openclaw/workspace/leaderboard-game
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+Player connection [20356]  Target information:
+
+Player connection [20356]  * "[IP] 172.31.20.54 [Port] 55504 [Flags] 2 [Guid] 138147767 [EditorId] 138147767 [Version] 1048832 [Id] WindowsEditor(7,EC2AMAZ-AVFMNU9) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [20356] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [20356] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Package Manager] Connected to IPC stream "Upm-24720" after 0.6 seconds.
+[Licensing::Module] Licensing is not yet initialized.
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.4+4293ba1
+  Session Id:              03544ee67d0649c59ef8c994e5102c0d
+  Correlation Id:          801e8730218ca2cccb13ef3cd4f0381c
+  External correlation Id: 5619766210317842035
+  Machine Id:              LLp/YPy+TKfzpGYM73xtlWcXomg=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-Administrator" (connect: 0.00s, validation: 0.00s, handshake: 1.78s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Administrator-notifications" at "2026-02-25T15:32:11.1644355Z"
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 18968382090983-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.00
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Licensing Background thread has ended after 1.79s
+[Licensing::Module] Licensing is initialized (took 0.96s).
+[Licensing::Client] Successfully resolved entitlement details
+Library Redirect Path: Library/
+FMOD initialized on nosound output
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Targeting platform: WebGL
+Refreshing native plugins compatible for Editor in 0.41 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.3.9f1 (7a9955a4f2fa)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Administrator/.openclaw/workspace/leaderboard-game/Assets
+Forcing GfxDevice: Null
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56720
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002778 seconds.
+- Loaded All Assemblies, in  0.667 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.697 seconds
+Domain Reload Profiling: 1362ms
+	BeginReloadAssembly (208ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (6ms)
+	RebuildCommonClasses (64ms)
+	RebuildNativeTypeToScriptingClass (24ms)
+	initialDomainReloadingComplete (71ms)
+	LoadAllAssembliesAndSetupDomain (297ms)
+		LoadAssemblies (200ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (292ms)
+			TypeCache.Refresh (289ms)
+				TypeCache.ScanAssembly (265ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (698ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (632ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (83ms)
+			SetLoadedEditorAssemblies (6ms)
+			BeforeProcessingInitializeOnLoad (146ms)
+			ProcessInitializeOnLoadAttributes (277ms)
+			ProcessInitializeOnLoadMethodAttributes (119ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+Package Manager log level set to [2]
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 40 packages:
+  Built-in packages:
+    com.unity.textmeshpro@5.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.textmeshpro@53f43edfd2e0)
+    com.unity.ugui@2.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.ugui@bb329a87fcdc)
+    com.unity.multiplayer.center@1.0.1 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.multiplayer.center@f01f4ba8d00a)
+    com.unity.modules.accessibility@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.accessibility)
+    com.unity.modules.adaptiveperformance@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.adaptiveperformance)
+    com.unity.modules.ai@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.physics2d)
+    com.unity.modules.screencapture@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vectorgraphics@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.vectorgraphics)
+    com.unity.modules.vehicles@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.video)
+    com.unity.modules.vr@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.vr)
+    com.unity.modules.wind@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.subsystems)
+    com.unity.modules.hierarchycore@1.0.0 (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.unity.modules.hierarchycore)
+  Git packages:
+    com.clockworklabs.spacetimedbsdk@https://github.com/clockworklabs/com.clockworklabs.spacetimedbsdk.git (location: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\Library\PackageCache\com.clockworklabs.spacetimedbsdk@b57cab6922cf)
+[Package Manager] com.unity.textmeshpro is deprecated: This package is no longer supported. TextMeshPro functionalities are now included in the com.unity.ugui package. To continue using them, consider adding it to your project dependencies.
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.02 seconds
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:80
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc - - 200 - application/grpc 58.0921ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/2000b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
+DisplayProgressbar: Compiling Scripts
+ExitCode: 0 Duration: 0s191ms
+*** Tundra build success (0.11 seconds), 0 items updated, 238 evaluated
+AssetDatabase: script compilation time: 0.770690s
+Total cache size 17440178
+Begin MonoManager ReloadAssembly
+Total cache size after purge 17440178, took 00:00:00.0499447
+- Loaded All Assemblies, in  0.626 seconds
+Refreshing native plugins compatible for Editor in 0.65 ms, found 0 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.725 seconds
+Domain Reload Profiling: 1349ms
+	BeginReloadAssembly (299ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (20ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (72ms)
+	RebuildCommonClasses (62ms)
+	RebuildNativeTypeToScriptingClass (23ms)
+	initialDomainReloadingComplete (36ms)
+	LoadAllAssembliesAndSetupDomain (203ms)
+		LoadAssemblies (309ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (49ms)
+			TypeCache.Refresh (29ms)
+				TypeCache.ScanAssembly (21ms)
+			BuildScriptInfoCaches (11ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (726ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (546ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (44ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (224ms)
+			ProcessInitializeOnLoadAttributes (207ms)
+			ProcessInitializeOnLoadMethodAttributes (60ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (14ms)
+Asset Pipeline Refresh (id=c2794c2cc2907ef4183141b497c41006): Total: 2.404 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=933 ms
+		Asset DB Callback time: managed=22 ms, native=25 ms
+		Scripting: domain reloads=1, domain reload time=627 ms, compile time=774 ms, other=20 ms
+		Project Asset Count: scripts=238, non-scripts=173
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 27.766ms
+	ApplyChangesToAssetFolders: 0.836ms
+	Scan: 47.542ms
+	OnSourceAssetsModified: 0.002ms
+	CategorizeAssetsWithTransientArtifact: 3.312ms
+	ProcessAssetsWithTransientArtifactChanges: 14.903ms
+	CategorizeAssets: 4.906ms
+	ImportOutOfDateAssets: 729.813ms (-45.978ms without children)
+		CompileScripts: 774.472ms
+		ReloadNativeAssets: 0.000ms
+		UnloadImportedAssets: 0.699ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.147ms
+		InitializingProgressBar: 0.001ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.471ms
+	PostProcessAllAssets: 22.161ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.005ms
+	UnloadStreamsBegin: 3.593ms
+	PersistCurrentRevisions: 0.019ms
+	UnloadStreamsEnd: 0.002ms
+	GenerateScriptTypeHashes: 0.393ms
+	Untracked: 1548.998ms
+
+Application.AssetDatabase Initial Refresh End
+Scanning for USB devices : 0.287ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-Leaderboard Game
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 518 unused Assets / (1.3 MB). Loaded Objects now: 1128.
+Memory consumption went from 94.0 MB to 92.7 MB.
+Total: 9.750000 ms (FindLiveObjects: 0.119800 ms CreateObjectMapping: 0.031700 ms MarkObjects: 8.249000 ms  DeleteObjects: 1.348300 ms)
+
+Start importing ProjectSettings/ProjectSettings.asset using Guid(00000000000000004000000000000000) (LibraryAssetImporter) -> (artifact id: 'd21f54b08e75d5e375b989f487d05915') in 0.009785 seconds
+Refreshing native plugins compatible for Editor in 0.36 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=18fb72d0120f06147b5b07c79e186ea4): Total: 0.138 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc - - 200 - application/grpc 2.1820ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/2000b0aESkipCompile.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssembliesAndTypeDB
+WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
+ExitCode: 0 Duration: 0s879ms
+[2/3        0s] BuildPlayerDataGenerator Library/BuildPlayerData/Editor/TypeDb-All.json
+*** Tundra build success (0.82 seconds), 1 items updated, 3 evaluated
+Asset Pipeline Refresh (id=9d909ef822c6c2b4daf4fc5aa90d120d): Total: 0.004 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Total cache size 17440178
+[ScriptCompilation] Requested script compilation because: Recompiling scripts for player build.
+BuildPlayer: start building target 20
+Total cache size after purge 17440178, took 00:00:00.0475751
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc - - 200 - application/grpc 0.6586ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/2000b0aP.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssembliesAndTypeDB
+WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
+ExitCode: 4 Duration: 0s102ms
+Rebuilding DAG because FileSignature timestamp changed: Library/Bee/2000b0aP-inputdata.json
+*** Tundra requires additional run (0.06 seconds), 0 items updated, 15 evaluated
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\netcorerun\netcorerun.exe "C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\ScriptCompilationBuildProgram.exe" "Library/Bee/2000b0aP.dag.json" "Library/Bee/2000b0aP-inputdata.json" "Library\Bee\buildprogram0.traceevents"
+WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
+ExitCode: 0 Duration: 0s375ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/2000b0aP.dag" --continue-on-failure --dagfilejson="Library\Bee\2000b0aP.dag.json" --profile="Library/Bee/backend2.traceevents" ScriptAssembliesAndTypeDB
+WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
+Assets\Scripts\Items\ItemSystem.cs(79,34): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+Assets\Scripts\Setup\AutoScreenshot.cs(42,26): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+Assets\Scripts\Setup\SceneBuilder.cs(70,17): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+Assets\Scripts\SpacetimeDB\SpacetimeDBManager.cs(29,29): warning CS0067: The event 'SpacetimeDBManager.OnPlayersUpdated' is never used
+Assets\Scripts\Leaderboard\RankChangeDetector.cs(19,21): warning CS0414: The field 'RankChangeDetector.lastScore' is assigned but its value is never used
+Assets\Scripts\UI\LeaderboardEntryUI.cs(21,40): warning CS0414: The field 'LeaderboardEntryUI.slideSpeed' is assigned but its value is never used
+Assets\Scripts\Leaderboard\LeaderboardManager.cs(16,38): warning CS0414: The field 'LeaderboardManager.maxVisibleEntries' is assigned but its value is never used
+ExitCode: 0 Duration: 12s
+Finished compiling graph: 131 nodes, 796 flattened edges (744 ToBuild, 12 ToUse), maximum node priority 59
+[111/130    0s] WriteText Library/Bee/artifacts/2000b0aP.dag/Assembly-CSharp.rsp
+[115/130    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.Multiplayer.Center.Common.dll
+[116/130    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.InternalAPIEngineBridge.004.dll
+[117/130    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/com.clockworklabs.spacetimedbsdk.dll
+[118/130    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/UnityEngine.UI.dll
+[119/130    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/com.clockworklabs.spacetimedbsdk.pdb
+[120/130    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.TextMeshPro.dll
+[121/130    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.InternalAPIEngineBridge.004.pdb
+[122/130    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.Multiplayer.Center.Common.pdb
+[123/130    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/UnityEngine.UI.pdb
+[124/130    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Unity.TextMeshPro.pdb
+[BUSY       6s] Csc Library/Bee/artifacts/2000b0aP.dag/Assembly-CSharp.dll (+2 others)
+[125/130    8s] Csc Library/Bee/artifacts/2000b0aP.dag/Assembly-CSharp.dll (+2 others)
+Assets\Scripts\Items\ItemSystem.cs(79,34): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+
+Assets\Scripts\Setup\AutoScreenshot.cs(42,26): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+
+Assets\Scripts\Setup\SceneBuilder.cs(70,17): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+
+Assets\Scripts\SpacetimeDB\SpacetimeDBManager.cs(29,29): warning CS0067: The event 'SpacetimeDBManager.OnPlayersUpdated' is never used
+
+Assets\Scripts\Leaderboard\RankChangeDetector.cs(19,21): warning CS0414: The field 'RankChangeDetector.lastScore' is assigned but its value is never used
+
+Assets\Scripts\UI\LeaderboardEntryUI.cs(21,40): warning CS0414: The field 'LeaderboardEntryUI.slideSpeed' is assigned but its value is never used
+
+Assets\Scripts\Leaderboard\LeaderboardManager.cs(16,38): warning CS0414: The field 'LeaderboardManager.maxVisibleEntries' is assigned but its value is never used
+[126/130    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Assembly-CSharp.pdb
+[127/130    0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Assembly-CSharp.dll
+[129/130    0s] BuildPlayerDataGenerator Library/BuildPlayerData/Player/RuntimeInitializeOnLoads.json (+1 other)
+*** Tundra build success (12.32 seconds), 15 items updated, 130 evaluated
+Total cache size 17440178
+Total cache size after purge 17440178, took 00:00:00.0479891
+Not rebuilding Data files -- no changes
+
+
+Mono dependencies included in the build
+Dependency assembly - System.Numerics.Vectors.dll
+Dependency assembly - System.Diagnostics.StackTrace.dll
+Dependency assembly - System.Memory.dll
+Dependency assembly - Mono.Security.dll
+Dependency assembly - System.Reflection.Emit.dll
+Dependency assembly - System.Xml.dll
+Dependency assembly - System.dll
+Dependency assembly - Unity.InternalAPIEngineBridge.004.dll
+Dependency assembly - System.Dynamic.Runtime.dll
+Dependency assembly - System.Security.Cryptography.Csp.dll
+Dependency assembly - System.Web.DynamicData.dll
+Dependency assembly - System.Transactions.dll
+Dependency assembly - System.ServiceModel.Internals.dll
+Dependency assembly - System.Web.dll
+Dependency assembly - System.Reflection.Emit.Lightweight.dll
+Dependency assembly - System.ComponentModel.Annotations.dll
+Dependency assembly - System.AppContext.dll
+Dependency assembly - System.Security.Cryptography.RandomNumberGenerator.dll
+Dependency assembly - System.Xml.XPath.XmlDocument.dll
+Dependency assembly - System.ValueTuple.dll
+Dependency assembly - System.Xml.Serialization.dll
+Dependency assembly - System.Linq.Queryable.dll
+Dependency assembly - System.ComponentModel.DataAnnotations.dll
+Dependency assembly - System.Net.ServicePoint.dll
+Dependency assembly - System.Linq.Parallel.dll
+Dependency assembly - System.Threading.Overlapped.dll
+Dependency assembly - System.ServiceModel.Activation.dll
+Dependency assembly - System.Windows.Forms.DataVisualization.dll
+Dependency assembly - System.Net.WebSockets.dll
+Dependency assembly - System.Data.Services.dll
+Dependency assembly - I18N.MidEast.dll
+Dependency assembly - System.ComponentModel.TypeConverter.dll
+Dependency assembly - System.Core.dll
+Dependency assembly - Assembly-CSharp.dll
+Dependency assembly - System.Collections.Specialized.dll
+Dependency assembly - System.Security.Cryptography.X509Certificates.dll
+Dependency assembly - System.Security.Cryptography.Encoding.dll
+Dependency assembly - System.Runtime.Caching.dll
+Dependency assembly - System.ServiceModel.Http.dll
+Dependency assembly - System.IO.FileSystem.Watcher.dll
+Dependency assembly - System.ComponentModel.Composition.dll
+Dependency assembly - System.IO.UnmanagedMemoryStream.dll
+Dependency assembly - System.Net.Security.dll
+Dependency assembly - System.ComponentModel.EventBasedAsync.dll
+Dependency assembly - System.Security.Cryptography.ProtectedData.dll
+Dependency assembly - System.Runtime.Extensions.dll
+Dependency assembly - System.Web.Extensions.dll
+Dependency assembly - System.Numerics.dll
+Dependency assembly - System.Drawing.Primitives.dll
+Dependency assembly - System.Runtime.InteropServices.RuntimeInformation.dll
+Dependency assembly - System.Threading.Thread.dll
+Dependency assembly - System.Xml.XPath.dll
+Dependency assembly - System.ServiceModel.Duplex.dll
+Dependency assembly - System.ComponentModel.dll
+Dependency assembly - System.ServiceProcess.dll
+Dependency assembly - System.Collections.NonGeneric.dll
+Dependency assembly - System.Net.WebHeaderCollection.dll
+Dependency assembly - System.Web.Services.dll
+Dependency assembly - System.IO.IsolatedStorage.dll
+Dependency assembly - System.DirectoryServices.Protocols.dll
+Dependency assembly - System.Security.Cryptography.Primitives.dll
+Dependency assembly - System.Json.dll
+Dependency assembly - System.Net.HttpListener.dll
+Dependency assembly - System.Runtime.Serialization.dll
+Dependency assembly - System.Xml.ReaderWriter.dll
+Dependency assembly - System.ComponentModel.Primitives.dll
+Dependency assembly - System.Security.AccessControl.dll
+Dependency assembly - System.Configuration.Install.dll
+Dependency assembly - System.Diagnostics.Debug.dll
+Dependency assembly - System.Text.Encoding.CodePages.dll
+Dependency assembly - System.Collections.dll
+Dependency assembly - System.Text.RegularExpressions.dll
+Dependency assembly - System.Threading.dll
+Dependency assembly - I18N.Rare.dll
+Dependency assembly - System.Linq.dll
+Dependency assembly - System.Diagnostics.Tracing.dll
+Dependency assembly - System.Text.Encoding.Extensions.dll
+Dependency assembly - System.Runtime.Numerics.dll
+Dependency assembly - System.Drawing.dll
+Dependency assembly - System.Resources.Writer.dll
+Dependency assembly - System.Security.Cryptography.Hashing.Algorithms.dll
+Dependency assembly - System.Reflection.Context.dll
+Dependency assembly - System.Security.Cryptography.Algorithms.dll
+Dependency assembly - Mono.Data.Sqlite.dll
+Dependency assembly - System.Data.dll
+Dependency assembly - System.ServiceModel.Security.dll
+Dependency assembly - System.Diagnostics.FileVersionInfo.dll
+Dependency assembly - System.Diagnostics.TraceEvent.dll
+Dependency assembly - System.Threading.Tasks.Parallel.dll
+Dependency assembly - System.Web.ApplicationServices.dll
+Dependency assembly - System.Diagnostics.TraceSource.dll
+Dependency assembly - System.IO.FileSystem.Primitives.dll
+Dependency assembly - System.Reflection.Extensions.dll
+Dependency assembly - System.Messaging.dll
+Dependency assembly - System.Data.OracleClient.dll
+Dependency assembly - SpacetimeDB.BSATN.Runtime.dll
+Dependency assembly - I18N.West.dll
+Dependency assembly - System.Runtime.Serialization.Formatters.dll
+Dependency assembly - System.ServiceModel.NetTcp.dll
+Dependency assembly - System.Security.Cryptography.DeriveBytes.dll
+Dependency assembly - System.Diagnostics.Tools.dll
+Dependency assembly - System.IO.MemoryMappedFiles.dll
+Dependency assembly - System.Threading.Tasks.Extensions.dll
+Dependency assembly - System.IO.FileSystem.dll
+Dependency assembly - System.Runtime.Serialization.Json.dll
+Dependency assembly - System.Diagnostics.Process.dll
+Dependency assembly - Unity.Multiplayer.Center.Common.dll
+Dependency assembly - System.Threading.Tasks.dll
+Dependency assembly - System.Security.Cryptography.RSA.dll
+Dependency assembly - netstandard.dll
+Dependency assembly - System.Console.dll
+Dependency assembly - System.Reflection.TypeExtensions.dll
+Dependency assembly - System.Xml.XmlSerializer.dll
+Dependency assembly - System.IO.Compression.dll
+Dependency assembly - System.Security.Cryptography.OpenSsl.dll
+Dependency assembly - System.Net.WebSockets.Client.dll
+Dependency assembly - System.Globalization.dll
+Dependency assembly - System.Resources.Reader.dll
+Dependency assembly - System.Reflection.Primitives.dll
+Dependency assembly - System.Resources.ResourceManager.dll
+Dependency assembly - System.Runtime.Serialization.Xml.dll
+Dependency assembly - System.Security.Principal.dll
+Dependency assembly - System.Linq.Expressions.dll
+Dependency assembly - I18N.dll
+Dependency assembly - UnityEngine.UI.dll
+Dependency assembly - System.IO.dll
+Dependency assembly - System.Security.Cryptography.Hashing.dll
+Dependency assembly - System.Configuration.dll
+Dependency assembly - System.Runtime.Handles.dll
+Dependency assembly - System.Xml.XPath.XDocument.dll
+Dependency assembly - System.Xml.Xsl.Primitives.dll
+Dependency assembly - System.Threading.ThreadPool.dll
+Dependency assembly - System.Runtime.Serialization.Primitives.dll
+Dependency assembly - System.Data.Services.Client.dll
+Dependency assembly - System.Threading.AccessControl.dll
+Dependency assembly - System.IO.FileSystem.DriveInfo.dll
+Dependency assembly - System.IO.Compression.FileSystem.dll
+Dependency assembly - System.Globalization.Extensions.dll
+Dependency assembly - System.Runtime.Remoting.dll
+Dependency assembly - System.Runtime.Serialization.Formatters.Soap.dll
+Dependency assembly - System.Xml.Linq.dll
+Dependency assembly - System.Security.Cryptography.Pkcs.dll
+Dependency assembly - System.Xml.XmlDocument.dll
+Dependency assembly - Microsoft.Win32.Registry.AccessControl.dll
+Dependency assembly - System.Buffers.dll
+Dependency assembly - System.Windows.Forms.dll
+Dependency assembly - I18N.CJK.dll
+Dependency assembly - System.Runtime.InteropServices.dll
+Dependency assembly - Microsoft.Win32.Primitives.dll
+Dependency assembly - System.Text.Encoding.dll
+Dependency assembly - Unity.TextMeshPro.dll
+Dependency assembly - System.Security.Cryptography.Encryption.dll
+Dependency assembly - System.Data.Entity.dll
+Dependency assembly - Microsoft.Win32.Registry.dll
+Dependency assembly - System.Net.Sockets.dll
+Dependency assembly - System.Security.Cryptography.Encryption.Aes.dll
+Dependency assembly - System.Runtime.InteropServices.WindowsRuntime.dll
+Dependency assembly - System.Net.Mail.dll
+Dependency assembly - mscorlib.dll
+Dependency assembly - System.IdentityModel.Selectors.dll
+Dependency assembly - System.Collections.Concurrent.dll
+Dependency assembly - System.Runtime.Loader.dll
+Dependency assembly - System.Runtime.DurableInstancing.dll
+Dependency assembly - System.Security.Cryptography.Cng.dll
+Dependency assembly - Microsoft.CSharp.dll
+Dependency assembly - Accessibility.dll
+Dependency assembly - System.Net.Requests.dll
+Dependency assembly - System.Web.RegularExpressions.dll
+Dependency assembly - System.Runtime.dll
+Dependency assembly - System.Diagnostics.TextWriterTraceListener.dll
+Dependency assembly - System.Reflection.Emit.ILGeneration.dll
+Dependency assembly - System.Threading.Timer.dll
+Dependency assembly - System.Security.SecureString.dll
+Dependency assembly - System.Net.dll
+Dependency assembly - System.ServiceModel.Discovery.dll
+Dependency assembly - System.ServiceModel.Primitives.dll
+Dependency assembly - System.Xaml.dll
+Dependency assembly - Mono.Data.Tds.dll
+Dependency assembly - System.Security.Cryptography.Encryption.ECDsa.dll
+Dependency assembly - System.Net.NetworkInformation.dll
+Dependency assembly - System.Security.dll
+Dependency assembly - System.Net.Primitives.dll
+Dependency assembly - System.Runtime.CompilerServices.VisualC.dll
+Dependency assembly - System.ServiceModel.Routing.dll
+Dependency assembly - System.Xml.XDocument.dll
+Dependency assembly - System.Drawing.Design.dll
+Dependency assembly - System.ServiceModel.Web.dll
+Dependency assembly - System.Net.AuthenticationManager.dll
+Dependency assembly - System.Web.Extensions.Design.dll
+Dependency assembly - System.DirectoryServices.dll
+Dependency assembly - System.IdentityModel.dll
+Dependency assembly - System.ObjectModel.dll
+Dependency assembly - System.Management.dll
+Dependency assembly - System.Security.Cryptography.Encryption.ECDiffieHellman.dll
+Dependency assembly - System.Data.Linq.dll
+Dependency assembly - System.Net.NameResolution.dll
+Dependency assembly - System.Resources.ReaderWriter.dll
+Dependency assembly - System.EnterpriseServices.dll
+Dependency assembly - System.Net.Http.WebRequest.dll
+Dependency assembly - System.Net.Http.dll
+Dependency assembly - System.Data.DataSetExtensions.dll
+Dependency assembly - System.Windows.dll
+Dependency assembly - System.Net.Ping.dll
+Dependency assembly - System.Reflection.DispatchProxy.dll
+Dependency assembly - com.clockworklabs.spacetimedbsdk.dll
+Dependency assembly - System.Net.Utilities.dll
+Dependency assembly - System.Security.Claims.dll
+Dependency assembly - System.Data.SqlClient.dll
+Dependency assembly - System.IO.Compression.ZipFile.dll
+Dependency assembly - System.IO.FileSystem.AccessControl.dll
+Dependency assembly - System.Security.Principal.Windows.dll
+Dependency assembly - System.IO.Pipes.dll
+Dependency assembly - System.Diagnostics.Contracts.dll
+Dependency assembly - I18N.Other.dll
+Dependency assembly - System.Data.Common.dll
+Dependency assembly - System.Globalization.Calendars.dll
+Dependency assembly - System.Net.Cache.dll
+Dependency assembly - System.ServiceModel.dll
+Dependency assembly - System.Reflection.dll
+Dependency assembly - System.Design.dll
+Dependency assembly - System.ServiceProcess.ServiceController.dll
+
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc - - 200 - application/grpc 0.4686ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --dagfile="Library/Bee/Player3612b428.dag" --profile="Library/Bee/backend1.traceevents" Player
+WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
+Rebuilding DAG because FileSignature timestamp changed: Library/Bee/Player3612b428-inputdata.json
+*** Tundra requires additional run (0.15 seconds), 0 items updated, 0 evaluated
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\netcorerun\netcorerun.exe "C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\WebGLPlayerBuildProgram.exe" "C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/Bee;C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/Tools/BuildPipeline" "Library/Bee/Player3612b428.dag.json" "Library/Bee/Player3612b428-inputdata.json" "Library\Bee\buildprogram0.traceevents"
+WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
+DisplayProgressbar: Incremental Player Build
+ExitCode: 4 Duration: 0s392ms
+ExitCode: 0 Duration: 6s372ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --dagfile="Library/Bee/Player3612b428.dag" --dagfilejson="Library\Bee\Player3612b428.dag.json" --profile="Library/Bee/backend2.traceevents" Player
+WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
+Finished compiling graph: 498 nodes, 1284 flattened edges (1280 ToBuild, 2 ToUse), maximum node priority 308
+[  7/308    0s] WriteResponseFile Library/Bee/artifacts/rsp/8995565923215908413.rsp
+[ 10/308    0s] AddBootConfigGUID Library/Bee/artifacts/WebGL/boot.config
+[BUSY       6s] UnityLinker C:/Users/Administrator/.openclaw/workspace/leaderboard-game/Library/Bee/artifacts/unitylinker_ber2.traceevents
+[BUSY      17s] UnityLinker C:/Users/Administrator/.openclaw/workspace/leaderboard-game/Library/Bee/artifacts/unitylinker_ber2.traceevents
+[ 12/308   23s] UnityLinker C:/Users/Administrator/.openclaw/workspace/leaderboard-game/Library/Bee/artifacts/unitylinker_ber2.traceevents
+C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\il2cpp\build\deploy\UnityLinker.exe @Library\Bee\artifacts\rsp\17269184849959616867.rsp
+*** Tundra requires additional run (23.59 seconds), 3 items updated, 308 evaluated
+*** Additional run caused by: contents change of Library/Bee/artifacts/WebGL/ManagedStripped
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\netcorerun\netcorerun.exe "C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\WebGLPlayerBuildProgram.exe" "C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/Bee;C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/Tools/BuildPipeline" "Library/Bee/Player3612b428.dag.json" "Library/Bee/Player3612b428-inputdata.json" "Library\Bee\buildprogram1.traceevents"
+WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
+ExitCode: 4 Duration: 23s
+ExitCode: 0 Duration: 1s599ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --dagfile="Library/Bee/Player3612b428.dag" --dagfilejson="Library\Bee\Player3612b428.dag.json" --profile="Library/Bee/backend3.traceevents" Player
+WorkingDir: C:/Users/Administrator/.openclaw/workspace/leaderboard-game
+Finished compiling graph: 498 nodes, 1284 flattened edges (1280 ToBuild, 2 ToUse), maximum node priority 308
+[ 14/308    0s] CopyFiles Temp/EditorBuildOutput/UnityLinkerToEditorData.json
+[ 16/308    1s] ICallRegistrationGenerator C:/Users/Administrator/.openclaw/workspace/leaderboard-game/Library/Bee/artifacts/WebGL/il2cppOutput/UnityICallRegistration.cpp
+[ 17/308    2s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/p1i3uyp5d0go.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[BUSY       8s] IL2CPP_CodeGen C:/Users/Administrator/.openclaw/workspace/leaderboard-game/Library/Bee/artifacts/il2cpp_conv_q0dj.traceevents
+[BUSY      19s] IL2CPP_CodeGen C:/Users/Administrator/.openclaw/workspace/leaderboard-game/Library/Bee/artifacts/il2cpp_conv_q0dj.traceevents
+[ 18/308   20s] IL2CPP_CodeGen C:/Users/Administrator/.openclaw/workspace/leaderboard-game/Library/Bee/artifacts/il2cpp_conv_q0dj.traceevents
+C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\il2cpp\build\deploy\il2cpp.exe --convert-to-cpp --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/Assembly-CSharp.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/com.clockworklabs.spacetimedbsdk.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/Mono.Security.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/mscorlib.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/SpacetimeDB.BSATN.Runtime.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/System.Configuration.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/System.Core.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/System.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/System.IO.Compression.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/System.Numerics.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/System.Runtime.Serialization.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/System.Xml.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/Unity.InternalAPIEngineBridge.004.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/Unity.TextMeshPro.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.AIModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.AndroidJNIModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.AnimationModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.AudioModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.CoreModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.GridModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.HierarchyCoreModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.IMGUIModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.InputForUIModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.InputLegacyModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.MultiplayerModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.Physics2DModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.PhysicsModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.PropertiesModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.ScreenCaptureModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.SharedInternalsModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.SpriteShapeModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.TextCoreFontEngineModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.TextCoreTextEngineModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.TextRenderingModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.TilemapModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.UI.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.UIElementsModule.dll --assembly=Library/Bee/artifacts/WebGL/ManagedStripped/UnityEngine.UIModule.dll --generatedcppdir=C:/Users/Administrator/.openclaw/workspace/leaderboard-game/Library/Bee/artifacts/WebGL/il2cppOutput/cpp --symbols-folder=C:/Users/Administrator/.openclaw/workspace/leaderboard-game/Library/Bee/artifacts/WebGL/il2cppOutput/cpp/Symbols --enable-analytics --emit-method-map --dotnetprofile=unityaot-linux --usymtool-path=C:/Program Files/Unity/Hub/Editor/6000.3.9f1/Editor/Data/Tools\usymtool.exe --profiler-report --profiler-output-file=C:/Users/Administrator/.openclaw/workspace/leaderboard-game/Library/Bee/artifacts/il2cpp_conv_q0dj.traceevents --print-command-line --static-lib-il2-cpp --data-folder=C:/Users/Administrator/.openclaw/workspace/leaderboard-game/Library/Bee/artifacts/WebGL/il2cppOutput/data
+Warning: [Unity.TextMeshPro] - System.Void TMPro.TextMeshPro::GenerateTextMesh() - Method was given it's own cpp file because it is large and costly to compile
+Warning: [Unity.TextMeshPro] - System.Void TMPro.TextMeshProUGUI::GenerateTextMesh() - Method was given it's own cpp file because it is large and costly to compile
+Warning: [Unity.TextMeshPro] - System.Void TMPro.TMP_TextParsingUtilities::.cctor() - Method was given it's own cpp file because it is large and costly to compile
+[ 30/308    3s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/38tcyuzigwb2.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[ 36/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/u4pqvzgkuj0j.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[ 37/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/4v4i8qzrqm9e.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[BUSY      11s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/094wkhkeiydn.o
+[BUSY      10s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/racvb7xopt7a.o
+[ 38/308   20s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/hooldt49ygnn.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[ 39/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/66dwo1kj6cr7.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[ 41/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/5ix0fe21hl4z.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[ 46/308    3s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/atb7c2ugfpcz.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[ 49/308   20s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/racvb7xopt7a.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[ 50/308   27s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/094wkhkeiydn.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[ 53/308   29s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/8bd3uj0m05km.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[ 54/308    3s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/9gd1urwxzbdl.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[ 71/308    3s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/y6sjqo2gfssz.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[ 72/308    6s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/spgh26121xng.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[ 74/308    7s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/wmx5keyp0jya.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[ 76/308    2s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/9vh4i3igxp93.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[ 78/308    6s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/qsatzkv71c4v.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[ 81/308    2s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/769ekild8cal.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[ 82/308    1s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/2lop53phptlz.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[ 84/308    3s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/5fj1us181dtr.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[ 87/308    2s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/d3wp8vrod5w9.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[ 88/308    1s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/fz9732lsi6y5.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[ 91/308    1s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/l1rcz67a628l.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[100/308    2s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/qed2a6vhv7us.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[102/308   19s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/trgratek3tw5.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[103/308    2s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/1qqjbq4qevxw.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[109/308    2s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/0fhcdkz6okg2.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[110/308    6s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/tvkum3qyhba8.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[113/308    2s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/vou0cnfxm3td.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[114/308    3s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/oqgzhuh12krs.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[118/308    5s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/y76toyh3lhf5.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[119/308    2s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/4yhbwp5lxiug.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[121/308    1s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/oc7r73fzhxcf.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[125/308    5s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/ubcd0xop4sre.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[133/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/qkzsad4am5i8.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[135/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/tnmsco4ctltk.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[136/308    3s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/pr2urgbi7zkv.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[139/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/pql8tmegw4et.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[144/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/dw5lp6501col.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[147/308   12s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/lp8k0qyblmp6.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[148/308    1s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/27x33r3k2sf5.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[156/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/995b5879drdu.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[157/308    5s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/atm1mqx0byag.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[164/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/usma7gmda35t.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[168/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/d8h1n4cm1z9j.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[177/308    6s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/9v8okoas14fv.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[188/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/fpgn6s5i9nzz.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[193/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/2jc1jw8kkti2.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[196/308   35s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/uyhw2ci3ycsb.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[200/308    2s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/m68npruo5czo.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[207/308   10s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/ff4vai9fakp4.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[214/308    5s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/am5pu0o22vbo.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[219/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/48gjvugx5gw3.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[223/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/3e752bdazlj9.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[238/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/9vqsf8jlpmlp.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[243/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/09q60av4wkmx.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[246/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/1uzc3qw98vah.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[251/308    8s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/w0lu8h65pjwb.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[260/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/fxtjihv2ldbb.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[270/308    2s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/kd3joh8tskc0.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[273/308    4s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/hgfuvs4rc0vw.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[274/308    3s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/i2laxp1wpz2n.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[279/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/3xxc556puyj8.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[280/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/8kqydjbwjeow.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[285/308    0s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/w9n7dqk92m4w.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[288/308    7s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/bli6s8r8mvks.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[292/308    0s] CopyFiles C:/Users/Administrator/.openclaw/workspace/leaderboard-game/Library/Bee/artifacts/WebGL/il2cppOutput/build/Data/Resources/mscorlib.dll-resources.dat
+[293/308    0s] CopyFiles C:/Users/Administrator/.openclaw/workspace/leaderboard-game/Library/Bee/artifacts/WebGL/il2cppOutput/build/Data/Metadata/global-metadata.dat
+[295/308    0s] CopyFiles Temp/EditorBuildOutput/MethodMap.tsv
+[296/308    0s] Assemble WebGL Data Library/Bee/artifacts/WebGL/webgl.data
+[297/308    8s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/uz07u8ui7vdl.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[BUSY      22s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/lcewpvlu33i5.o
+[BUSY      32s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/lcewpvlu33i5.o
+[BUSY      42s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/lcewpvlu33i5.o
+[298/308   51s] C_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/lcewpvlu33i5.o
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[BUSY       6s] Lib_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/GameAssembly.a
+[299/308    9s] Lib_WebGL_wasm Library/Bee/artifacts/WebGL/GameAssembly/release_WebGL_wasm/GameAssembly.a
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>set MYDIR=C:\Program Files\Unity\Hub\Editor\6000.3.9f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emscripten\ 
+
+C:\Users\Administrator\.openclaw\workspace\leaderboard-game>goto FOUND_MYDIR 
+[300/308    0s] CopyFiles C:/Users/Administrator/.openclaw/workspace/leaderboard-game/Library/Bee/artifacts/WebGL/il2cppOutput/build/GameAssembly.a
+[BUSY       6s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY      16s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY      26s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY      36s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY      46s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY      56s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY      67s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY      78s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY      88s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY      98s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     109s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     119s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     129s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     139s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     149s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     160s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     171s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     181s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     192s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     202s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     212s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     222s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     232s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     242s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     253s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     263s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     274s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
+[BUSY     284s] Link_WebGL_wasm Library/Bee/artifacts/WebGL/build/debug_WebGL_wasm/build.js (+wasm)
