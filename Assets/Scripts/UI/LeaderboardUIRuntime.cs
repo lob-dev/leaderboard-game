@@ -47,6 +47,13 @@ namespace LeaderboardGame
         private Image localPlayerChargeFillImg;
         private int lastPlayerRank = -1;
 
+        // Auto-scroll to player
+        private RectTransform localPlayerEntryRect;
+        private float lastUserScrollTime = -999f;
+        private float autoScrollIdleDelay = 3f; // seconds of no scrolling before auto-centering
+        private bool userIsDragging;
+        private float autoScrollSpeed = 5f;
+
         public void Init(Transform container, GameObject prefab, ScrollRect scroll,
                          TextMeshProUGUI rankText, TextMeshProUGUI scoreText, TextMeshProUGUI nameText,
                          TextMeshProUGUI titleText,
@@ -66,6 +73,18 @@ namespace LeaderboardGame
             playerEntryColor = playerEntry;
             textColor = text;
             dimTextColor = dimText;
+
+            // Listen for user scroll interactions
+            if (scrollRect != null)
+            {
+                scrollRect.onValueChanged.AddListener(OnScrollValueChanged);
+                // Attach drag detector to detect begin/end drag
+                var dragDetector = scrollRect.gameObject.GetComponent<ScrollDragDetector>();
+                if (dragDetector == null)
+                    dragDetector = scrollRect.gameObject.AddComponent<ScrollDragDetector>();
+                dragDetector.onBeginDrag = () => { userIsDragging = true; lastUserScrollTime = Time.time; };
+                dragDetector.onEndDrag = () => { userIsDragging = false; lastUserScrollTime = Time.time; };
+            }
 
             StartCoroutine(WaitForManager());
         }
@@ -98,6 +117,12 @@ namespace LeaderboardGame
             }
         }
 
+        private void OnScrollValueChanged(Vector2 _)
+        {
+            if (userIsDragging)
+                lastUserScrollTime = Time.time;
+        }
+
         private void RefreshUI(List<LeaderboardEntry> entries)
         {
             foreach (var obj in entryObjects)
@@ -105,6 +130,7 @@ namespace LeaderboardGame
             entryObjects.Clear();
             localPlayerChargeFillRect = null;
             localPlayerChargeFillImg = null;
+            localPlayerEntryRect = null;
 
             for (int i = 0; i < entries.Count; i++)
             {
@@ -134,6 +160,10 @@ namespace LeaderboardGame
                 // Attach ambient row animation (skip local player — handled by LeaderboardAnimator)
                 if (!entry.IsLocalPlayer)
                     AttachRowAnimator(obj, entry);
+
+                // Track local player entry for auto-scroll
+                if (entry.IsLocalPlayer)
+                    localPlayerEntryRect = obj.GetComponent<RectTransform>();
 
                 entryObjects.Add(obj);
             }
@@ -541,6 +571,41 @@ namespace LeaderboardGame
                 localPlayerChargeFillRect.anchorMax = new Vector2(pct, 1f);
                 if (localPlayerChargeFillImg != null)
                     localPlayerChargeFillImg.color = Color.Lerp(new Color(1f, 0.2f, 0.2f), new Color(0.2f, 1f, 0.4f), pct);
+            }
+
+            // Auto-scroll to player's position when not actively scrolling
+            AutoScrollToPlayer();
+        }
+
+        private void AutoScrollToPlayer()
+        {
+            if (scrollRect == null || localPlayerEntryRect == null || userIsDragging)
+                return;
+
+            // Wait for idle delay after last user interaction
+            if (Time.time - lastUserScrollTime < autoScrollIdleDelay)
+                return;
+
+            var content = scrollRect.content;
+            var viewport = scrollRect.viewport ?? scrollRect.GetComponent<RectTransform>();
+            if (content == null || viewport == null) return;
+
+            float contentHeight = content.rect.height;
+            float viewportHeight = viewport.rect.height;
+            if (contentHeight <= viewportHeight) return; // no scrolling needed
+
+            // Calculate target scroll position to center the player entry
+            float playerLocalY = -localPlayerEntryRect.anchoredPosition.y; // positive distance from top
+            float entryHeight = localPlayerEntryRect.rect.height;
+            float centerOffset = playerLocalY - (viewportHeight * 0.5f) + (entryHeight * 0.5f);
+            float maxScroll = contentHeight - viewportHeight;
+            float targetNormalized = 1f - Mathf.Clamp01(centerOffset / maxScroll);
+
+            // Smoothly lerp toward target
+            float current = scrollRect.verticalNormalizedPosition;
+            if (Mathf.Abs(current - targetNormalized) > 0.001f)
+            {
+                scrollRect.verticalNormalizedPosition = Mathf.Lerp(current, targetNormalized, Time.deltaTime * autoScrollSpeed);
             }
         }
 
