@@ -62,17 +62,39 @@ if (-not (Test-Path $ScreenshotPath)) {
     exit 1
 }
 
-# Step 4: Output info for the caller (e.g., OpenClaw or CI)
-$timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss UTC"
-Write-Host "[post-screenshot] Screenshot ready. Timestamp: $timestamp"
-Write-Host "[post-screenshot] Path: $ScreenshotPath"
-Write-Host "[post-screenshot] Channel: $Channel"
+# Step 4: Copy screenshot to workspace-accessible directory with timestamp
+$timestamp = Get-Date -Format "yyyy-MM-dd_HH-mm-ss"
+$ScreenshotsDir = Join-Path $ProjectRoot "screenshots"
+if (-not (Test-Path $ScreenshotsDir)) {
+    New-Item -ItemType Directory -Path $ScreenshotsDir -Force | Out-Null
+}
+$TimestampedName = "screenshot_${timestamp}.png"
+$TimestampedPath = Join-Path $ScreenshotsDir $TimestampedName
+Copy-Item $ScreenshotPath $TimestampedPath -Force
+# Also keep a "latest" symlink/copy for easy access
+$LatestPath = Join-Path $ScreenshotsDir "latest.png"
+Copy-Item $ScreenshotPath $LatestPath -Force
+Write-Host "[post-screenshot] Screenshot saved to $TimestampedPath"
+Write-Host "[post-screenshot] Latest screenshot: $LatestPath"
+
+# Step 5: Upload to Discord
+$UploadScript = Join-Path (Split-Path $ProjectRoot -Parent) "discord-upload.js"
+if (Test-Path $UploadScript) {
+    Write-Host "[post-screenshot] Uploading to Discord channel $Channel..."
+    node $UploadScript $Channel $TimestampedPath "Screenshot $timestamp"
+} else {
+    Write-Host "[post-screenshot] WARNING: discord-upload.js not found at $UploadScript, skipping Discord upload."
+}
+
+# Step 6: Output info for the caller
 Write-Host ""
 Write-Host "SCREENSHOT_READY=true"
-Write-Host "SCREENSHOT_PATH=$ScreenshotPath"
+Write-Host "SCREENSHOT_PATH=$TimestampedPath"
+Write-Host "SCREENSHOT_LATEST=$LatestPath"
 Write-Host "SCREENSHOT_TIMESTAMP=$timestamp"
 Write-Host "DISCORD_CHANNEL=$Channel"
 
-# Note: The actual Discord posting is handled by OpenClaw's message tool,
-# which can read SCREENSHOT_PATH and post it as an attachment.
-# This script prepares the screenshot and outputs the necessary info.
+# Note: Lobster/OpenClaw can now read screenshots directly:
+#   - Latest: C:\Users\Administrator\.openclaw\workspace\leaderboard-game\screenshots\latest.png
+#   - All:    C:\Users\Administrator\.openclaw\workspace\leaderboard-game\screenshots\screenshot_*.png
+# Use the OpenClaw `read` tool on these paths to view them.
