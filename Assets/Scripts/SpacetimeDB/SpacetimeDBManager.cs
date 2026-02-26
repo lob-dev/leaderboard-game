@@ -32,6 +32,12 @@ namespace LeaderboardGame
         private bool subscriptionApplied;
         private const string AUTH_TOKEN_KEY = "spacetimedb_auth_token";
 
+        // Reconnection
+        private float reconnectTimer;
+        private float reconnectInterval = 5f;
+        private int reconnectAttempts;
+        private const int MAX_RECONNECT_ATTEMPTS = 10;
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -52,6 +58,22 @@ namespace LeaderboardGame
             if (autoConnect)
             {
                 Connect();
+            }
+        }
+
+        private void Update()
+        {
+            // Auto-reconnect logic
+            if (!IsConnected && conn == null && autoConnect && reconnectAttempts < MAX_RECONNECT_ATTEMPTS)
+            {
+                reconnectTimer += Time.deltaTime;
+                if (reconnectTimer >= reconnectInterval)
+                {
+                    reconnectTimer = 0f;
+                    reconnectAttempts++;
+                    Debug.Log($"[SpacetimeDB] Reconnect attempt {reconnectAttempts}/{MAX_RECONNECT_ATTEMPTS}...");
+                    Connect();
+                }
             }
         }
 
@@ -111,6 +133,7 @@ namespace LeaderboardGame
             Debug.Log($"[SpacetimeDB] Connected! Identity: {identity}");
             LocalIdentity = identity;
             IsConnected = true;
+            reconnectAttempts = 0;  // Reset on successful connect
 
             // Save token for reconnection
             PlayerPrefs.SetString(AUTH_TOKEN_KEY, authToken);
@@ -143,6 +166,7 @@ namespace LeaderboardGame
             }
             IsConnected = false;
             subscriptionApplied = false;
+            conn = null;  // Allow reconnection
             OnDisconnectedFromServer?.Invoke();
         }
 
@@ -222,6 +246,30 @@ namespace LeaderboardGame
             {
                 conn.Reducers.SetName(name);
             }
+        }
+
+        /// <summary>
+        /// Get count of currently online players from the local cache.
+        /// </summary>
+        public int GetOnlinePlayerCount()
+        {
+            if (conn == null) return 0;
+            int count = 0;
+            foreach (var p in conn.Db.Player.Iter())
+            {
+                if (p.Online) count++;
+            }
+            return count;
+        }
+
+        /// <summary>
+        /// Clear saved auth token (useful for testing with a fresh identity).
+        /// </summary>
+        public void ResetAuth()
+        {
+            PlayerPrefs.DeleteKey(AUTH_TOKEN_KEY);
+            PlayerPrefs.Save();
+            Debug.Log("[SpacetimeDB] Auth token cleared. Reconnect for a new identity.");
         }
     }
 }

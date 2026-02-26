@@ -39,6 +39,11 @@ namespace LeaderboardGame
         public ItemType? ActivePowerup;       // Currently active powerup (null = none)
         public float PowerupExpireTime;       // Time.time when the powerup display expires
 
+        // === Online multiplayer fields ===
+        public long TotalTaps;                // Server-tracked total tap count
+        public long HighestScore;             // All-time high score
+        public bool IsOnlineConnected;        // Currently connected to server
+
         public LeaderboardEntry(string id, string name, int score, bool isLocal = false)
         {
             PlayerId = id;

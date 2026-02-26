@@ -111,6 +111,9 @@ namespace LeaderboardGame
                     isLocal
                 );
                 entry.IsOnlinePlayer = true;
+                entry.IsOnlineConnected = sp.Online;
+                entry.TotalTaps = sp.TotalTaps;
+                entry.HighestScore = sp.HighestScore;
 
                 if (isLocal)
                     localPlayer = entry;
